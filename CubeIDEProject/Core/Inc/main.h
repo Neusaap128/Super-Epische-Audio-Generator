@@ -32,6 +32,16 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#define _USE_MATH_DEFINES_
+
+#include <string.h>
+#include <stdio.h>
+#include <math.h>
+#include "Math/Vector2.h"
+#include "DFT/DFT.h"
+#include "DSP/DSP.h"
+
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
