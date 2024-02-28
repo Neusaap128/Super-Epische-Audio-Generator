@@ -8,7 +8,7 @@
 #ifndef INC_FILTERS_MOVINGAVERAGE_H_
 #define INC_FILTERS_MOVINGAVERAGE_H_
 
-
+#include <stdint.h>
 
 typedef struct{
 

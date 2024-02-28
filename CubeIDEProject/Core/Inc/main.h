@@ -79,6 +79,8 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOA
 #define KnipperLedje_Pin GPIO_PIN_9
 #define KnipperLedje_GPIO_Port GPIOA
+#define SampleFreqOutClk_Pin GPIO_PIN_10
+#define SampleFreqOutClk_GPIO_Port GPIOA
 #define T_SWDIO_Pin GPIO_PIN_13
 #define T_SWDIO_GPIO_Port GPIOA
 #define T_SWCLK_Pin GPIO_PIN_14

@@ -1,5 +1,6 @@
 "./Core/Inc/DFT/DFT.o"
 "./Core/Inc/DSP/DSP.o"
+"./Core/Inc/Filters/MovingAverage.o"
 "./Core/Inc/Math/Vector2.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32g4xx_hal_msp.o"

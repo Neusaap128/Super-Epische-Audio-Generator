@@ -126,7 +126,7 @@ int main(void)
 
       uint16_t timerValue = __HAL_TIM_GET_COUNTER(&htim16);
 
-      float sinVal = (sin( (float)timerValue/999*2*M_PI )+1)/2 *3.3;
+      float sinVal = (sin( (float)timerValue/3863*2*M_PI)+1)/2 *3.3;
       uint32_t dacOutput = (uint32_t)(sinVal*4096)/3.3;
 
       //HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 2048);
@@ -135,7 +135,7 @@ int main(void)
 
       if(timerValue == 0){
 
-    	  TimerCallback(&hadc1);
+    	  TimerCallback(&hadc1, &hlpuart1);
 
     	  //sprintf(msg, "%hu\r\n", timerValue);
     	  //HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
@@ -414,7 +414,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LD2_Pin|KnipperLedje_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LD2_Pin|KnipperLedje_Pin|SampleFreqOutClk_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
@@ -425,8 +425,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD2_Pin KnipperLedje_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin|KnipperLedje_Pin;
+  /*Configure GPIO pins : LD2_Pin KnipperLedje_Pin SampleFreqOutClk_Pin */
+  GPIO_InitStruct.Pin = LD2_Pin|KnipperLedje_Pin|SampleFreqOutClk_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

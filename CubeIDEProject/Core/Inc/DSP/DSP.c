@@ -8,7 +8,7 @@
 
 #include "DSP.h"
 
-const int N = 1024;
+const int N = 64;
 const int samplingRate = 44E3; //44Khz
 
 uint16_t* previousSamples;
@@ -30,28 +30,32 @@ void AppendSample(uint16_t sample){
 }
 
 
-void TimerCallback(ADC_HandleTypeDef* hadc1){
+void TimerCallback(ADC_HandleTypeDef* hadc1, UART_HandleTypeDef* hlpuart1){
 
 	HAL_ADC_Start(hadc1);
 	HAL_ADC_PollForConversion(hadc1, HAL_MAX_DELAY);
 	uint16_t audioSample = HAL_ADC_GetValue(hadc1);
+
+	char msg[50];
+	sprintf(msg, "%d\r\n", (int)audioSample);
+	HAL_UART_Transmit(hlpuart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
 	AppendSample(audioSample);
 
 }
 
 
-uint16_t ApplyFilters(){
+void ApplyFilters(){
 
 	uint16_t output = 0;
 
 	output = MovingAverage(previousSamples, previousOutputs);
 
-	previousOutputs[0] = output;
+	//previousOutputs[0] = output;
 
-	output += TweedeFilter(previousOutputs, previousOutputs); //dees is niet hoe ge filters combineert!!! moet ik nog uitvogelen
+	//output += TweedeFilter(previousOutputs, previousOutputs); //dees is niet hoe ge filters combineert!!! moet ik nog uitvogelen
 
-	return output;
+
 
 }
 

@@ -24,6 +24,7 @@ C_DEPS :=
 SUBDIRS := \
 Core/Inc/DFT \
 Core/Inc/DSP \
+Core/Inc/Filters \
 Core/Inc/Math \
 Core/Src \
 Core/Startup \
