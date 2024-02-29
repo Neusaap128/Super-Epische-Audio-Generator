@@ -1,19 +1,19 @@
 {
   "main": {
-    "id": "9b9f14868384fcc5",
+    "id": "7de9830068a9c33e",
     "type": "split",
     "children": [
       {
-        "id": "4838f228bc2ddd1d",
+        "id": "bf72fc3c9a5263c2",
         "type": "tabs",
         "children": [
           {
-            "id": "309c36592dd13324",
+            "id": "773d3be409220871",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "release-notes",
               "state": {
-                "file": "SEAG.pdf"
+                "currentVersion": "1.5.8"
               }
             }
           }
@@ -23,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "06c1ccbfac4640d9",
+    "id": "389ac6979e596c42",
     "type": "split",
     "children": [
       {
-        "id": "71774af03af8d334",
+        "id": "2032e8714568bf1e",
         "type": "tabs",
         "children": [
           {
-            "id": "6af7def20d7dbaff",
+            "id": "6550c08757e84514",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -41,7 +41,7 @@
             }
           },
           {
-            "id": "ffda6ed5e112ef92",
+            "id": "ff591503fb1f65bc",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -56,7 +56,7 @@
             }
           },
           {
-            "id": "9869dae9185bb1ce",
+            "id": "d65f6aa6c042545b",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -70,15 +70,15 @@
     "width": 300
   },
   "right": {
-    "id": "7d8a287de2b2b294",
+    "id": "27bbe2aa599a7144",
     "type": "split",
     "children": [
       {
-        "id": "176412db89aa3bbc",
+        "id": "ffbde11d0008c36d",
         "type": "tabs",
         "children": [
           {
-            "id": "5f71d95489539853",
+            "id": "b8498d86fc54ddb6",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -94,7 +94,7 @@
             }
           },
           {
-            "id": "f15be8e6de696b2a",
+            "id": "f3c36250f26293cc",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -105,7 +105,7 @@
             }
           },
           {
-            "id": "f416cc28ed8874de",
+            "id": "76c5dbe310060e69",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -116,13 +116,11 @@
             }
           },
           {
-            "id": "ea2f70de9e60178c",
+            "id": "dd105f082fe546c4",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "SEAG.pdf"
-              }
+              "state": {}
             }
           }
         ]
@@ -142,9 +140,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6af7def20d7dbaff",
-  "lastOpenFiles": [
-    "SEAG.pdf",
-    "SEAG.md"
-  ]
+  "active": "773d3be409220871",
+  "lastOpenFiles": []
 }
