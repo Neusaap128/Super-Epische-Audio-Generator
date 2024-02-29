@@ -106,7 +106,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	inBufPointer = &adcBuf[AUDIO_BUFFER_SIZE/2];
 	outBufPointer = &dacBuf[AUDIO_BUFFER_SIZE/2];
 
-	processBuffer((uint16_t*)(adcBuf+AUDIO_BUFFER_SIZE/2), dacBuf, AUDIO_BUFFER_SIZE/2);
+	processBuffer((uint16_t*)(adcBuf+AUDIO_BUFFER_SIZE/2), (uint16_t*)(dacBuf+AUDIO_BUFFER_SIZE/2), AUDIO_BUFFER_SIZE/2);
 	HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
 
 	dataReadyFlag = 1;
@@ -466,9 +466,6 @@ static void MX_DMA_Init(void)
   /* DMA1_Channel2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
-  /* DMAMUX_OVR_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMAMUX_OVR_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMAMUX_OVR_IRQn);
 
 }
 
