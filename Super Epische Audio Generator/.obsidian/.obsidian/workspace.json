@@ -1,64 +1,37 @@
 {
   "main": {
-    "id": "0ff6036cab6857e1",
+    "id": "7de9830068a9c33e",
     "type": "split",
     "children": [
       {
-        "id": "d1d4ed92dc79a749",
+        "id": "bf72fc3c9a5263c2",
         "type": "tabs",
         "children": [
           {
-            "id": "ae95d7bc766e27c0",
+            "id": "773d3be409220871",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "release-notes",
               "state": {
-                "file": "Technisch correctie.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c57e97acb6962d45",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sampling Timer.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9ff2c6d23133193e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SEAG.md",
-                "mode": "source",
-                "source": false
+                "currentVersion": "1.5.8"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "abceb1f6d8013885",
+    "id": "389ac6979e596c42",
     "type": "split",
     "children": [
       {
-        "id": "9c9419f324d8be0f",
+        "id": "2032e8714568bf1e",
         "type": "tabs",
         "children": [
           {
-            "id": "1c84c9242262ad5d",
+            "id": "6550c08757e84514",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -68,7 +41,7 @@
             }
           },
           {
-            "id": "a05e7263c215f456",
+            "id": "ff591503fb1f65bc",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -83,7 +56,7 @@
             }
           },
           {
-            "id": "2d7fe0deea420e79",
+            "id": "d65f6aa6c042545b",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -94,24 +67,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 204.5,
-    "collapsed": true
+    "width": 300
   },
   "right": {
-    "id": "8c12fa8de444582a",
+    "id": "27bbe2aa599a7144",
     "type": "split",
     "children": [
       {
-        "id": "7ba698c1292d7b9c",
+        "id": "ffbde11d0008c36d",
         "type": "tabs",
         "children": [
           {
-            "id": "569b10968e63f68b",
+            "id": "b8498d86fc54ddb6",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SEAG.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,19 +94,18 @@
             }
           },
           {
-            "id": "daf6395a8bc12cfd",
+            "id": "f3c36250f26293cc",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SEAG.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "35dc75770b93f9d6",
+            "id": "76c5dbe310060e69",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -146,13 +116,11 @@
             }
           },
           {
-            "id": "1ae8b3846a575fb0",
+            "id": "dd105f082fe546c4",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "SEAG.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -172,13 +140,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9ff2c6d23133193e",
-  "lastOpenFiles": [
-    "SEAG.pdf",
-    "Sampling Timer.md",
-    "SEAG.md",
-    "Technisch correctie.md",
-    "Untitled",
-    "Welcome.md"
-  ]
+  "active": "773d3be409220871",
+  "lastOpenFiles": []
 }
