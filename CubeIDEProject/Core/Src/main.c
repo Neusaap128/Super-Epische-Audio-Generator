@@ -130,12 +130,12 @@ int main(void)
       uint32_t dacOutput = (uint32_t)(sinVal*4096)/3.3;
 
       //HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 2048);
-      DAC1->DHR12R1 = dacOutput;
+      //DAC1->DHR12R1 = dacOutput;
 
 
       if(timerValue == 0){
 
-    	  TimerCallback(&hadc1, &hlpuart1);
+    	  TimerCallback(&hadc1, &hlpuart1, &hdac1);
 
     	  //sprintf(msg, "%hu\r\n", timerValue);
     	  //HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);

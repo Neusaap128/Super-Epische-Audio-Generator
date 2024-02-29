@@ -33,7 +33,9 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
- ../Core/Inc/DSP/../Filters/MovingAverage.h
+ ../Core/Inc/DSP/../Filters/MovingAverage.h ../Core/Inc/DSP/../main.h \
+ ../Core/Inc/DSP/../Math/Vector2.h ../Core/Inc/DSP/../DFT/DFT.h \
+ ../Core/Inc/DSP/../DFT/../Math/Vector2.h ../Core/Inc/DSP/../DSP/DSP.h
 ../Core/Inc/DSP/DSP.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -70,3 +72,8 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
 ../Core/Inc/DSP/../Filters/MovingAverage.h:
+../Core/Inc/DSP/../main.h:
+../Core/Inc/DSP/../Math/Vector2.h:
+../Core/Inc/DSP/../DFT/DFT.h:
+../Core/Inc/DSP/../DFT/../Math/Vector2.h:
+../Core/Inc/DSP/../DSP/DSP.h:
