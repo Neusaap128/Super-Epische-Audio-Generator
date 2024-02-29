@@ -34,6 +34,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
+#define AUDIO_BUFFER_SIZE 128
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -43,30 +45,72 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 DAC_HandleTypeDef hdac1;
+DMA_HandleTypeDef hdma_dac1_ch1;
 
 UART_HandleTypeDef hlpuart1;
 
-TIM_HandleTypeDef htim16;
+TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN PV */
 
+SampleType adcBuf[AUDIO_BUFFER_SIZE];
+SampleType dacBuf[AUDIO_BUFFER_SIZE];
+
+static volatile uint16_t *inBufPointer;
+static volatile uint16_t *outBufPointer = &dacBuf[0];
+
+uint8_t dataReadyFlag;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_LPUART1_UART_Init(void);
 static void MX_ADC1_Init(void);
-static void MX_TIM16_Init(void);
 static void MX_DAC1_Init(void);
+static void MX_TIM6_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+void processBuffer(const uint16_t* input, uint16_t* output, size_t bufferLength) {
+    for (int i = 0; i < bufferLength; i++) {
+        output[i] = input[i];
+        // output[i] = (uint16_t)(((float)(input[i])) / 4095.0f * 227.0f);
+    }
+}
+
+//Called when first half of buffer is filled
+void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc){
+
+	inBufPointer = &adcBuf[0];
+	outBufPointer = &dacBuf[0];
+
+	processBuffer((uint16_t*)adcBuf, dacBuf, AUDIO_BUFFER_SIZE/2);
+
+	HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
+
+	dataReadyFlag = 1;
+
+}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+
+	inBufPointer = &adcBuf[AUDIO_BUFFER_SIZE/2];
+	outBufPointer = &dacBuf[AUDIO_BUFFER_SIZE/2];
+
+	processBuffer((uint16_t*)(adcBuf+AUDIO_BUFFER_SIZE/2), dacBuf, AUDIO_BUFFER_SIZE/2);
+	HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
+
+	dataReadyFlag = 1;
+}
 
 /* USER CODE END 0 */
 
@@ -95,23 +139,27 @@ int main(void)
   /* USER CODE BEGIN SysInit */
 
   __enable_irq();
-  hdac1.State = HAL_DAC_STATE_RESET;
+  //hdac1.State = HAL_DAC_STATE_RESET;
 
 
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_LPUART1_UART_Init();
   MX_ADC1_Init();
-  MX_TIM16_Init();
   MX_DAC1_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start(&htim16);
-  HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+
+  HAL_TIM_Base_Start(&htim6);
+  //HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
 
   InitDSP();
 
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcBuf, AUDIO_BUFFER_SIZE);
+  HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, (uint32_t*)dacBuf, AUDIO_BUFFER_SIZE, DAC_ALIGN_12B_R);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -124,15 +172,16 @@ int main(void)
 	  //HAL_GPIO_TogglePin(KnipperLedje_GPIO_Port, KnipperLedje_Pin);
 
 
-      uint16_t timerValue = __HAL_TIM_GET_COUNTER(&htim16);
+      //uint16_t timerValue = __HAL_TIM_GET_COUNTER(&htim16);
 
-      float sinVal = (sin( (float)timerValue/3863*2*M_PI)+1)/2 *3.3;
-      uint32_t dacOutput = (uint32_t)(sinVal*4096)/3.3;
+      //float sinVal = (sin( (float)timerValue/3863*2*M_PI)+1)/2 *3.3;
+      //uint32_t dacOutput = (uint32_t)(sinVal*4096)/3.3;
 
       //HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 2048);
       //DAC1->DHR12R1 = dacOutput;
 
 
+      /*
       if(timerValue == 0){
 
     	  TimerCallback(&hadc1, &hlpuart1, &hdac1);
@@ -144,6 +193,7 @@ int main(void)
 		  //HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
       }
+       */
 
 
     /* USER CODE END WHILE */
@@ -221,19 +271,19 @@ static void MX_ADC1_Init(void)
   /** Common config
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV4;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.GainCompensation = 0;
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T6_TRGO;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc1.Init.OversamplingMode = DISABLE;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -299,7 +349,7 @@ static void MX_DAC1_Init(void)
   sConfig.DAC_DMADoubleDataMode = DISABLE;
   sConfig.DAC_SignedFormat = DISABLE;
   sConfig.DAC_SampleAndHold = DAC_SAMPLEANDHOLD_DISABLE;
-  sConfig.DAC_Trigger = DAC_TRIGGER_NONE;
+  sConfig.DAC_Trigger = DAC_TRIGGER_T6_TRGO;
   sConfig.DAC_Trigger2 = DAC_TRIGGER_NONE;
   sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
   sConfig.DAC_ConnectOnChipPeripheral = DAC_CHIPCONNECT_EXTERNAL;
@@ -362,37 +412,63 @@ static void MX_LPUART1_UART_Init(void)
 }
 
 /**
-  * @brief TIM16 Initialization Function
+  * @brief TIM6 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_TIM16_Init(void)
+static void MX_TIM6_Init(void)
 {
 
-  /* USER CODE BEGIN TIM16_Init 0 */
+  /* USER CODE BEGIN TIM6_Init 0 */
 
-  /* USER CODE END TIM16_Init 0 */
+  /* USER CODE END TIM6_Init 0 */
 
-  /* USER CODE BEGIN TIM16_Init 1 */
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
 
-  /* USER CODE END TIM16_Init 1 */
-  htim16.Instance = TIM16;
-  htim16.Init.Prescaler = 1;
-  htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim16.Init.Period = 3864;
-  htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim16.Init.RepetitionCounter = 0;
-  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
-  if (HAL_TIM_Base_Init(&htim16) != HAL_OK)
+  /* USER CODE BEGIN TIM6_Init 1 */
+
+  /* USER CODE END TIM6_Init 1 */
+  htim6.Instance = TIM6;
+  htim6.Init.Prescaler = 0;
+  htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim6.Init.Period = 3864;
+  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN TIM16_Init 2 */
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim6, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM6_Init 2 */
+  htim6.Init.Period = 170E6/samplingRate;
+  /* USER CODE END TIM6_Init 2 */
 
-  htim16.Init.Period = 170E6/samplingRate; // Override period so interrupt is defined by const, not IOC
-  //170E6 is 170Mhz, clock frequency. See obsidian for further explanation
+}
 
-  /* USER CODE END TIM16_Init 2 */
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMAMUX1_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+  /* DMA1_Channel2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
+  /* DMAMUX_OVR_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMAMUX_OVR_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMAMUX_OVR_IRQn);
 
 }
 
@@ -444,6 +520,8 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+
 /* USER CODE END 4 */
 
 /**
