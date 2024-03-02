@@ -11,11 +11,9 @@
             "id": "309c36592dd13324",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Seminaries/SEAG.md",
-                "mode": "source",
-                "source": false
+                "file": "Datasheets/MCU's/stm32f722rc.pdf"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Seminaries/SEAG.md",
+                "file": "Datasheets/MCU's/stm32f722rc.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Seminaries/SEAG.md",
+                "file": "Datasheets/MCU's/stm32f722rc.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Seminaries/SEAG.md"
+                "file": "Datasheets/MCU's/stm32f722rc.pdf"
               }
             }
           }
@@ -146,11 +144,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6af7def20d7dbaff",
+  "active": "309c36592dd13324",
   "lastOpenFiles": [
+    "Datasheets/MCU's/stm32g431rb.pdf",
+    "PCB/Footprints/Footprints.md",
+    "Datasheets/MCU's/stm32f722rc.pdf",
+    "Datasheets/MCU's",
+    "Datasheets",
+    "Untitled.md",
+    "PCB/Footprints",
+    "PCB",
+    "Seminaries/SEAG.md",
     "Seminaries/planning_audio_generator.xlsx",
     "Seminaries/SEAG.pdf",
-    "Seminaries",
-    "Seminaries/SEAG.md"
+    "Seminaries"
   ]
 }

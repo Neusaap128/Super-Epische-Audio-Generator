@@ -1,0 +1,52 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 37e7da6e-dab5-4e62-b28a-754ec4806405)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (sheet (at 22.225 18.415) (size 39.37 17.78) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 3f758b0f-964d-4f97-9209-7de200bb19c6)
+    (property "Sheetname" "PowerSupply" (at 22.225 17.7034 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "PowerSupply.kicad_sch" (at 22.225 36.7796 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "AVDD" input (at 61.595 27.305 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+      (uuid 9b3bd005-a3e4-4452-ac51-3847e53cf63f)
+    )
+    (instances
+      (project "SEAG"
+        (path "/37e7da6e-dab5-4e62-b28a-754ec4806405" (page "2"))
+      )
+    )
+  )
+
+  (sheet (at 107.315 64.77) (size 62.23 73.66) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 73c774ae-3af2-431c-8167-2f494c9438a8)
+    (property "Sheetname" "MCU" (at 107.315 64.0584 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "MCU.kicad_sch" (at 107.315 139.0146 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "SEAG"
+        (path "/37e7da6e-dab5-4e62-b28a-754ec4806405" (page "3"))
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)
