@@ -11,9 +11,11 @@
             "id": "309c36592dd13324",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Datasheets/MCU's/stm32f722rc.pdf"
+                "file": "PCB/PCB Design/PCB Design.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,11 +85,11 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Datasheets/MCU's/stm32f722rc.pdf",
-                "collapseAll": false,
+                "file": "PCB/PCB Design/PCB Design.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Datasheets/MCU's/stm32f722rc.pdf",
+                "file": "PCB/PCB Design/PCB Design.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,11 +125,20 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Datasheets/MCU's/stm32f722rc.pdf"
+                "file": "PCB/PCB Design/PCB Design.md"
               }
             }
+          },
+          {
+            "id": "369bf36d1e022b69",
+            "type": "leaf",
+            "state": {
+              "type": "mermaid-toolbar-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -141,22 +152,25 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
   "active": "309c36592dd13324",
   "lastOpenFiles": [
-    "Datasheets/MCU's/stm32g431rb.pdf",
     "PCB/Footprints/Footprints.md",
+    "Datasheets/Power Supply/AP7365 LDO Voltage Regulator.pdf",
     "Datasheets/MCU's/stm32f722rc.pdf",
+    "Datasheets/MCU's/stm32g431rb.pdf",
+    "PCB/PCB Design/PCB Design.md",
+    "Datasheets/Power Supply",
+    "PCB/PCB Design",
     "Datasheets/MCU's",
     "Datasheets",
     "Untitled.md",
     "PCB/Footprints",
     "PCB",
     "Seminaries/SEAG.md",
-    "Seminaries/planning_audio_generator.xlsx",
-    "Seminaries/SEAG.pdf",
-    "Seminaries"
+    "Seminaries/planning_audio_generator.xlsx"
   ]
 }

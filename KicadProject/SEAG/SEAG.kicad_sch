@@ -18,10 +18,6 @@
     (property "Sheetfile" "PowerSupply.kicad_sch" (at 22.225 36.7796 0)
       (effects (font (size 1.27 1.27)) (justify left top))
     )
-    (pin "AVDD" input (at 61.595 27.305 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 9b3bd005-a3e4-4452-ac51-3847e53cf63f)
-    )
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405" (page "2"))
