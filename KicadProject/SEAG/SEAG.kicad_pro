@@ -479,6 +479,14 @@
     [
       "73c774ae-3af2-431c-8167-2f494c9438a8",
       "MCU"
+    ],
+    [
+      "2395ecb5-6576-49c9-80ea-add07f3bcf94",
+      "AudioFiltering"
+    ],
+    [
+      "ec201b08-7662-47f9-9634-36829967c8bf",
+      "Codec"
     ]
   ],
   "text_variables": {}

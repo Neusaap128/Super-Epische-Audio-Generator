@@ -8,6 +8,23 @@
   )
 
 
+  (sheet (at 188.595 24.13) (size 62.865 30.48) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 2395ecb5-6576-49c9-80ea-add07f3bcf94)
+    (property "Sheetname" "AudioFiltering" (at 188.595 23.4184 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "AudioFiltering.kicad_sch" (at 188.595 55.1946 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "SEAG"
+        (path "/37e7da6e-dab5-4e62-b28a-754ec4806405" (page "4"))
+      )
+    )
+  )
+
   (sheet (at 22.225 18.415) (size 39.37 17.78) (fields_autoplaced)
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))
@@ -38,6 +55,23 @@
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405" (page "3"))
+      )
+    )
+  )
+
+  (sheet (at 186.69 67.31) (size 66.675 64.77) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid ec201b08-7662-47f9-9634-36829967c8bf)
+    (property "Sheetname" "Codec" (at 186.69 66.5984 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "Codec.kicad_sch" (at 186.69 132.6646 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "SEAG"
+        (path "/37e7da6e-dab5-4e62-b28a-754ec4806405" (page "5"))
       )
     )
   )

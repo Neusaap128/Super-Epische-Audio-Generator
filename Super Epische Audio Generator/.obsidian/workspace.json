@@ -11,11 +11,9 @@
             "id": "309c36592dd13324",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "PCB/PCB Design/PCB Design.md",
-                "mode": "source",
-                "source": false
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PCB/PCB Design/PCB Design.md",
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PCB/PCB Design/PCB Design.md",
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PCB/PCB Design/PCB Design.md"
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
               }
             }
           },
@@ -158,19 +156,24 @@
   },
   "active": "309c36592dd13324",
   "lastOpenFiles": [
-    "PCB/Footprints/Footprints.md",
-    "Datasheets/Power Supply/AP7365 LDO Voltage Regulator.pdf",
+    "Seminaries/52666250",
+    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
     "Datasheets/MCU's/stm32f722rc.pdf",
-    "Datasheets/MCU's/stm32g431rb.pdf",
-    "PCB/PCB Design/PCB Design.md",
-    "Datasheets/Power Supply",
-    "PCB/PCB Design",
-    "Datasheets/MCU's",
-    "Datasheets",
-    "Untitled.md",
-    "PCB/Footprints",
-    "PCB",
+    "Seminaries/~$planning_audio_generator.xlsx",
+    "Seminaries/SEAG.pdf",
     "Seminaries/SEAG.md",
-    "Seminaries/planning_audio_generator.xlsx"
+    "Seminaries/planning_audio_generator.xlsx",
+    "Seminaries",
+    "PCB/Seminaries/SEAG.pdf",
+    "PCB/Seminaries/SEAG.md",
+    "PCB/Seminaries/planning_audio_generator.xlsx",
+    "PCB/Seminaries",
+    "Sampling Timer.md",
+    "Datasheets/MCU's/stm32g431rb.pdf",
+    "PCB/Footprints/Footprints.md",
+    "PCB/PCB Design/PCB Design.md",
+    "Pasted image 20240304233721.png",
+    "Datasheets/Audio Filtering/Untitled.md",
+    "Untitled.md"
   ]
 }
