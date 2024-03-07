@@ -11,9 +11,11 @@
             "id": "309c36592dd13324",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "PCB/Footprints/Footprints.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "PCB/Footprints/Footprints.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "PCB/Footprints/Footprints.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "PCB/Footprints/Footprints.md"
               }
             }
           },
@@ -154,24 +156,24 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "309c36592dd13324",
+  "active": "6af7def20d7dbaff",
   "lastOpenFiles": [
-    "Seminaries/52666250",
-    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
-    "Datasheets/MCU's/stm32f722rc.pdf",
+    "Seminaries/BOM.pdf",
+    "Seminaries/criteria_en_stakeholder_analyse.pdf",
+    "Seminaries/mso8632.tmp",
+    "Seminaries/~$iteria_en_stakeholder_analyse.docx",
+    "Seminaries/criteria_en_stakeholder_analyse.docx",
+    "Seminaries/criteria en stakeholder analyse.docx",
+    "Seminaries/~$nimum criteria en stakeholder analyse.docx",
+    "Seminaries/minimum criteria en stakeholder analyse.docx",
+    "Seminaries/~$dio_Effect_Generator_specifieks (1).docx",
+    "Seminaries/56816000",
     "Seminaries/~$planning_audio_generator.xlsx",
-    "Seminaries/SEAG.pdf",
-    "Seminaries/SEAG.md",
-    "Seminaries/planning_audio_generator.xlsx",
-    "Seminaries",
-    "PCB/Seminaries/SEAG.pdf",
-    "PCB/Seminaries/SEAG.md",
-    "PCB/Seminaries/planning_audio_generator.xlsx",
-    "PCB/Seminaries",
-    "Sampling Timer.md",
-    "Datasheets/MCU's/stm32g431rb.pdf",
-    "PCB/Footprints/Footprints.md",
     "PCB/PCB Design/PCB Design.md",
+    "PCB/Footprints/Footprints.md",
+    "Seminaries/SEAG.md",
+    "PCB/Seminaries/SEAG.md",
+    "Sampling Timer.md",
     "Pasted image 20240304233721.png",
     "Datasheets/Audio Filtering/Untitled.md",
     "Untitled.md"

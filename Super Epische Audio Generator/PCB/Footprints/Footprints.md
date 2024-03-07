@@ -22,5 +22,25 @@ https://www.mouser.be/ProductDetail/STMicroelectronics/STM32F722RCT6?qs=Mv7BduZu
 
 ### Audio Filtering
 
+Audio op-amp
 https://www.mouser.be/ProductDetail/Texas-Instruments/LM833DGKR?qs=Ze4%2FuFuz19JOpjm8ASDMUA%3D%3D (Footprint not downloaded yet)
 
+Audio codec
+
+
+### Miscellaneous
+
+- Weerstanden smd 0805
+- Caps smd 0805
+- Shift registers 
+- Ledjes THT en SMD
+- Micro usb-b  female connector
+- Feritte bead 
+- Jumper cables
+- St link programmer
+- Male headers
+- Audio female jacks
+- Pot meters
+- Toggles
+- SPDT 
+- Eigen PCB
