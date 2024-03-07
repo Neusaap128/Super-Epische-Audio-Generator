@@ -10,7 +10,11 @@ https://www.mouser.be/ProductDetail/Diodes-Incorporated/AP7365-33YG-13?qs=abZ1nk
 2.5V LDO voltage regulator (Not used):
 https://www.mouser.be/ProductDetail/Diodes-Incorporated/AP7365-25YG-13?qs=abZ1nkZpTuOUTso75Vvnyg%3D%3D
 
+ESD Protection diode 6.5V
+https://www.mouser.be/ProductDetail/Diodes-Incorporated/SMAJ6.5A-13-F?qs=gaDBXWSqsDCMFmRk5%252BbksQ%3D%3D
 
+Reverse voltage shotkey diode
+https://www.mouser.be/ProductDetail/Panjit/SX33L_R1_00001?qs=sPbYRqrBIVnP0Yz%252BW6%2FBnw%3D%3D&utm_id=9882662061&gad_source=1&gclid=CjwKCAiA6KWvBhAREiwAFPZM7tDqlFsJvGyADxJJxZr4qb9cyz_lExpaY3TizLmNKpN-7RsTT7ICRhoCZG4QAvD_BwE&_gl=1*uh072n*_ga*MTE2NDEwOTc1MS4xNzA2Mzc1Nzgz*_ga_1KQLCYKRX3*MTcwOTg0MTA2OC41LjAuMTcwOTg0MTA2OS4wLjAuMA..*_ga_15W4STQT4T*MTcwOTg0MTA2OS41LjAuMTcwOTg0MTA2OS42MC4wLjA.
 ### MCU
 
 stm32 g431RB:
