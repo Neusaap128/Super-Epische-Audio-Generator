@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
+                "file": "PCB/PCB Design/PCB Design.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
+                "file": "PCB/PCB Design/PCB Design.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
+                "file": "PCB/PCB Design/PCB Design.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PCB/Footprints/Footprints.md"
+                "file": "PCB/PCB Design/PCB Design.md"
               }
             }
           },
@@ -156,8 +156,10 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "6af7def20d7dbaff",
+  "active": "309c36592dd13324",
   "lastOpenFiles": [
+    "PCB/Footprints/Footprints.md",
+    "PCB/PCB Design/PCB Design.md",
     "Seminaries/BOM.pdf",
     "Seminaries/criteria_en_stakeholder_analyse.pdf",
     "Seminaries/mso8632.tmp",
@@ -168,9 +170,6 @@
     "Seminaries/minimum criteria en stakeholder analyse.docx",
     "Seminaries/~$dio_Effect_Generator_specifieks (1).docx",
     "Seminaries/56816000",
-    "Seminaries/~$planning_audio_generator.xlsx",
-    "PCB/PCB Design/PCB Design.md",
-    "PCB/Footprints/Footprints.md",
     "Seminaries/SEAG.md",
     "PCB/Seminaries/SEAG.md",
     "Sampling Timer.md",
