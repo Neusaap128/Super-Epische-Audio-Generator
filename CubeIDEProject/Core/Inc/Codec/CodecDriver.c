@@ -49,6 +49,10 @@ void ResetCodec(I2C_HandleTypeDef *hi2c1){
 	WriteCodecRegister(hi2c1, 0x0F, 0xFF);
 }
 
-void WriteCodecRegister(I2C_HandleTypeDef *hi2c1, uint16_t reg, uint8_t pData){
-	HAL_I2C_Mem_Write(hi2c1, codecAddr, reg, I2C_MEMADD_SIZE_8BIT, &pData, 1, HAL_MAX_DELAY);
+void WriteCodecRegister(I2C_HandleTypeDef *hi2c1, uint16_t reg, uint16_t pData){
+	uint8_t lowByte = (uint8_t)(pData & 0xFF);
+	uint8_t highByte= (uint8_t)(pData >> 8);
+	HAL_I2C_Mem_Write(hi2c1, codecAddr, reg, I2C_MEMADD_SIZE_8BIT, &highByte, 1, HAL_MAX_DELAY);
+	HAL_I2C_Mem_Write(hi2c1, codecAddr, reg, I2C_MEMADD_SIZE_8BIT, &lowByte, 1, HAL_MAX_DELAY);
+
 }
