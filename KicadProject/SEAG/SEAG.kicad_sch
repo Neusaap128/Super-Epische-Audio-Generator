@@ -59,6 +59,23 @@
     )
   )
 
+  (sheet (at 56.515 63.5) (size 43.815 74.93) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid b877551b-61ca-4466-b3f2-71fdb6767e79)
+    (property "Sheetname" "IO" (at 56.515 62.7884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "IO.kicad_sch" (at 56.515 139.0146 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "SEAG"
+        (path "/37e7da6e-dab5-4e62-b28a-754ec4806405" (page "6"))
+      )
+    )
+  )
+
   (sheet (at 186.69 67.31) (size 66.675 64.77) (fields_autoplaced)
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))

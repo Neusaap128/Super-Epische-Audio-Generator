@@ -28,3 +28,10 @@ analog3 -- 2V5 LDO \n Voltage Regulator --> analog2
 Use difference IC's for input and output buffers.
 
 
+### Codec
+
+
+HPSEL = 10 JD2
+
+Single ended Non inverting input PGA should be connected to VMID.
+(Closed when LMP2=0 & LMP3=0, or when muted)

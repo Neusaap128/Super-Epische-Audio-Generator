@@ -10,7 +10,7 @@
 
 #include "stm32g4xx_hal.h"
 
-static const uint8_t codecAddr = 0x1A << 1; // Use 8-bit address
+static const uint8_t codecAddr = 0x1A << 1; // Use 7-bit address
 
 void CodecInit(I2C_HandleTypeDef *hi2c1);
 void ResetCodec(I2C_HandleTypeDef *hi2c1);
