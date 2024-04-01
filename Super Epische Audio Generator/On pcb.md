@@ -1,0 +1,7 @@
+- [ ] ledbar
+- [ ] led-select bar
+- [ ] togel
+- [ ] codec
+- [ ] STM 
+- [ ] voltage regulator
+- [ ] 
