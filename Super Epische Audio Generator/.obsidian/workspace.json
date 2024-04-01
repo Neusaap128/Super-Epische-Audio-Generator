@@ -13,7 +13,7 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "Seminaries/criteria_en_stakeholder_analyse.pdf"
               }
             }
           },
@@ -77,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7d8a287de2b2b294",
@@ -94,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "Seminaries/criteria_en_stakeholder_analyse.pdf",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "Seminaries/criteria_en_stakeholder_analyse.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "Seminaries/criteria_en_stakeholder_analyse.pdf"
               }
             }
           },
@@ -167,22 +166,22 @@
   },
   "active": "309c36592dd13324",
   "lastOpenFiles": [
+    "Seminaries/BOM.pdf",
+    "Seminaries/SEAG.md",
+    "Sampling Timer.md",
+    "Technisch correctie.md",
+    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
     "Datasheets/MCU's/stm32g431rb.pdf",
     "Datasheets/MCU's/stm32f722rc.pdf",
     "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
-    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
     "Datasheets/Power Supply/AP7365 LDO Voltage Regulator.pdf",
     "PCB/PCB Design/PCB Design.md",
     "PCB/Footprints/Footprints.md",
-    "Seminaries/BOM.pdf",
     "Seminaries/criteria_en_stakeholder_analyse.pdf",
     "Seminaries/mso8632.tmp",
     "Seminaries/~$iteria_en_stakeholder_analyse.docx",
     "Seminaries/criteria_en_stakeholder_analyse.docx",
-    "Seminaries/criteria en stakeholder analyse.docx",
-    "Seminaries/SEAG.md",
     "PCB/Seminaries/SEAG.md",
-    "Sampling Timer.md",
     "Pasted image 20240304233721.png",
     "Datasheets/Audio Filtering/Untitled.md",
     "Untitled.md"
