@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "On pcb.md",
+                "file": "PCB/Footprints/Footprints.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "On pcb.md",
+                "file": "PCB/Footprints/Footprints.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "On pcb.md",
+                "file": "PCB/Footprints/Footprints.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "On pcb.md"
+                "file": "PCB/Footprints/Footprints.md"
               }
             }
           }
@@ -162,8 +162,9 @@
   },
   "active": "bf3b732f68e8a345",
   "lastOpenFiles": [
+    "PCB/PCB Design/PCB Design.md",
+    "PCB/On pcb.md",
     "Technisch correctie.md",
-    "On pcb.md",
     "Sampling Timer.md",
     "Seminaries/BOM.pdf",
     "Seminaries/criteria_en_stakeholder_analyse.pdf",

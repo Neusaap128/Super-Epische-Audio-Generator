@@ -40,6 +40,9 @@ https://www.digikey.be/en/products/detail/cirrus-logic-inc/WM8960CGEFL-V/5036712
 Shift Register
 https://www.mouser.be/ProductDetail/Nexperia/74HC595D-Q100118?qs=1sbE9T7hb3auqb4IeRpHgw%3D%3D
 
+Screw terminal 3
+https://www.mouser.be/ProductDetail/TE-Connectivity/282834-3?qs=A%252Bip%252BNCYi6M69kAjqV38yA%3D%3D
+
 ### Miscellaneous
 
 - Weerstanden smd 0805
