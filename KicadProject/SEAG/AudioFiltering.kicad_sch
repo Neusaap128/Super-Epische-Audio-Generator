@@ -677,7 +677,7 @@
   (symbol (lib_id "Device:R") (at 52.07 123.825 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 122a362d-4a6e-4c60-9b07-53761c5ab9b7)
-    (property "Reference" "R4" (at 53.975 122.555 0)
+    (property "Reference" "R403" (at 53.975 122.555 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "100K" (at 53.975 125.095 0)
@@ -694,7 +694,7 @@
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405/2395ecb5-6576-49c9-80ea-add07f3bcf94"
-          (reference "R4") (unit 1)
+          (reference "R403") (unit 1)
         )
       )
     )
@@ -703,7 +703,7 @@
   (symbol (lib_id "Device:R") (at 52.705 73.025 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 12f5751d-0c7a-4b80-b30c-eb42342b680e)
-    (property "Reference" "R6" (at 54.61 71.755 0)
+    (property "Reference" "R401" (at 54.61 71.755 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100K" (at 54.61 74.295 0)
@@ -720,7 +720,7 @@
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405/2395ecb5-6576-49c9-80ea-add07f3bcf94"
-          (reference "R6") (unit 1)
+          (reference "R401") (unit 1)
         )
       )
     )
@@ -754,7 +754,7 @@
   (symbol (lib_id "Device:C") (at 43.815 79.375 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 295e8593-143b-4d0a-bf12-31acd11d3e45)
-    (property "Reference" "C14" (at 43.815 72.39 90)
+    (property "Reference" "C402" (at 43.815 72.39 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100n" (at 43.815 74.93 90)
@@ -771,7 +771,7 @@
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405/2395ecb5-6576-49c9-80ea-add07f3bcf94"
-          (reference "C14") (unit 1)
+          (reference "C402") (unit 1)
         )
       )
     )
@@ -830,7 +830,7 @@
   (symbol (lib_id "Device:R") (at 52.07 137.16 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4f848bf4-f95b-4ab7-82f6-b7c630a828b3)
-    (property "Reference" "R7" (at 53.975 135.89 0)
+    (property "Reference" "R404" (at 53.975 135.89 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100K" (at 53.975 138.43 0)
@@ -847,7 +847,7 @@
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405/2395ecb5-6576-49c9-80ea-add07f3bcf94"
-          (reference "R7") (unit 1)
+          (reference "R404") (unit 1)
         )
       )
     )
@@ -932,7 +932,7 @@
   (symbol (lib_id "Device:C") (at 32.385 34.925 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 6a36c406-0c8f-46e5-94b4-c2cb6092b270)
-    (property "Reference" "C16" (at 35.56 33.655 0)
+    (property "Reference" "C401" (at 35.56 33.655 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 35.56 36.195 0)
@@ -949,7 +949,7 @@
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405/2395ecb5-6576-49c9-80ea-add07f3bcf94"
-          (reference "C16") (unit 1)
+          (reference "C401") (unit 1)
         )
       )
     )
@@ -983,7 +983,7 @@
   (symbol (lib_id "Device:R") (at 52.705 85.725 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7d619b3c-77b0-41b5-8641-8e3e02cec4e9)
-    (property "Reference" "R5" (at 54.61 84.455 0)
+    (property "Reference" "R402" (at 54.61 84.455 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100K" (at 54.61 86.995 0)
@@ -1000,7 +1000,7 @@
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405/2395ecb5-6576-49c9-80ea-add07f3bcf94"
-          (reference "R5") (unit 1)
+          (reference "R402") (unit 1)
         )
       )
     )
@@ -1179,14 +1179,14 @@
     (property "Datasheet" "https://www.ti.com/lit/ds/symlink/lm833.pdf?ts=1711841650251&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FLM833%253FkeyMatch%253DLM833%2526tisearch%253Dsearch-everything%2526usecase%253DGPN-ALT" (at 81.915 80.645 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "5" (uuid 6e163b49-1377-4f4b-9901-00053a9a2035))
-    (pin "8" (uuid 3465e5ae-3214-411b-8d32-49545f5cefb7))
-    (pin "4" (uuid 97fa44a9-bcde-4750-a201-ab70862452e7))
-    (pin "2" (uuid 37e759b6-8329-4713-8126-0fb94649c703))
-    (pin "3" (uuid 0a6a9445-c320-4836-a60f-a65690161df3))
-    (pin "6" (uuid 7f62c427-f807-4d5f-a085-b5bccc7a730f))
-    (pin "7" (uuid 6555903f-49dd-4d6d-b4b3-6f65a7af896c))
-    (pin "1" (uuid 69097e6f-482b-4157-88de-0947c7b3e18a))
+    (pin "5" (uuid 6e163b49-1377-4f4b-9901-00053a9a2036))
+    (pin "8" (uuid 3465e5ae-3214-411b-8d32-49545f5cefb8))
+    (pin "4" (uuid 97fa44a9-bcde-4750-a201-ab70862452e8))
+    (pin "2" (uuid 37e759b6-8329-4713-8126-0fb94649c704))
+    (pin "3" (uuid 0a6a9445-c320-4836-a60f-a65690161df4))
+    (pin "6" (uuid 7f62c427-f807-4d5f-a085-b5bccc7a7310))
+    (pin "7" (uuid 6555903f-49dd-4d6d-b4b3-6f65a7af896d))
+    (pin "1" (uuid 69097e6f-482b-4157-88de-0947c7b3e18b))
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405/2395ecb5-6576-49c9-80ea-add07f3bcf94"
@@ -1224,7 +1224,7 @@
   (symbol (lib_id "Device:C") (at 95.25 133.35 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e5fcac37-f2f1-437b-82d3-b5359800079d)
-    (property "Reference" "C15" (at 95.25 125.73 90)
+    (property "Reference" "C403" (at 95.25 125.73 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100n" (at 95.25 128.27 90)
@@ -1241,7 +1241,7 @@
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405/2395ecb5-6576-49c9-80ea-add07f3bcf94"
-          (reference "C15") (unit 1)
+          (reference "C403") (unit 1)
         )
       )
     )
@@ -1262,14 +1262,14 @@
     (property "Datasheet" "https://www.ti.com/lit/ds/symlink/lm833.pdf?ts=1711841650251&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FLM833%253FkeyMatch%253DLM833%2526tisearch%253Dsearch-everything%2526usecase%253DGPN-ALT" (at 74.295 132.08 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "5" (uuid 6e163b49-1377-4f4b-9901-00053a9a2035))
-    (pin "8" (uuid 3465e5ae-3214-411b-8d32-49545f5cefb7))
-    (pin "4" (uuid 97fa44a9-bcde-4750-a201-ab70862452e7))
-    (pin "2" (uuid 37e759b6-8329-4713-8126-0fb94649c703))
-    (pin "3" (uuid 0a6a9445-c320-4836-a60f-a65690161df3))
-    (pin "6" (uuid 7f62c427-f807-4d5f-a085-b5bccc7a730f))
-    (pin "7" (uuid 6555903f-49dd-4d6d-b4b3-6f65a7af896c))
-    (pin "1" (uuid 69097e6f-482b-4157-88de-0947c7b3e18a))
+    (pin "5" (uuid 6e163b49-1377-4f4b-9901-00053a9a2037))
+    (pin "8" (uuid 3465e5ae-3214-411b-8d32-49545f5cefb9))
+    (pin "4" (uuid 97fa44a9-bcde-4750-a201-ab70862452e9))
+    (pin "2" (uuid 37e759b6-8329-4713-8126-0fb94649c705))
+    (pin "3" (uuid 0a6a9445-c320-4836-a60f-a65690161df5))
+    (pin "6" (uuid 7f62c427-f807-4d5f-a085-b5bccc7a7311))
+    (pin "7" (uuid 6555903f-49dd-4d6d-b4b3-6f65a7af896e))
+    (pin "1" (uuid 69097e6f-482b-4157-88de-0947c7b3e18c))
     (instances
       (project "SEAG"
         (path "/37e7da6e-dab5-4e62-b28a-754ec4806405/2395ecb5-6576-49c9-80ea-add07f3bcf94"

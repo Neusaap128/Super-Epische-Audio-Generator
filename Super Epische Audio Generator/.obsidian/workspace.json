@@ -8,26 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a507a66444fadaeb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "PCB/Footprints/Footprints.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "0cf2ffbbd34d9dbc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
-                "mode": "source",
-                "source": false
+                "file": "Datasheets/MCU's/stm32f722rc.pdf"
               }
             }
           },
@@ -43,8 +29,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
+                "file": "Datasheets/MCU's/stm32f722rc.pdf",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
+                "file": "Datasheets/MCU's/stm32f722rc.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PCB/Footprints/Footprints.md"
+                "file": "Datasheets/MCU's/stm32f722rc.pdf"
               }
             }
           },
@@ -183,12 +168,12 @@
   "active": "0cf2ffbbd34d9dbc",
   "lastOpenFiles": [
     "PCB/PCB Design/PCB Design.md",
+    "Datasheets/MCU's/stm32f722rc.pdf",
     "PCB/Footprints/Footprints.md",
     "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
     "Datasheets/Power Supply/AP7365 LDO Voltage Regulator.pdf",
     "Datasheets/MCU's/stm32g431rb.pdf",
     "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
-    "Datasheets/MCU's/stm32f722rc.pdf",
     "Seminaries/criteria_en_stakeholder_analyse.pdf",
     "Seminaries/BOM.pdf",
     "Seminaries/mso8632.tmp",
