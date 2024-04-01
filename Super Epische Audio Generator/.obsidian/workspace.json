@@ -8,22 +8,28 @@
         "type": "tabs",
         "children": [
           {
-            "id": "309c36592dd13324",
+            "id": "0cf2ffbbd34d9dbc",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
+<<<<<<< HEAD
                 "file": "Seminaries/criteria_en_stakeholder_analyse.pdf"
+=======
+                "file": "Datasheets/MCU's/stm32f722rc.pdf"
+>>>>>>> e7423a504c97348378bf14ceb077c433b2f3d1f7
               }
             }
           },
           {
-            "id": "78a2430e314b5143",
+            "id": "8bd008cbd1c55ecc",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Datasheets/MCU's/stm32g431rb.pdf"
+                "file": "PCB/Footprints/Footprints.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -93,7 +99,11 @@
             "state": {
               "type": "backlink",
               "state": {
+<<<<<<< HEAD
                 "file": "Seminaries/criteria_en_stakeholder_analyse.pdf",
+=======
+                "file": "Datasheets/MCU's/stm32f722rc.pdf",
+>>>>>>> e7423a504c97348378bf14ceb077c433b2f3d1f7
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +120,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+<<<<<<< HEAD
                 "file": "Seminaries/criteria_en_stakeholder_analyse.pdf",
+=======
+                "file": "Datasheets/MCU's/stm32f722rc.pdf",
+>>>>>>> e7423a504c97348378bf14ceb077c433b2f3d1f7
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +147,11 @@
             "state": {
               "type": "outline",
               "state": {
+<<<<<<< HEAD
                 "file": "Seminaries/criteria_en_stakeholder_analyse.pdf"
+=======
+                "file": "Datasheets/MCU's/stm32f722rc.pdf"
+>>>>>>> e7423a504c97348378bf14ceb077c433b2f3d1f7
               }
             }
           },
@@ -150,8 +168,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -164,8 +181,9 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "309c36592dd13324",
+  "active": "0cf2ffbbd34d9dbc",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "Seminaries/BOM.pdf",
     "Seminaries/SEAG.md",
     "Sampling Timer.md",
@@ -177,10 +195,24 @@
     "Datasheets/Power Supply/AP7365 LDO Voltage Regulator.pdf",
     "PCB/PCB Design/PCB Design.md",
     "PCB/Footprints/Footprints.md",
+=======
+    "PCB/PCB Design/PCB Design.md",
+    "Datasheets/MCU's/stm32f722rc.pdf",
+    "PCB/Footprints/Footprints.md",
+    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+    "Datasheets/Power Supply/AP7365 LDO Voltage Regulator.pdf",
+    "Datasheets/MCU's/stm32g431rb.pdf",
+    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
+>>>>>>> e7423a504c97348378bf14ceb077c433b2f3d1f7
     "Seminaries/criteria_en_stakeholder_analyse.pdf",
+    "Seminaries/BOM.pdf",
     "Seminaries/mso8632.tmp",
     "Seminaries/~$iteria_en_stakeholder_analyse.docx",
     "Seminaries/criteria_en_stakeholder_analyse.docx",
+<<<<<<< HEAD
+=======
+    "Seminaries/SEAG.md",
+>>>>>>> e7423a504c97348378bf14ceb077c433b2f3d1f7
     "PCB/Seminaries/SEAG.md",
     "Pasted image 20240304233721.png",
     "Datasheets/Audio Filtering/Untitled.md",
