@@ -23,9 +23,11 @@
             "id": "bf3b732f68e8a345",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "PCB/Footprints/Footprints.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -96,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "PCB/Footprints/Footprints.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "PCB/Footprints/Footprints.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "PCB/Footprints/Footprints.md"
               }
             }
           }
@@ -160,9 +162,10 @@
   },
   "active": "bf3b732f68e8a345",
   "lastOpenFiles": [
+    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
     "Datasheets/MCU's/stm32f722rc.pdf",
     "Datasheets/MCU's/stm32g431rb.pdf",
-    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
     "PCB/Footprints/Footprints.md",
     "PCB/PCB Design/PCB Design.md",
     "PCB/On pcb.md",

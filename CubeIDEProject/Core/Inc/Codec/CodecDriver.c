@@ -19,14 +19,20 @@ void CodecInit(I2C_HandleTypeDef *hi2c1){
 	WriteCodecRegister(hi2c1, 0x01, 1 << 7);
 
 
+	// ----- Power Management -----
+
+	// R25 VMIDSEL: 01 = driver enable(playback/record), VREF enable, AINL enable, AINR disabled, ADCL enable, ADCR disable, MICB disable, MCLK enabled
+	WriteCodecRegister(hi2c1, 0x19, 0b011101000);
+
+	//left DAC, LOUT1 buffer SPKL PGA, PLL enabled
+	WriteCodecRegister(hi2c1, 0x1A, 0b101010101);
+
+	//left PGA enabled, Left output mixer
+	WriteCodecRegister(hi2c1, 0x2F, 0b000101000);
+
 	// L out Volume
 	WriteCodecRegister(hi2c1, 0x02, 0b101111001);
 
-	// power management R25 VMIDSEL: 01 = driver enable(playback/record), VREF enable, AINL enable, AINR disabled, ADCL enable, ADCR disable, MICB disable, MCLK enabled
-	WriteCodecRegister(hi2c1, 0x19, 0b011101000);
-
-	// enable left input PGA
-	WriteCodecRegister(hi2c1, 0x2F, 0b000100000);
 
 	// Disable master mode codec
 	WriteCodecRegister(hi2c1, 0x07, 0b000001010);
