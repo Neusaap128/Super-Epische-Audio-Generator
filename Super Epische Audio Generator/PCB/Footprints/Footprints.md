@@ -45,6 +45,9 @@ https://www.mouser.be/ProductDetail/TE-Connectivity/282834-3?qs=A%252Bip%252BNCY
 
 ### Miscellaneous
 
+47uF cap
+https://www.vishay.com/docs/40189/t58.pdf
+
 - Weerstanden smd 0805
 - Caps smd 0805
 - Shift registers 
