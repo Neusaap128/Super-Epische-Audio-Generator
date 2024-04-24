@@ -8,11 +8,51 @@
 #ifndef INC_IO_IO_H_
 #define INC_IO_IO_H_
 
-int pressed;
-void reset_shift_register(uint8_t *num);
-void array_in_shift(GPIO_TypeDef *port_Enable,GPIO_TypeDef *port_Input ,GPIO_TypeDef *port_Klok, uint16_t Pin_Enable, uint16_t Pin_input,uint16_t Pin_Klok, uint8_t num);
-int filter_select(uint16_t waarde);
-void filter_led(uint8_t *filter_led_array, int pressed,int filter);
-void led_bar(uint16_t analoge_waarde, uint8_t *ledbar_array);
-int main_call();
+#include <stdlib.h>
+#include "main.h"
+#include "ShiftRegister.h"
+#include "../DSP/DSP.h"
+
+ShiftRegister_t filterSelectShiftReg = {
+	.clkPort 	 = ShiftRegClk_GPIO_Port,
+	.clkPin   	 = ShiftRegClk_Pin,
+	.dataPort 	 = ShiftRegData_GPIO_Port,
+	.dataPin  	 = ShiftRegData_Pin,
+	.enabledPort = ShiftRegEn_GPIO_Port,
+	.enabledPin  = ShiftRegEn_Pin
+};
+
+// --- !!! Pins and Ports need to change !!! ---
+ShiftRegister_t ledbarShiftReg = {
+	.clkPort 	 = ShiftRegClk_GPIO_Port,
+	.clkPin   	 = ShiftRegClk_Pin,
+	.dataPort 	 = ShiftRegData_GPIO_Port,
+	.dataPin  	 = ShiftRegData_Pin,
+	.enabledPort = ShiftRegEn_GPIO_Port,
+	.enabledPin  = ShiftRegEn_Pin
+};
+
+
+enum IOState{
+	Disabled,
+	SelectingFilter,
+	SelectingValue
+}typedef IOState_t;
+
+IOState_t IOState;
+uint8_t selectedFilter;
+
+void HandleSelectingFilter(uint16_t potValue);
+// I Think this functions isn't needed anymore
+//void filter_led(uint8_t *filter_led_array, int pressed, int filter);
+void HandleSelectingValue(uint16_t analoge_waarde, uint8_t *ledbar_array);
+
+uint16_t main_call();
+
+
 #endif /* INC_IO_IO_H_ */
+
+
+
+
+

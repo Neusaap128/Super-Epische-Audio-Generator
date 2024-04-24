@@ -8,6 +8,7 @@
 #ifndef INC_DSP_DSP_H_
 #define INC_DSP_DSP_H_
 
+#define AMOUNT_OF_FILTERS 4
 
 #include "stm32g4xx_hal.h"
 #include <string.h>

@@ -26,6 +26,7 @@ Core/Inc/Codec \
 Core/Inc/DFT \
 Core/Inc/DSP \
 Core/Inc/Filters \
+Core/Inc/IO \
 Core/Inc/Math \
 Core/Src \
 Core/Startup \

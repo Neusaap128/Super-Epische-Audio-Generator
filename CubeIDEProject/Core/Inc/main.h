@@ -78,6 +78,12 @@ void Error_Handler(void);
 #define LPUART1_RX_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define ShiftRegClk_Pin GPIO_PIN_0
+#define ShiftRegClk_GPIO_Port GPIOB
+#define ShiftRegData_Pin GPIO_PIN_1
+#define ShiftRegData_GPIO_Port GPIOB
+#define ShiftRegEn_Pin GPIO_PIN_2
+#define ShiftRegEn_GPIO_Port GPIOB
 #define KnipperLedje_Pin GPIO_PIN_9
 #define KnipperLedje_GPIO_Port GPIOA
 #define SampleFreqOutClk_Pin GPIO_PIN_10

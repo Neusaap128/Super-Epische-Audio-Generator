@@ -5,47 +5,40 @@
  *      Author: rode-
  */
 
-void reset_shift_register(uint8_t *num){
-	*num = 0;
-}
+#include "IO.h"
 
-void array_in_shift(GPIO_TypeDef *port_Enable,GPIO_TypeDef *port_Input ,GPIO_TypeDef *port_Klok, uint16_t Pin_Enable, uint16_t Pin_input,uint16_t Pin_Klok, uint8_t num){
-	HAL_GPIO_WritePin(port_Enable, Pin_Enable,0);
-	for (int i = 7; i >= 0; i--) {
-		uint8_t bit_value = (num >> i) & 1;
-		HAL_GPIO_WritePin(port_Input, Pin_input,bit_value);
-		HAL_Delay(1);
-		HAL_GPIO_WritePin(port_Klok, Pin_Klok,1);
-		HAL_Delay(1);
-		HAL_GPIO_WritePin(port_Klok, Pin_Klok,0);
-	  }
-	  HAL_GPIO_WritePin(port_Enable, Pin_Enable,1);
-}
 
-int filter_select(uint16_t waarde){
+void HandleSelectingFilter(uint16_t potValue){
+
+
+	//This code only works for Pot-meter, when using rotary encoder, this code should be revisited.
+	//Of the top of my head something around selectedFilter = dir ? ( selectedFilter + 1 ) % 8 : (selectedFilter - 1) ma check als da < 0 is
+	selectedFilter = (uint8_t)( ((float)potValue)/4096 * AMOUNT_OF_FILTERS );
+
+	//Turning on correct LED
+	LoadValueIntoShiftRegister(filterSelectShiftReg,  1 << (7-selectedFilter) );
+
+	/*
 	  if(waarde < 1000){
-		  return 0;
+		  pressed = Disabled;
+	  }else if(waarde < 2500){
+		  pressed = SelectingFilter;
+	  }else{
+		  pressed = SelectingValue;
 	  }
-	  else if(waarde < 2500){
-		  return 1;
-	  }
-	  else{
-		  return 2;
-	  }
+	*/
 }
 
+/*
 void filter_led(uint8_t *filter_led_array, int pressed,int filter){
-	  for(int i = 0; i<8; i++){
-		  if(i == filter && (pressed == 1 || pressed == 2)){
-			  *filter_led_array |= (1 & 1) << (7 - i);
-		  }
-		  else{
-			  *filter_led_array |= (0 & 1) << (7 - i);
-		  }
-	  }
-}
 
-void led_bar(uint16_t analoge_waarde, uint8_t *ledbar_array){
+	*filter_led_array = 1 << ( 7-filter);
+
+}
+*/
+
+
+void HandleSelectingValue(uint16_t analoge_waarde /*, uint8_t *ledbar_array*/){
 	  if(analoge_waarde < 250){
 		  analoge_waarde = 0;
 	  }
@@ -53,11 +46,18 @@ void led_bar(uint16_t analoge_waarde, uint8_t *ledbar_array){
 		  analoge_waarde -= 250;
 	  }
 
-	   float led_bar = ((float)analoge_waarde/3200)*100;
-	  if(led_bar >= 100){
-		  led_bar = 100;
+	  float led_bar = ((float)analoge_waarde/3200)*8;
+	  if(led_bar > 8){
+		  led_bar = 8;
 	  }
-	  for (int i = 0; i < 8 ; i++) {
+
+
+	  uint8_t ledbar_array = pow(2, led_bar)-1;
+
+	  //for (int i = 0; i < 8 ; i++) {
+
+
+		  /*
 	      if (led_bar>=12.5){
 	    	  *ledbar_array |= (1 & 1) << (7 - i);
 	    	  led_bar -= 12.5;
@@ -65,36 +65,50 @@ void led_bar(uint16_t analoge_waarde, uint8_t *ledbar_array){
 	      else{
 	    	  *ledbar_array |= (0 & 1) << (7 - i);
 	      }
-	  }
+	      */
+
+	  //}
+
+
+	  LoadValueIntoShiftRegister(ledBarShiftRegister, ledbar_array);
+
 }
 
 uint16_t main_call(){
-	uint16_t raw;
+	uint16_t raw = 0;
 	uint16_t filter = 0;
-	uint8_t ledbar_array;
-	uint8_t filter_led_array;
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	raw = HAL_ADC_GetValue(&hadc1);
+	//uint8_t ledbar_array = 0;
+	//uint8_t filter_led_array = 0;
+
+	//HAL_ADC_Start(&hadc1);
+	//HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	//raw = HAL_ADC_GetValue(&hadc1);
 	//case voor de druk knoppen
+
 	switch (pressed) {
-	    case 1:
-	    	filter = filter_select(raw);
+	    case Disabled:
 	    	break;
-	    case 2:
-	    	led_bar(raw ,&ledbar_array);
+	    case SelectingFilter:
+	    	HandleSelectingFilter(raw);
 	    	break;
-	    case 3:
-	    	pressed = 0;
-	    default:
-		reset_shift_register(&filter_led_array);
-		reset_shift_register(&ledbar_array);
+	    case SelectingValue:
+	    	HandleSelectingValue(raw /*,&ledbar_array*/ );
+	    	break;
 	  }
-	filter_led(&filter_led_array, pressed, filter);
-	array_in_shift(Shift_Enable_GPIO_Port,Shift_input_GPIO_Port,Shift_klok_GPIO_Port, Shift_Enable_Pin,Shift_input_Pin,Shift_klok_Pin,ledbar_array);
-	array_in_shift(Shift2_Enable_GPIO_Port,Shift2_input_GPIO_Port,Shift2_klok_GPIO_Port, Shift2_Enable_Pin,Shift2_input_Pin,Shift2_klok_Pin,filter_led_array);
-	reset_shift_register(&filter_led_array);
-	reset_shift_register(&ledbar_array);
+
+	//ResetShiftRegister(&filterSelectShiftReg);
+
+	//ResetShiftRegister(&filter_led_array);
+	//ResetShiftRegister(&ledbar_array);
+
+	//filter_led(&filter_led_array, pressed, filter);
+	//array_in_shift(Shift_Enable_GPIO_Port,Shift_input_GPIO_Port,Shift_klok_GPIO_Port, Shift_Enable_Pin,Shift_input_Pin,Shift_klok_Pin,ledbar_array);
+	//array_in_shift(Shift2_Enable_GPIO_Port,Shift2_input_GPIO_Port,Shift2_klok_GPIO_Port, Shift2_Enable_Pin,Shift2_input_Pin,Shift2_klok_Pin,filter_led_array);
+	//ResetShiftRegister(&filter_led_array);
+	//ResetShiftRegister(&ledbar_array);
 	return filter;
 }
+
+
+
 

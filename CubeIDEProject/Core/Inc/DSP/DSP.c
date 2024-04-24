@@ -9,6 +9,7 @@
 #include "DSP.h"
 #include "../main.h"
 
+
 const int N = 64;
 const int samplingRate = 44E3; //44Khz
 

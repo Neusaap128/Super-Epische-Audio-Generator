@@ -29,7 +29,7 @@ https://www.mouser.be/ProductDetail/Diodes-Incorporated/FW2500025Z?qs=Rp3RbKSfAt
 ### Audio Filtering
 
 Audio op-amp
-https://www.mouser.be/ProductDetail/Texas-Instruments/LM833DR?qs=Ze4%2FuFuz19LM5Pd0zMa%2Fjg%3D%3D (Footprint not downloaded yet)
+https://www.mouser.be/ProductDetail/Texas-Instruments/LM833DR?qs=Ze4%2FuFuz19LM5Pd0zMa%2Fjg%3D%3D 
 
 Audio codec
 https://www.digikey.be/en/products/detail/cirrus-logic-inc/WM8960CGEFL-V/5036712
