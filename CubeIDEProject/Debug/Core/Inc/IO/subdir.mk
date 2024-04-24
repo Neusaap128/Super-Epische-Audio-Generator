@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Inc/IO/IO.c 
+../Core/Inc/IO/IO.c \
+../Core/Inc/IO/ShiftRegister.c 
 
 OBJS += \
-./Core/Inc/IO/IO.o 
+./Core/Inc/IO/IO.o \
+./Core/Inc/IO/ShiftRegister.o 
 
 C_DEPS += \
-./Core/Inc/IO/IO.d 
+./Core/Inc/IO/IO.d \
+./Core/Inc/IO/ShiftRegister.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ Core/Inc/IO/%.o Core/Inc/IO/%.su Core/Inc/IO/%.cyclo: ../Core/Inc/IO/%.c Core/In
 clean: clean-Core-2f-Inc-2f-IO
 
 clean-Core-2f-Inc-2f-IO:
-	-$(RM) ./Core/Inc/IO/IO.cyclo ./Core/Inc/IO/IO.d ./Core/Inc/IO/IO.o ./Core/Inc/IO/IO.su
+	-$(RM) ./Core/Inc/IO/IO.cyclo ./Core/Inc/IO/IO.d ./Core/Inc/IO/IO.o ./Core/Inc/IO/IO.su ./Core/Inc/IO/ShiftRegister.cyclo ./Core/Inc/IO/ShiftRegister.d ./Core/Inc/IO/ShiftRegister.o ./Core/Inc/IO/ShiftRegister.su
 
 .PHONY: clean-Core-2f-Inc-2f-IO
 

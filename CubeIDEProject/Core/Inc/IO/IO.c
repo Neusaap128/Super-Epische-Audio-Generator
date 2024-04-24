@@ -16,7 +16,7 @@ void HandleSelectingFilter(uint16_t potValue){
 	selectedFilter = (uint8_t)( ((float)potValue)/4096 * AMOUNT_OF_FILTERS );
 
 	//Turning on correct LED
-	LoadValueIntoShiftRegister(filterSelectShiftReg,  1 << (7-selectedFilter) );
+	LoadValueIntoShiftRegister(&filterSelectShiftReg,  1 << (7-selectedFilter) );
 
 	/*
 	  if(waarde < 1000){
@@ -39,38 +39,40 @@ void filter_led(uint8_t *filter_led_array, int pressed,int filter){
 
 
 void HandleSelectingValue(uint16_t analoge_waarde /*, uint8_t *ledbar_array*/){
-	  if(analoge_waarde < 250){
-		  analoge_waarde = 0;
+
+
+	if(analoge_waarde < 250){
+	  analoge_waarde = 0;
+	}
+	else{
+	  analoge_waarde -= 250;
+	}
+
+	float led_bar = ((float)analoge_waarde/3200)*8;
+	if(led_bar > 8){
+	  led_bar = 8;
+	}
+
+
+	uint8_t ledbar_array = pow(2, led_bar)-1;
+
+	//for (int i = 0; i < 8 ; i++) {
+
+
+	  /*
+	  if (led_bar>=12.5){
+		  *ledbar_array |= (1 & 1) << (7 - i);
+		  led_bar -= 12.5;
 	  }
 	  else{
-		  analoge_waarde -= 250;
+		  *ledbar_array |= (0 & 1) << (7 - i);
 	  }
+	  */
 
-	  float led_bar = ((float)analoge_waarde/3200)*8;
-	  if(led_bar > 8){
-		  led_bar = 8;
-	  }
+	//}
 
 
-	  uint8_t ledbar_array = pow(2, led_bar)-1;
-
-	  //for (int i = 0; i < 8 ; i++) {
-
-
-		  /*
-	      if (led_bar>=12.5){
-	    	  *ledbar_array |= (1 & 1) << (7 - i);
-	    	  led_bar -= 12.5;
-	      }
-	      else{
-	    	  *ledbar_array |= (0 & 1) << (7 - i);
-	      }
-	      */
-
-	  //}
-
-
-	  LoadValueIntoShiftRegister(ledBarShiftRegister, ledbar_array);
+	LoadValueIntoShiftRegister(&ledbarShiftReg, ledbar_array);
 
 }
 
@@ -85,7 +87,7 @@ uint16_t main_call(){
 	//raw = HAL_ADC_GetValue(&hadc1);
 	//case voor de druk knoppen
 
-	switch (pressed) {
+	switch (IOState) {
 	    case Disabled:
 	    	break;
 	    case SelectingFilter:

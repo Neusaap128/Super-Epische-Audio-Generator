@@ -1,6 +1,3 @@
-../Core/Inc/IO/IO.c:10:6:ResetShiftRegister	1
-../Core/Inc/IO/IO.c:14:6:LoadValueIntoShiftRegister	2
-../Core/Inc/IO/IO.c:27:6:HandleSelectingFilter	1
-../Core/Inc/IO/IO.c:44:6:filter_led	5
-../Core/Inc/IO/IO.c:55:6:led_bar	5
-../Core/Inc/IO/IO.c:82:10:main_call	5
+../Core/Inc/IO/IO.c:11:6:HandleSelectingFilter	1
+../Core/Inc/IO/IO.c:41:6:HandleSelectingValue	3
+../Core/Inc/IO/IO.c:79:10:main_call	5

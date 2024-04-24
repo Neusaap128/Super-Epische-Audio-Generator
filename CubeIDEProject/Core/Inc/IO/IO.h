@@ -45,7 +45,7 @@ uint8_t selectedFilter;
 void HandleSelectingFilter(uint16_t potValue);
 // I Think this functions isn't needed anymore
 //void filter_led(uint8_t *filter_led_array, int pressed, int filter);
-void HandleSelectingValue(uint16_t analoge_waarde, uint8_t *ledbar_array);
+void HandleSelectingValue(uint16_t analoge_waarde /*, uint8_t *ledbar_array*/ );
 
 uint16_t main_call();
 
