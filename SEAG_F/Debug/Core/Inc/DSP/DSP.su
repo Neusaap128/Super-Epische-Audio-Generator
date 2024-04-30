@@ -1,0 +1,3 @@
+../Core/Inc/DSP/DSP.c:19:6:InitDSP	8	static
+../Core/Inc/DSP/DSP.c:24:6:AppendSample	24	static
+../Core/Inc/DSP/DSP.c:54:6:ApplyFilters	4	static
