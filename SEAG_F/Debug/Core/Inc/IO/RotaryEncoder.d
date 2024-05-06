@@ -1,4 +1,5 @@
-Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
+Core/Inc/IO/RotaryEncoder.o: ../Core/Inc/IO/RotaryEncoder.c \
+ ../Core/Inc/IO/RotaryEncoder.h ../Core/Inc/main.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -33,8 +34,8 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
  ../Core/Inc/DSP/../Filters/AllPass.h \
  ../Core/Inc/DSP/../Filters/../DSP/DSP.h \
  ../Core/Inc/DSP/../Filters/CombFeedback.h ../Core/Inc/IO/IO.h \
- ../Core/Inc/IO/ShiftRegister.h ../Core/Inc/IO/../DSP/DSP.h \
- ../Core/Inc/stm32f7xx_it.h
+ ../Core/Inc/IO/ShiftRegister.h ../Core/Inc/IO/../DSP/DSP.h
+../Core/Inc/IO/RotaryEncoder.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:
@@ -74,4 +75,3 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
 ../Core/Inc/IO/IO.h:
 ../Core/Inc/IO/ShiftRegister.h:
 ../Core/Inc/IO/../DSP/DSP.h:
-../Core/Inc/stm32f7xx_it.h:

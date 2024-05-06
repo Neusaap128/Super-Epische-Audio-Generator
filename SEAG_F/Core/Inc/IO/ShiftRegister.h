@@ -10,7 +10,7 @@
 
 #include "main.h"
 
-struct ShiftRegister{
+typedef struct ShiftRegister{
 
 	GPIO_TypeDef *clkPort;
 	uint16_t 	  clkPin;
@@ -20,7 +20,7 @@ struct ShiftRegister{
 	uint16_t 	  enabledPin;
 
 
-}typedef ShiftRegister_t;
+}ShiftRegister_t;
 
 void ResetShiftRegister(ShiftRegister_t *reg);
 void LoadValueIntoShiftRegister(ShiftRegister_t *reg, uint8_t num);

@@ -34,6 +34,7 @@ extern "C" {
 
 #include "Codec/CodecDriver.h"
 #include "DSP/DSP.h"
+#include "IO/IO.h"
 
 /* USER CODE END Includes */
 

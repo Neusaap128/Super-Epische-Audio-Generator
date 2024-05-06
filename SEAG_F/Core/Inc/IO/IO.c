@@ -7,77 +7,71 @@
 
 #include "IO.h"
 
+ShiftRegister_t shiftRegFilterSelect = {
+	.clkPort 	 = ShiftRegFClk_GPIO_Port,
+	.clkPin   	 = ShiftRegFClk_Pin,
+	.dataPort 	 = ShiftRegFDat_GPIO_Port,
+	.dataPin  	 = ShiftRegFDat_Pin,
+	.enabledPort = ShiftRegFStoClk_GPIO_Port,
+	.enabledPin  = ShiftRegFStoClk_Pin
+};
 
-void HandleSelectingFilter(uint16_t potValue){
 
+ShiftRegister_t shiftRegLedbar = {
+	.clkPort 	 = ShiftRegLBarClk_GPIO_Port,
+	.clkPin   	 = ShiftRegLBarClk_Pin,
+	.dataPort 	 = ShiftRegLBarDat_GPIO_Port,
+	.dataPin  	 = ShiftRegLBarDat_Pin,
+	.enabledPort = ShiftRegLBarStoClk_GPIO_Port,
+	.enabledPin  = ShiftRegLBarStoClk_Pin
+};
 
-	//This code only works for Pot-meter, when using rotary encoder, this code should be revisited.
-	//Of the top of my head something around selectedFilter = dir ? ( selectedFilter + 1 ) % 8 : (selectedFilter - 1) ma check als da < 0 is
-	selectedFilter = (uint8_t)( ((float)potValue)/4096 * AMOUNT_OF_FILTERS );
-
-	//Turning on correct LED
-	LoadValueIntoShiftRegister(&shiftRegFilterSelect,  1 << (7-selectedFilter) );
-
-	/*
-	  if(waarde < 1000){
-		  pressed = Disabled;
-	  }else if(waarde < 2500){
-		  pressed = SelectingFilter;
-	  }else{
-		  pressed = SelectingValue;
-	  }
-	*/
+uint16_t HandleSelectingFilter(){
+	//aantal filter is een define
+	if((int)(rot_cnt/4) > AANTALFILTER-1){
+		rot_cnt = (AANTALFILTER-1)*4;
+	}else if(rot_cnt<0){
+		rot_cnt=0;
+	}
+	uint16_t filter = (uint_8)(rot_cnt/4);
+	LoadValueIntoShiftRegister(&shiftRegFilterSelect,  1 << (7-filter));
+	return filter;
 }
 
-/*
-void filter_led(uint8_t *filter_led_array, int pressed,int filter){
 
-	*filter_led_array = 1 << ( 7-filter);
-
+void ButtonIntrupt(uint32_t time){
+	  pressed += 1;
+	  rot_cnt =0;
+	  previousMillis = currentMillis; //moet globaal globaal zijn
 }
-*/
 
-
-void HandleSelectingValue(uint16_t analoge_waarde /*, uint8_t *ledbar_array*/){
-
-
-	if(analoge_waarde < 250){
-	  analoge_waarde = 0;
-	}
-	else{
-	  analoge_waarde -= 250;
-	}
-
-	uint8_t led_bar = (uint8_t)((float)analoge_waarde/3200)*8;
-	if(led_bar > 8){
-	  led_bar = 8;
-	}
-
-
-	uint8_t ledbar_array = (1<<led_bar)-1;
-
-	//for (int i = 0; i < 8 ; i++) {
-
-
-	  /*
-	  if (led_bar>=12.5){
-		  *ledbar_array |= (1 & 1) << (7 - i);
-		  led_bar -= 12.5;
+void HandleSelectingValue(uint8_t *ledbar_array){ //rot_cnt gloable variable door intrupt
+	  if(rot_cnt > 8*4){
+		  rot_cnt = 8*4;
 	  }
-	  else{
-		  *ledbar_array |= (0 & 1) << (7 - i);
+	  else if(rot_cnt < 0){
+		  rot_cnt =0;
 	  }
-	  */
 
-	//}
-
+	  float led_bar = (rot_cnt/4)*12.5;
+	  if(led_bar >= 100){
+		  led_bar = 100;
+	  }
+	  for (int i = 0; i < 8 ; i++) {
+	      if (led_bar>=12.5){
+	    	  *ledbar_array |= (1 & 1) << (7 - i);
+	    	  led_bar -= 12.5;
+	      }
+	      else{
+	    	  *ledbar_array |= (0 & 1) << (7 - i);
+	      }
+	  }
 
 	LoadValueIntoShiftRegister(&shiftRegLedbar, ledbar_array);
 
 }
 
 uint16_t main_call(){
-	uint16_t raw = 0;
 	uint16_t filter = 0;
 	//uint8_t ledbar_array = 0;
 	//uint8_t filter_led_array = 0;
@@ -91,10 +85,9 @@ uint16_t main_call(){
 	    case Disabled:
 	    	break;
 	    case SelectingFilter:
-	    	HandleSelectingFilter(raw);
 	    	break;
 	    case SelectingValue:
-	    	HandleSelectingValue(raw /*,&ledbar_array*/ );
+	    	HandleSelectingValue(&ledbar_array);
 	    	break;
 	  }
 

@@ -7,6 +7,7 @@
 "./Core/Inc/Filters/FilterUtility.o"
 "./Core/Inc/Filters/Reverb.o"
 "./Core/Inc/IO/IO.o"
+"./Core/Inc/IO/RotaryEncoder.o"
 "./Core/Inc/IO/ShiftRegister.o"
 "./Core/Inc/Math/Vector2.o"
 "./Core/Src/main.o"
