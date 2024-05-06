@@ -77,6 +77,9 @@ static void MX_I2S2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+uint32_t currentMillis;
+uint32_t previousMillis;
+
 void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
 
 	adcBufPtr = &adcData[0];
@@ -147,7 +150,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
 
     /* USER CODE BEGIN 3 */
   }
@@ -392,13 +394,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : RotEncoderInA_Pin RotEncoderInB_Pin RotEncoderButton_Pin ToggleInput7_Pin
-                           ToggleInput6_Pin ToggleInput5_Pin */
-  GPIO_InitStruct.Pin = RotEncoderInA_Pin|RotEncoderInB_Pin|RotEncoderButton_Pin|ToggleInput7_Pin
-                          |ToggleInput6_Pin|ToggleInput5_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  /*Configure GPIO pins : RotEncoderInA_Pin RotEncoderInB_Pin */
+  GPIO_InitStruct.Pin = RotEncoderInA_Pin|RotEncoderInB_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : RotEncoderButton_Pin */
+  GPIO_InitStruct.Pin = RotEncoderButton_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(RotEncoderButton_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ToggleInput4_Pin ToggleInput3_Pin ToggleInput2_Pin ToggleInput1_Pin
                            ToggleInput8_Pin */
@@ -408,11 +414,36 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : ToggleInput7_Pin ToggleInput6_Pin ToggleInput5_Pin */
+  GPIO_InitStruct.Pin = ToggleInput7_Pin|ToggleInput6_Pin|ToggleInput5_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+
+  /* Prevent unused argument(s) compilation warning */
+  currentMillis = HAL_GetTick();
+  UNUSED(GPIO_Pin);
+
+
+  if(GPIO_Pin == RotEncoderButton_Pin && (currentMillis - previousMillis > 10)){
+	  ButtonInterrupt(currentMillis);
+  }
+
+  if(GPIO_Pin == RotEncoderInA_Pin || GPIO_Pin == RotEncoderInB_Pin){
+	  RotaryEncoderInterrupt();
+  }
+
+  previousMillis = currentMillis;
+
+}
 
 /* USER CODE END 4 */
 

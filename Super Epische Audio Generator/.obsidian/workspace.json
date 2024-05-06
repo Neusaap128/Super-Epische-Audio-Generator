@@ -23,16 +23,24 @@
             "id": "bf3b732f68e8a345",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
-                "mode": "source",
-                "source": false
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+              }
+            }
+          },
+          {
+            "id": "9ac15cf2b5cbef7f",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PCB/Footprints/Footprints.md"
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
               }
             }
           }
@@ -160,13 +168,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bf3b732f68e8a345",
+  "active": "9ac15cf2b5cbef7f",
   "lastOpenFiles": [
-    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
     "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
+    "PCB/Footprints/Footprints.md",
+    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
     "Datasheets/MCU's/stm32f722rc.pdf",
     "Datasheets/MCU's/stm32g431rb.pdf",
-    "PCB/Footprints/Footprints.md",
     "PCB/PCB Design/PCB Design.md",
     "PCB/On pcb.md",
     "Technisch correctie.md",

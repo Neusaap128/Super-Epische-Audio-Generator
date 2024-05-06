@@ -5,19 +5,29 @@
  *      Author: Floran
  */
 
-#ifndef INC_IO_IO_H_
-#define INC_IO_IO_H_
+#ifndef INC_IO_ROTARYENCODER_H_
+#define INC_IO_ROTARYENCODER_H_
 
 #include <stdlib.h>
 #include "main.h"
-#include "ShiftRegister.h"
-#include "../DSP/DSP.h"
-//maak globale varaible rot_cnt voor intrupt
-uint8_t rot_get_state();
-void rot_intrupt();
+
+typedef struct{
+
+	uint8_t currentPos;
+	GPIO_TypeDef   *portA;
+	uint16_t 		pinA;
+	GPIO_TypeDef   *portB;
+	uint16_t 	    pinB;
+	GPIO_TypeDef   *portButton;
+	uint16_t 		pinButton;
+
+}RotaryEncoder_t;
+
+uint8_t rot_get_state(RotaryEncoder_t* rotEncoder);
+void rot_intrupt(RotaryEncoder_t* rotEncoder);
 
 
-#endif /* INC_IO_IO_H_ */
+#endif /* INC_IO_ROTARYENCODER_H_ */
 
 
 

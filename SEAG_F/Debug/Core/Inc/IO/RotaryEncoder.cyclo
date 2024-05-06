@@ -1,0 +1,2 @@
+../Core/Inc/IO/RotaryEncoder.c:15:9:rot_get_state	1
+../Core/Inc/IO/RotaryEncoder.c:20:6:rot_intrupt	17

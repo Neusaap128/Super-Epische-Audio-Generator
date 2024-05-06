@@ -10,7 +10,7 @@
 
 #include "main.h"
 
-typedef struct ShiftRegister{
+typedef struct{
 
 	GPIO_TypeDef *clkPort;
 	uint16_t 	  clkPin;

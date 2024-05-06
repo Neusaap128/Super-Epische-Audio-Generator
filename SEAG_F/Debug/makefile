@@ -66,8 +66,8 @@ all: main-build
 main-build: SEAG_F.elf secondary-outputs
 
 # Tool invocations
-SEAG_F.elf SEAG_F.map: $(OBJS) $(USER_OBJS) C:\Users\rode-\Documents\project\ 3\SEAG_F\STM32F722RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "SEAG_F.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\rode-\Documents\project 3\SEAG_F\STM32F722RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SEAG_F.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+SEAG_F.elf SEAG_F.map: $(OBJS) $(USER_OBJS) C:\Users\Joran\Documents\School\Project\ 3\SEAG_F\STM32F722RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "SEAG_F.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\Joran\Documents\School\Project 3\SEAG_F\STM32F722RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SEAG_F.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -7,13 +7,11 @@
 
 #ifndef INC_IO_IO_H_
 #define INC_IO_IO_H_
-#define AANTALFILTER 3
+
 #include <stdlib.h>
 #include "main.h"
 #include "ShiftRegister.h"
 #include "../DSP/DSP.h"
-
-
 
 
 typedef enum{
@@ -22,15 +20,14 @@ typedef enum{
 	SelectingValue
 }IOState_t;
 
-IOState_t IOState;
 
-uint16_t HandleSelectingFilter();
-// I Think this functions isn't needed anymore
-//void filter_led(uint8_t *filter_led_array, int pressed, int filter);
+// Registers
+uint8_t HandleSelectingFilter();
+void HandleSelectingValue();
 
-void HandleSelectingValue(uint8_t *ledbar_array);
-
-void ButtonIntrupt(uint32_t time);
+// Rotary Encoder
+void ButtonInterrupt(uint32_t time);
+void RotaryEncoderInterrupt();
 
 uint16_t main_call();
 

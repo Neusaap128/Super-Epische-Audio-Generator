@@ -12,26 +12,34 @@ void CodecInit(I2C_HandleTypeDef *hi2c1){
 
 	HAL_Delay(25);
 
+	// ----- Power Management -----
+
+	// R25 VMIDSEL: 01 = driver enable(playback/record), VREF enable, AINL enable, AINR disabled, ADCL enable, ADCR disable, MICB disable, MCLK enabled
+	WriteCodecRegister(hi2c1, 0x19, 0b111101000);
+
+	//left DAC, LOUT1 buffer SPKL PGA, PLL enabled
+	WriteCodecRegister(hi2c1, 0x1A, 0b101010001);
+
+	//left PGA enabled, Left output mixer
+	WriteCodecRegister(hi2c1, 0x2F, 0b000101000);
+
+
+	// -----------
+
+	//Connect Linput1 to inverting input of left input PGA, 0db gain, connecting Left input PGA to input booster
+	WriteCodecRegister(hi2c1, 0x20, 0b100001000);
+
+	// L out Volume
+	WriteCodecRegister(hi2c1, 0x02, 0b101111001);
+
 	//un mute left channel
 	WriteCodecRegister(hi2c1, 0x00, 0b100010111);
 
 	//mute right channel
 	WriteCodecRegister(hi2c1, 0x01, 1 << 7);
 
-
-	// ----- Power Management -----
-
-	// R25 VMIDSEL: 01 = driver enable(playback/record), VREF enable, AINL enable, AINR disabled, ADCL enable, ADCR disable, MICB disable, MCLK enabled
-	WriteCodecRegister(hi2c1, 0x19, 0b011101000);
-
-	//left DAC, LOUT1 buffer SPKL PGA, PLL enabled
-	WriteCodecRegister(hi2c1, 0x1A, 0b101010101);
-
-	//left PGA enabled, Left output mixer
-	WriteCodecRegister(hi2c1, 0x2F, 0b000101000);
-
-	// L out Volume
-	WriteCodecRegister(hi2c1, 0x02, 0b101111001);
+	//Enable LB2LO
+	WriteCodecRegister(hi2c1, 0x2D, 0b101010000);
 
 
 	// Disable master mode codec
@@ -46,8 +54,6 @@ void CodecInit(I2C_HandleTypeDef *hi2c1){
 
 	HAL_I2C_Mem_Write(hi2c1, codecAddr, reg , I2C_MEMADD_SIZE_8BIT, data)
 	*/
-
-
 }
 
 

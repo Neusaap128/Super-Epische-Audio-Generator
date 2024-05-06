@@ -6,6 +6,7 @@
  */
 
 #include "IO.h"
+#include "RotaryEncoder.h"
 
 ShiftRegister_t shiftRegFilterSelect = {
 	.clkPort 	 = ShiftRegFClk_GPIO_Port,
@@ -26,46 +27,45 @@ ShiftRegister_t shiftRegLedbar = {
 	.enabledPin  = ShiftRegLBarStoClk_Pin
 };
 
-uint16_t HandleSelectingFilter(){
-	//aantal filter is een define
-	if((int)(rot_cnt/4) > AANTALFILTER-1){
-		rot_cnt = (AANTALFILTER-1)*4;
-	}else if(rot_cnt<0){
-		rot_cnt=0;
-	}
-	uint16_t filter = (uint_8)(rot_cnt/4);
+RotaryEncoder_t rotaryEncoder = {
+	.currentPos	= 0,
+	.portA   	= RotEncoderInA_GPIO_Port,
+	.pinA 	 	= RotEncoderInA_Pin,
+	.portB  	= RotEncoderInB_GPIO_Port,
+	.pinB 		= RotEncoderInB_Pin,
+	.portButton = RotEncoderButton_GPIO_Port,
+	.pinButton  = RotEncoderButton_Pin
+};
+
+IOState_t IOState;
+
+uint8_t HandleSelectingFilter(){
+
+	uint8_t filter = (uint16_t)(rotaryEncoder.currentPos/4) & AMOUNT_OF_FILTERS;
 	LoadValueIntoShiftRegister(&shiftRegFilterSelect,  1 << (7-filter));
 	return filter;
+
 }
 
 
-void ButtonIntrupt(uint32_t time){
-	  pressed += 1;
-	  rot_cnt =0;
-	  previousMillis = currentMillis; //moet globaal globaal zijn
+void ButtonInterrupt(uint32_t time){
+
+	IOState = (IOState + 1)%3;
+
+	rotaryEncoder.currentPos = 0;
+
+
 }
 
-void HandleSelectingValue(uint8_t *ledbar_array){ //rot_cnt gloable variable door intrupt
-	  if(rot_cnt > 8*4){
-		  rot_cnt = 8*4;
-	  }
-	  else if(rot_cnt < 0){
-		  rot_cnt =0;
-	  }
+void RotaryEncoderInterrupt(){
+	rot_intrupt(&rotaryEncoder);
+}
 
-	  float led_bar = (rot_cnt/4)*12.5;
-	  if(led_bar >= 100){
-		  led_bar = 100;
-	  }
-	  for (int i = 0; i < 8 ; i++) {
-	      if (led_bar>=12.5){
-	    	  *ledbar_array |= (1 & 1) << (7 - i);
-	    	  led_bar -= 12.5;
-	      }
-	      else{
-	    	  *ledbar_array |= (0 & 1) << (7 - i);
-	      }
-	  }
+void HandleSelectingValue(){
+
+
+	uint8_t led_bar = (rotaryEncoder.currentPos/4)/8;
+	uint8_t ledbar_array = (1 << led_bar) - 1;
 
 	LoadValueIntoShiftRegister(&shiftRegLedbar, ledbar_array);
 
@@ -87,7 +87,7 @@ uint16_t main_call(){
 	    case SelectingFilter:
 	    	break;
 	    case SelectingValue:
-	    	HandleSelectingValue(&ledbar_array);
+	    	HandleSelectingValue();
 	    	break;
 	  }
 

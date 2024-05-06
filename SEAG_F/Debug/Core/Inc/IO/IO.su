@@ -1,0 +1,5 @@
+../Core/Inc/IO/IO.c:42:9:HandleSelectingFilter	16	static
+../Core/Inc/IO/IO.c:51:6:ButtonInterrupt	16	static
+../Core/Inc/IO/IO.c:60:6:RotaryEncoderInterrupt	8	static
+../Core/Inc/IO/IO.c:64:6:HandleSelectingValue	16	static
+../Core/Inc/IO/IO.c:74:10:main_call	16	static

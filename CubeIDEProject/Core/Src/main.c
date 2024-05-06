@@ -62,7 +62,6 @@ TIM_HandleTypeDef htim6;
 /* USER CODE BEGIN PV */
 
 
-
 SampleType adcBuf[AUDIO_BUFFER_SIZE];
 SampleType dacBuf[AUDIO_BUFFER_SIZE];
 
@@ -173,8 +172,8 @@ int main(void)
 
   CodecInit(&hi2c1);
 
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcBuf, AUDIO_BUFFER_SIZE);
-  HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, (uint32_t*)dacBuf, AUDIO_BUFFER_SIZE, DAC_ALIGN_12B_R);
+  //HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcBuf, AUDIO_BUFFER_SIZE);
+  //HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, (uint32_t*)dacBuf, AUDIO_BUFFER_SIZE, DAC_ALIGN_12B_R);
   /* USER CODE END 2 */
 
   /* Infinite loop */
