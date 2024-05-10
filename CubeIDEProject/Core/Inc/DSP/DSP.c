@@ -31,6 +31,7 @@ void AppendSample(SampleType sample){
 
 }
 
+/*
 void TimerCallback(ADC_HandleTypeDef* hadc1, UART_HandleTypeDef* hlpuart1, DAC_HandleTypeDef* hdac1){
 
 	HAL_ADC_Start(hadc1);
@@ -48,7 +49,7 @@ void TimerCallback(ADC_HandleTypeDef* hadc1, UART_HandleTypeDef* hlpuart1, DAC_H
 	HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
 
 }
-
+*/
 
 void ApplyFilters(){
 

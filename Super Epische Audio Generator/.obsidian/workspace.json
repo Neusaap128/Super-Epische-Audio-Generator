@@ -1,36 +1,14 @@
 {
   "main": {
-    "id": "f3b1e210463f09a8",
+    "id": "380c0ce45888b889",
     "type": "split",
     "children": [
       {
-        "id": "922a0d63cf48c769",
+        "id": "0bc9a66f759d9911",
         "type": "tabs",
         "children": [
           {
-            "id": "480295f565ee9b67",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Technisch correctie.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bf3b732f68e8a345",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
-              }
-            }
-          },
-          {
-            "id": "9ac15cf2b5cbef7f",
+            "id": "b034c9893e9ef015",
             "type": "leaf",
             "state": {
               "type": "pdf",
@@ -39,22 +17,21 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "eb3369a4b7f3f930",
+    "id": "3d42400afb45c171",
     "type": "split",
     "children": [
       {
-        "id": "d2a0b63f94d40012",
+        "id": "cc248eed73c9642a",
         "type": "tabs",
         "children": [
           {
-            "id": "bfa1cd5f3446caa4",
+            "id": "80f13b2b3c7d267f",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -64,7 +41,7 @@
             }
           },
           {
-            "id": "46c99b9f0d6c8cb2",
+            "id": "24fab5f896238bad",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -79,7 +56,7 @@
             }
           },
           {
-            "id": "f47f7e2ea1c47dba",
+            "id": "1981b6c0dd1cc309",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -93,15 +70,15 @@
     "width": 300
   },
   "right": {
-    "id": "96df6527eebb71b8",
+    "id": "3a3e539843d57379",
     "type": "split",
     "children": [
       {
-        "id": "e2d99d22982dd3ee",
+        "id": "7ca0e5d72009e14f",
         "type": "tabs",
         "children": [
           {
-            "id": "2451cb4365a9e536",
+            "id": "9b030f2115d584f6",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -118,7 +95,7 @@
             }
           },
           {
-            "id": "457854ec3ed2944b",
+            "id": "ce4c278c887b1f12",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -130,7 +107,7 @@
             }
           },
           {
-            "id": "7697ba7900973571",
+            "id": "87f252f5f2b962f8",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -141,7 +118,7 @@
             }
           },
           {
-            "id": "44f3d37f500ffefe",
+            "id": "1f55bacedb119a7f",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -168,20 +145,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9ac15cf2b5cbef7f",
+  "active": "b034c9893e9ef015",
   "lastOpenFiles": [
-    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
-    "PCB/Footprints/Footprints.md",
-    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
-    "Datasheets/MCU's/stm32f722rc.pdf",
     "Datasheets/MCU's/stm32g431rb.pdf",
-    "PCB/PCB Design/PCB Design.md",
-    "PCB/On pcb.md",
-    "Technisch correctie.md",
-    "Sampling Timer.md",
-    "Seminaries/BOM.pdf",
-    "Seminaries/criteria_en_stakeholder_analyse.pdf",
-    "Seminaries/SEAG.md",
-    "Seminaries/SEAG.pdf"
+    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
   ]
 }

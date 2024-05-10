@@ -44,16 +44,12 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1;
-DMA_HandleTypeDef hdma_adc1;
-
-DAC_HandleTypeDef hdac1;
-DMA_HandleTypeDef hdma_dac1_ch1;
-
 I2C_HandleTypeDef hi2c1;
 
 I2S_HandleTypeDef hi2s2;
 I2S_HandleTypeDef hi2s3;
+DMA_HandleTypeDef hdma_spi2_rx;
+DMA_HandleTypeDef hdma_spi3_tx;
 
 UART_HandleTypeDef hlpuart1;
 
@@ -65,8 +61,8 @@ TIM_HandleTypeDef htim6;
 SampleType adcBuf[AUDIO_BUFFER_SIZE];
 SampleType dacBuf[AUDIO_BUFFER_SIZE];
 
-static volatile uint16_t *inBufPointer;
-static volatile uint16_t *outBufPointer = &dacBuf[0];
+static volatile SampleType *inBufPointer;
+static volatile SampleType *outBufPointer = &dacBuf[0];
 
 uint8_t dataReadyFlag;
 /* USER CODE END PV */
@@ -76,8 +72,6 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_LPUART1_UART_Init(void);
-static void MX_ADC1_Init(void);
-static void MX_DAC1_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_I2S2_Init(void);
@@ -89,20 +83,20 @@ static void MX_I2S3_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void processBuffer(const uint16_t* input, uint16_t* output, size_t bufferLength) {
+void processBuffer(const SampleType* input, SampleType* output, size_t bufferLength) {
     for (int i = 0; i < bufferLength; i++) {
-        output[i] = input[i];
+        //output[i] = i;
         // output[i] = (uint16_t)(((float)(input[i])) / 4095.0f * 227.0f);
     }
 }
 
 //Called when first half of buffer is filled
-void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc){
+void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
 
 	inBufPointer = &adcBuf[0];
 	outBufPointer = &dacBuf[0];
 
-	processBuffer((uint16_t*)adcBuf, dacBuf, AUDIO_BUFFER_SIZE/2);
+	processBuffer(adcBuf, dacBuf, AUDIO_BUFFER_SIZE/2);
 
 	HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
 
@@ -110,12 +104,12 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc){
 
 }
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s){
 
 	inBufPointer = &adcBuf[AUDIO_BUFFER_SIZE/2];
 	outBufPointer = &dacBuf[AUDIO_BUFFER_SIZE/2];
 
-	processBuffer((uint16_t*)(adcBuf+AUDIO_BUFFER_SIZE/2), (uint16_t*)(dacBuf+AUDIO_BUFFER_SIZE/2), AUDIO_BUFFER_SIZE/2);
+	processBuffer((SampleType*)(adcBuf+AUDIO_BUFFER_SIZE/2), (SampleType*)(dacBuf+AUDIO_BUFFER_SIZE/2), AUDIO_BUFFER_SIZE/2);
 	HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
 
 	dataReadyFlag = 1;
@@ -157,23 +151,30 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_LPUART1_UART_Init();
-  MX_ADC1_Init();
-  MX_DAC1_Init();
   MX_TIM6_Init();
   MX_I2C1_Init();
   MX_I2S2_Init();
   MX_I2S3_Init();
   /* USER CODE BEGIN 2 */
 
+  //HAL_DMA_Start(&hdma_spi2_rx, (uint32_t)hi2s2.pRxBuffPtr, (uint32_t)adcBuf, AUDIO_BUFFER_SIZE);
+
+
   HAL_TIM_Base_Start(&htim6);
-  //HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
 
   InitDSP();
 
   CodecInit(&hi2c1);
 
-  //HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcBuf, AUDIO_BUFFER_SIZE);
-  //HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, (uint32_t*)dacBuf, AUDIO_BUFFER_SIZE, DAC_ALIGN_12B_R);
+  for(int i = 0; i < AUDIO_BUFFER_SIZE;i++){
+	  dacBuf[i] = i;
+  }
+
+  HAL_Delay(1);
+
+  HAL_I2S_Receive_DMA(&hi2s2, (uint16_t*)&adcBuf[0], AUDIO_BUFFER_SIZE);
+  HAL_I2S_Transmit_DMA(&hi2s3, (uint16_t*)&dacBuf[0], AUDIO_BUFFER_SIZE);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -193,7 +194,9 @@ int main(void)
 
       //HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 2048);
       //DAC1->DHR12R1 = dacOutput;
-	  HAL_I2S_Transmit(&hi2s2,  0x55, 2, HAL_MAX_DELAY);
+	  uint16_t data = 0x55;
+
+
 
       /*
       if(timerValue == 0){
@@ -264,121 +267,6 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief ADC1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ADC1_Init(void)
-{
-
-  /* USER CODE BEGIN ADC1_Init 0 */
-
-  /* USER CODE END ADC1_Init 0 */
-
-  ADC_MultiModeTypeDef multimode = {0};
-  ADC_ChannelConfTypeDef sConfig = {0};
-
-  /* USER CODE BEGIN ADC1_Init 1 */
-
-  /* USER CODE END ADC1_Init 1 */
-
-  /** Common config
-  */
-  hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV4;
-  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.GainCompensation = 0;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
-  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-  hadc1.Init.LowPowerAutoWait = DISABLE;
-  hadc1.Init.ContinuousConvMode = ENABLE;
-  hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T6_TRGO;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
-  hadc1.Init.DMAContinuousRequests = ENABLE;
-  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
-  hadc1.Init.OversamplingMode = DISABLE;
-  if (HAL_ADC_Init(&hadc1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure the ADC multi-mode
-  */
-  multimode.Mode = ADC_MODE_INDEPENDENT;
-  if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure Regular Channel
-  */
-  sConfig.Channel = ADC_CHANNEL_1;
-  sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
-  sConfig.SingleDiff = ADC_SINGLE_ENDED;
-  sConfig.OffsetNumber = ADC_OFFSET_NONE;
-  sConfig.Offset = 0;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN ADC1_Init 2 */
-
-  /* USER CODE END ADC1_Init 2 */
-
-}
-
-/**
-  * @brief DAC1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_DAC1_Init(void)
-{
-
-  /* USER CODE BEGIN DAC1_Init 0 */
-
-  /* USER CODE END DAC1_Init 0 */
-
-  DAC_ChannelConfTypeDef sConfig = {0};
-
-  /* USER CODE BEGIN DAC1_Init 1 */
-
-  /* USER CODE END DAC1_Init 1 */
-
-  /** DAC Initialization
-  */
-  hdac1.Instance = DAC1;
-  if (HAL_DAC_Init(&hdac1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** DAC channel OUT1 config
-  */
-  sConfig.DAC_HighFrequency = DAC_HIGH_FREQUENCY_INTERFACE_MODE_AUTOMATIC;
-  sConfig.DAC_DMADoubleDataMode = DISABLE;
-  sConfig.DAC_SignedFormat = DISABLE;
-  sConfig.DAC_SampleAndHold = DAC_SAMPLEANDHOLD_DISABLE;
-  sConfig.DAC_Trigger = DAC_TRIGGER_T6_TRGO;
-  sConfig.DAC_Trigger2 = DAC_TRIGGER_NONE;
-  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
-  sConfig.DAC_ConnectOnChipPeripheral = DAC_CHIPCONNECT_EXTERNAL;
-  sConfig.DAC_UserTrimming = DAC_TRIMMING_FACTORY;
-  if (HAL_DAC_ConfigChannel(&hdac1, &sConfig, DAC_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN DAC1_Init 2 */
-
-  /* USER CODE END DAC1_Init 2 */
-
-}
-
-/**
   * @brief I2C1 Initialization Function
   * @param None
   * @retval None
@@ -442,7 +330,7 @@ static void MX_I2S2_Init(void)
 
   /* USER CODE END I2S2_Init 1 */
   hi2s2.Instance = SPI2;
-  hi2s2.Init.Mode = I2S_MODE_MASTER_TX;
+  hi2s2.Init.Mode = I2S_MODE_MASTER_RX;
   hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s2.Init.DataFormat = I2S_DATAFORMAT_24B;
   hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
@@ -474,7 +362,7 @@ static void MX_I2S3_Init(void)
 
   /* USER CODE END I2S3_Init 1 */
   hi2s3.Instance = SPI3;
-  hi2s3.Init.Mode = I2S_MODE_SLAVE_RX;
+  hi2s3.Init.Mode = I2S_MODE_SLAVE_TX;
   hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s3.Init.DataFormat = I2S_DATAFORMAT_24B;
   hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
@@ -586,12 +474,12 @@ static void MX_DMA_Init(void)
   __HAL_RCC_DMA1_CLK_ENABLE();
 
   /* DMA interrupt init */
-  /* DMA1_Channel1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
-  /* DMA1_Channel2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
+  /* DMA1_Channel3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
+  /* DMA1_Channel4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
 
 }
 

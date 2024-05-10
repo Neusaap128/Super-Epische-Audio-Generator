@@ -52,6 +52,15 @@ DMA_HandleTypeDef hdma_spi2_rx;
 
 /* USER CODE BEGIN PV */
 
+ShiftRegister_t shiftRegFilterSelect = {
+	.clkPort 	 = ShiftRegFClk_GPIO_Port,
+	.clkPin   	 = ShiftRegFClk_Pin,
+	.dataPort 	 = ShiftRegFDat_GPIO_Port,
+	.dataPin  	 = ShiftRegFDat_Pin,
+	.enabledPort = ShiftRegFStoClk_GPIO_Port,
+	.enabledPin  = ShiftRegFStoClk_Pin
+};
+
 SampleType adcData[BUFFER_SIZE];
 SampleType dacData[BUFFER_SIZE];
 
@@ -140,8 +149,10 @@ int main(void)
 
   CodecInit(&hi2c1);
 
-  HAL_StatusTypeDef status =	HAL_I2S_Transmit_DMA(&hi2s2, (uint16_t*)dacData, BUFFER_SIZE);
-  								HAL_I2S_Receive_DMA(&hi2s2, (uint16_t*)adcData, BUFFER_SIZE);
+  //HAL_StatusTypeDef status =	HAL_I2S_Transmit_DMA(&hi2s2, (uint16_t*)dacData, BUFFER_SIZE);
+  //								HAL_I2S_Receive_DMA(&hi2s2, (uint16_t*)adcData, BUFFER_SIZE);
+
+
 
   /* USER CODE END 2 */
 
@@ -149,6 +160,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+
+	  LoadValueIntoShiftRegister(&shiftRegFilterSelect, 0b00000001);
+	  HAL_Delay(1000);
+	  LoadValueIntoShiftRegister(&shiftRegFilterSelect, 0b00000010);
+	  HAL_Delay(1000);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -382,13 +400,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, ShiftRegFDat_Pin|ShiftRegFClk_Pin|ShiftRegFStoClk_Pin|ShiftRegLBarDat_Pin
-                          |ShiftRegLBarClk_Pin|ShiftRegLBarStoClk_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, ShiftRegFDat_Pin|ShiftRegFStoClk_Pin|ShiftRegFClk_Pin|ShiftRegLBarDat_Pin
+                          |ShiftRegLBarStoClk_Pin|ShiftRegLBarClk_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : ShiftRegFDat_Pin ShiftRegFClk_Pin ShiftRegFStoClk_Pin ShiftRegLBarDat_Pin
-                           ShiftRegLBarClk_Pin ShiftRegLBarStoClk_Pin */
-  GPIO_InitStruct.Pin = ShiftRegFDat_Pin|ShiftRegFClk_Pin|ShiftRegFStoClk_Pin|ShiftRegLBarDat_Pin
-                          |ShiftRegLBarClk_Pin|ShiftRegLBarStoClk_Pin;
+  /*Configure GPIO pins : ShiftRegFDat_Pin ShiftRegFStoClk_Pin ShiftRegFClk_Pin ShiftRegLBarDat_Pin
+                           ShiftRegLBarStoClk_Pin ShiftRegLBarClk_Pin */
+  GPIO_InitStruct.Pin = ShiftRegFDat_Pin|ShiftRegFStoClk_Pin|ShiftRegFClk_Pin|ShiftRegLBarDat_Pin
+                          |ShiftRegLBarStoClk_Pin|ShiftRegLBarClk_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

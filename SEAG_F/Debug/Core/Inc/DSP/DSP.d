@@ -33,8 +33,7 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h \
  ../Core/Inc/DSP/../Codec/CodecDriver.h ../Core/Inc/DSP/../DSP/DSP.h \
- ../Core/Inc/DSP/../IO/IO.h ../Core/Inc/main.h \
- ../Core/Inc/DSP/../IO/ShiftRegister.h ../Core/Inc/DSP/../IO/../DSP/DSP.h
+ ../Core/Inc/DSP/../IO/ShiftRegister.h ../Core/Inc/main.h
 ../Core/Inc/DSP/DSP.h:
 ../Core/Inc/DSP/../Filters/Reverb.h:
 ../Core/Inc/DSP/../Filters/CombFeedforward.h:
@@ -72,7 +71,5 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h:
 ../Core/Inc/DSP/../Codec/CodecDriver.h:
 ../Core/Inc/DSP/../DSP/DSP.h:
-../Core/Inc/DSP/../IO/IO.h:
-../Core/Inc/main.h:
 ../Core/Inc/DSP/../IO/ShiftRegister.h:
-../Core/Inc/DSP/../IO/../DSP/DSP.h:
+../Core/Inc/main.h:

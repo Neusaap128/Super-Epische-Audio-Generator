@@ -8,6 +8,7 @@
 #include "IO.h"
 #include "RotaryEncoder.h"
 
+/*
 ShiftRegister_t shiftRegFilterSelect = {
 	.clkPort 	 = ShiftRegFClk_GPIO_Port,
 	.clkPin   	 = ShiftRegFClk_Pin,
@@ -16,6 +17,7 @@ ShiftRegister_t shiftRegFilterSelect = {
 	.enabledPort = ShiftRegFStoClk_GPIO_Port,
 	.enabledPin  = ShiftRegFStoClk_Pin
 };
+*/
 
 
 ShiftRegister_t shiftRegLedbar = {
@@ -42,7 +44,7 @@ IOState_t IOState;
 uint8_t HandleSelectingFilter(){
 
 	uint8_t filter = (uint16_t)(rotaryEncoder.currentPos/4) & AMOUNT_OF_FILTERS;
-	LoadValueIntoShiftRegister(&shiftRegFilterSelect,  1 << (7-filter));
+	//LoadValueIntoShiftRegister(&shiftRegFilterSelect,  1 << (7-filter));
 	return filter;
 
 }

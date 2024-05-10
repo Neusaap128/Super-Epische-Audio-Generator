@@ -32,7 +32,7 @@ Core/Inc/IO/IO.o: ../Core/Inc/IO/IO.c ../Core/Inc/IO/IO.h \
  ../Core/Inc/DSP/../Filters/FilterUtility.h \
  ../Core/Inc/DSP/../Filters/AllPass.h \
  ../Core/Inc/DSP/../Filters/../DSP/DSP.h \
- ../Core/Inc/DSP/../Filters/CombFeedback.h ../Core/Inc/IO/IO.h \
+ ../Core/Inc/DSP/../Filters/CombFeedback.h ../Core/Inc/IO/ShiftRegister.h \
  ../Core/Inc/IO/ShiftRegister.h ../Core/Inc/IO/../DSP/DSP.h \
  ../Core/Inc/IO/RotaryEncoder.h
 ../Core/Inc/IO/IO.h:
@@ -72,7 +72,7 @@ Core/Inc/IO/IO.o: ../Core/Inc/IO/IO.c ../Core/Inc/IO/IO.h \
 ../Core/Inc/DSP/../Filters/AllPass.h:
 ../Core/Inc/DSP/../Filters/../DSP/DSP.h:
 ../Core/Inc/DSP/../Filters/CombFeedback.h:
-../Core/Inc/IO/IO.h:
+../Core/Inc/IO/ShiftRegister.h:
 ../Core/Inc/IO/ShiftRegister.h:
 ../Core/Inc/IO/../DSP/DSP.h:
 ../Core/Inc/IO/RotaryEncoder.h:

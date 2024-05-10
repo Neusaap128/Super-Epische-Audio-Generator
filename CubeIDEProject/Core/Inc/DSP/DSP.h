@@ -17,14 +17,14 @@
 #include <stdlib.h>
 #include "../Filters/MovingAverage.h"
 
-typedef uint16_t SampleType;
+typedef uint32_t SampleType;
 
 extern const int N;
 extern const int samplingRate;
 
 void InitDSP();
 void AppendSample(SampleType sample);
-void TimerCallback(ADC_HandleTypeDef* hadc1, UART_HandleTypeDef* hlpuart1, DAC_HandleTypeDef* hdac1);
+//void TimerCallback(ADC_HandleTypeDef* hadc1, UART_HandleTypeDef* hlpuart1, DAC_HandleTypeDef* hdac1);
 void ApplyFilters();
 
 

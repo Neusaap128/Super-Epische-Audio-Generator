@@ -34,7 +34,8 @@ extern "C" {
 
 #include "Codec/CodecDriver.h"
 #include "DSP/DSP.h"
-#include "IO/IO.h"
+//#include "IO/IO.h"
+#include "IO/ShiftRegister.h"
 
 /* USER CODE END Includes */
 
@@ -63,16 +64,16 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define ShiftRegFDat_Pin GPIO_PIN_13
 #define ShiftRegFDat_GPIO_Port GPIOC
-#define ShiftRegFClk_Pin GPIO_PIN_14
-#define ShiftRegFClk_GPIO_Port GPIOC
-#define ShiftRegFStoClk_Pin GPIO_PIN_15
+#define ShiftRegFStoClk_Pin GPIO_PIN_14
 #define ShiftRegFStoClk_GPIO_Port GPIOC
+#define ShiftRegFClk_Pin GPIO_PIN_15
+#define ShiftRegFClk_GPIO_Port GPIOC
 #define ShiftRegLBarDat_Pin GPIO_PIN_0
 #define ShiftRegLBarDat_GPIO_Port GPIOC
-#define ShiftRegLBarClk_Pin GPIO_PIN_2
-#define ShiftRegLBarClk_GPIO_Port GPIOC
-#define ShiftRegLBarStoClk_Pin GPIO_PIN_3
+#define ShiftRegLBarStoClk_Pin GPIO_PIN_2
 #define ShiftRegLBarStoClk_GPIO_Port GPIOC
+#define ShiftRegLBarClk_Pin GPIO_PIN_3
+#define ShiftRegLBarClk_GPIO_Port GPIOC
 #define RotEncoderInA_Pin GPIO_PIN_6
 #define RotEncoderInA_GPIO_Port GPIOC
 #define RotEncoderInB_Pin GPIO_PIN_7
