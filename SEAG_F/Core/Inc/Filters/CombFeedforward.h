@@ -13,14 +13,14 @@ typedef struct{
     //y[n] = b_0x[n] + b_Mx[n-M]
 
     int M;
-    int16_t *inputSamples; // [0] is most recent sample, [n-1] is n samples ago. so index is backwards
+    int32_t *inputSamples; // [0] is most recent sample, [n-1] is n samples ago. so index is backwards
 
     // No need for saving output sample
 
 }CombFeedforward;
 
 CombFeedforward* initializeCombFeedforward(uint32_t sampleRate, float delayS);
-int16_t combFeedforwardAppendSample(CombFeedforward *filter, int16_t newSample);
+int32_t combFeedforwardAppendSample(CombFeedforward *filter, int32_t newSample);
 
 
 #endif // COMB_FEED_FORWARD_H

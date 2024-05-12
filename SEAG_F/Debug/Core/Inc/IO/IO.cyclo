@@ -1,5 +1,6 @@
-../Core/Inc/IO/IO.c:44:9:HandleSelectingFilter	1
-../Core/Inc/IO/IO.c:53:6:ButtonInterrupt	1
-../Core/Inc/IO/IO.c:62:6:RotaryEncoderInterrupt	1
-../Core/Inc/IO/IO.c:66:6:HandleSelectingValue	1
-../Core/Inc/IO/IO.c:76:10:main_call	4
+../Core/Inc/IO/IO.c:52:6:InitIO	1
+../Core/Inc/IO/IO.c:57:6:HandleSelectingFilter	1
+../Core/Inc/IO/IO.c:64:6:HandleSelectingValue	1
+../Core/Inc/IO/IO.c:73:6:ButtonInterrupt	1
+../Core/Inc/IO/IO.c:84:6:RotaryEncoderInterrupt	1
+../Core/Inc/IO/IO.c:89:6:IOUpdate	9

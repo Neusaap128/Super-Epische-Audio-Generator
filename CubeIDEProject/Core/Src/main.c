@@ -46,10 +46,8 @@
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
-I2S_HandleTypeDef hi2s2;
 I2S_HandleTypeDef hi2s3;
-DMA_HandleTypeDef hdma_spi2_rx;
-DMA_HandleTypeDef hdma_spi3_tx;
+DMA_HandleTypeDef hdma_spi3_rx;
 
 UART_HandleTypeDef hlpuart1;
 
@@ -74,7 +72,6 @@ static void MX_DMA_Init(void);
 static void MX_LPUART1_UART_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_I2C1_Init(void);
-static void MX_I2S2_Init(void);
 static void MX_I2S3_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -98,7 +95,7 @@ void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
 
 	processBuffer(adcBuf, dacBuf, AUDIO_BUFFER_SIZE/2);
 
-	HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
+	//HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
 
 	dataReadyFlag = 1;
 
@@ -109,8 +106,8 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s){
 	inBufPointer = &adcBuf[AUDIO_BUFFER_SIZE/2];
 	outBufPointer = &dacBuf[AUDIO_BUFFER_SIZE/2];
 
-	processBuffer((SampleType*)(adcBuf+AUDIO_BUFFER_SIZE/2), (SampleType*)(dacBuf+AUDIO_BUFFER_SIZE/2), AUDIO_BUFFER_SIZE/2);
-	HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
+	//processBuffer((SampleType*)(adcBuf+AUDIO_BUFFER_SIZE/2), (SampleType*)(dacBuf+AUDIO_BUFFER_SIZE/2), AUDIO_BUFFER_SIZE/2);
+	//HAL_GPIO_TogglePin(SampleFreqOutClk_GPIO_Port, SampleFreqOutClk_Pin);
 
 	dataReadyFlag = 1;
 }
@@ -153,11 +150,9 @@ int main(void)
   MX_LPUART1_UART_Init();
   MX_TIM6_Init();
   MX_I2C1_Init();
-  MX_I2S2_Init();
   MX_I2S3_Init();
   /* USER CODE BEGIN 2 */
 
-  //HAL_DMA_Start(&hdma_spi2_rx, (uint32_t)hi2s2.pRxBuffPtr, (uint32_t)adcBuf, AUDIO_BUFFER_SIZE);
 
 
   HAL_TIM_Base_Start(&htim6);
@@ -172,8 +167,8 @@ int main(void)
 
   HAL_Delay(1);
 
-  HAL_I2S_Receive_DMA(&hi2s2, (uint16_t*)&adcBuf[0], AUDIO_BUFFER_SIZE);
-  HAL_I2S_Transmit_DMA(&hi2s3, (uint16_t*)&dacBuf[0], AUDIO_BUFFER_SIZE);
+  HAL_I2S_Receive_DMA(&hi2s3, (uint16_t*)&adcBuf[0], AUDIO_BUFFER_SIZE/2);
+  //HAL_I2S_Transmit_DMA(&hi2s3, (uint16_t*)&dacBuf[0], AUDIO_BUFFER_SIZE);
 
   /* USER CODE END 2 */
 
@@ -194,7 +189,7 @@ int main(void)
 
       //HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 2048);
       //DAC1->DHR12R1 = dacOutput;
-	  uint16_t data = 0x55;
+	  //uint16_t data = 0x55;
 
 
 
@@ -315,38 +310,6 @@ static void MX_I2C1_Init(void)
 }
 
 /**
-  * @brief I2S2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_I2S2_Init(void)
-{
-
-  /* USER CODE BEGIN I2S2_Init 0 */
-
-  /* USER CODE END I2S2_Init 0 */
-
-  /* USER CODE BEGIN I2S2_Init 1 */
-
-  /* USER CODE END I2S2_Init 1 */
-  hi2s2.Instance = SPI2;
-  hi2s2.Init.Mode = I2S_MODE_MASTER_RX;
-  hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
-  hi2s2.Init.DataFormat = I2S_DATAFORMAT_24B;
-  hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
-  hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_44K;
-  hi2s2.Init.CPOL = I2S_CPOL_LOW;
-  if (HAL_I2S_Init(&hi2s2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN I2S2_Init 2 */
-
-  /* USER CODE END I2S2_Init 2 */
-
-}
-
-/**
   * @brief I2S3 Initialization Function
   * @param None
   * @retval None
@@ -362,7 +325,7 @@ static void MX_I2S3_Init(void)
 
   /* USER CODE END I2S3_Init 1 */
   hi2s3.Instance = SPI3;
-  hi2s3.Init.Mode = I2S_MODE_SLAVE_TX;
+  hi2s3.Init.Mode = I2S_MODE_MASTER_RX;
   hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s3.Init.DataFormat = I2S_DATAFORMAT_24B;
   hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
@@ -474,12 +437,9 @@ static void MX_DMA_Init(void)
   __HAL_RCC_DMA1_CLK_ENABLE();
 
   /* DMA interrupt init */
-  /* DMA1_Channel3_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
-  /* DMA1_Channel4_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
+  /* DMA1_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
 
 }
 

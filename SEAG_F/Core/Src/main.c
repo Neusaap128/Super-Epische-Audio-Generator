@@ -32,8 +32,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define BUFFER_SIZE 128
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -52,23 +50,6 @@ DMA_HandleTypeDef hdma_spi2_rx;
 
 /* USER CODE BEGIN PV */
 
-ShiftRegister_t shiftRegFilterSelect = {
-	.clkPort 	 = ShiftRegFClk_GPIO_Port,
-	.clkPin   	 = ShiftRegFClk_Pin,
-	.dataPort 	 = ShiftRegFDat_GPIO_Port,
-	.dataPin  	 = ShiftRegFDat_Pin,
-	.enabledPort = ShiftRegFStoClk_GPIO_Port,
-	.enabledPin  = ShiftRegFStoClk_Pin
-};
-
-SampleType adcData[BUFFER_SIZE];
-SampleType dacData[BUFFER_SIZE];
-
-static volatile SampleType* adcBufPtr;
-static volatile SampleType* dacBufPtr = &dacData[0];
-
-uint8_t dataReadyFlag;
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -76,8 +57,8 @@ void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
-static void MX_I2S1_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_I2S1_Init(void);
 static void MX_I2S2_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -86,27 +67,8 @@ static void MX_I2S2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-uint32_t currentMillis;
 uint32_t previousMillis;
 
-void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
-
-	adcBufPtr = &adcData[0];
-	dacBufPtr = &dacData[0];
-
-	dataReadyFlag = 1;
-
-}
-
-void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s){
-
-	adcBufPtr = &adcData[BUFFER_SIZE/2];
-	dacBufPtr = &dacData[BUFFER_SIZE/2];
-
-
-	dataReadyFlag = 1;
-
-}
 
 /* USER CODE END 0 */
 
@@ -123,7 +85,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -142,17 +104,15 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_I2S1_Init();
   MX_I2C1_Init();
+  MX_I2S1_Init();
   MX_I2S2_Init();
   /* USER CODE BEGIN 2 */
 
+  InitIO();
   CodecInit(&hi2c1);
 
-  //HAL_StatusTypeDef status =	HAL_I2S_Transmit_DMA(&hi2s2, (uint16_t*)dacData, BUFFER_SIZE);
-  //								HAL_I2S_Receive_DMA(&hi2s2, (uint16_t*)adcData, BUFFER_SIZE);
-
-
+  InitDSP(44117, &hi2s1, &hi2s2); //44117 is in IOC file
 
   /* USER CODE END 2 */
 
@@ -161,15 +121,14 @@ int main(void)
   while (1)
   {
 
-
-	  LoadValueIntoShiftRegister(&shiftRegFilterSelect, 0b00000001);
-	  HAL_Delay(1000);
-	  LoadValueIntoShiftRegister(&shiftRegFilterSelect, 0b00000010);
-	  HAL_Delay(1000);
+	IOUpdate();
+	DSPUpdate();
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+
   }
   /* USER CODE END 3 */
 }
@@ -412,17 +371,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : RotEncoderInA_Pin RotEncoderInB_Pin */
-  GPIO_InitStruct.Pin = RotEncoderInA_Pin|RotEncoderInB_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  /*Configure GPIO pins : RotEncoderInA_Pin RotEncoderButton_Pin */
+  GPIO_InitStruct.Pin = RotEncoderInA_Pin|RotEncoderButton_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : RotEncoderButton_Pin */
-  GPIO_InitStruct.Pin = RotEncoderButton_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  /*Configure GPIO pin : RotEncoderInB_Pin */
+  GPIO_InitStruct.Pin = RotEncoderInB_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(RotEncoderButton_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(RotEncoderInB_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ToggleInput4_Pin ToggleInput3_Pin ToggleInput2_Pin ToggleInput1_Pin
                            ToggleInput8_Pin */
@@ -438,6 +397,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
@@ -447,11 +410,11 @@ static void MX_GPIO_Init(void)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
   /* Prevent unused argument(s) compilation warning */
-  currentMillis = HAL_GetTick();
+  uint32_t currentMillis = HAL_GetTick();
   UNUSED(GPIO_Pin);
 
 
-  if(GPIO_Pin == RotEncoderButton_Pin && (currentMillis - previousMillis > 10)){
+  if(GPIO_Pin == RotEncoderButton_Pin && (currentMillis - previousMillis > 100)){
 	  ButtonInterrupt(currentMillis);
   }
 

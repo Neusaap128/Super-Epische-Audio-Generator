@@ -24,7 +24,7 @@ typedef struct{
 }Reverb;
 
 Reverb* initializeReverb(uint32_t sampleRate, uint8_t amountOfCombFilters, float *delayCombS, uint8_t amountOfAllPassFilters, float *delayAllS);
-int16_t reverbAppendSample(Reverb* reverb, int16_t newSample);
+int32_t reverbAppendSample(Reverb* reverb, int32_t newSample);
 
 
 #endif //REVERB_H

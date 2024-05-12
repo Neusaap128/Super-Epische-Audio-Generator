@@ -21,15 +21,17 @@ typedef enum{
 }IOState_t;
 
 
+void InitIO();
+
 // Registers
-uint8_t HandleSelectingFilter();
+void HandleSelectingFilter();
 void HandleSelectingValue();
 
 // Rotary Encoder
 void ButtonInterrupt(uint32_t time);
 void RotaryEncoderInterrupt();
 
-uint16_t main_call();
+void IOUpdate();
 
 
 #endif /* INC_IO_IO_H_ */

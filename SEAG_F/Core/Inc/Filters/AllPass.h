@@ -20,6 +20,6 @@ typedef struct{
 
 
 AllPass* initializeAllPass(uint32_t sampleRate, float delayS);
-uint16_t allPassAppendSample(AllPass* filter, uint16_t newSample);
+int32_t allPassAppendSample(AllPass* filter, int32_t newSample);
 
 #endif //ALL_PASS_H

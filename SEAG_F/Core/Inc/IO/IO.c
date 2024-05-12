@@ -8,7 +8,7 @@
 #include "IO.h"
 #include "RotaryEncoder.h"
 
-/*
+
 ShiftRegister_t shiftRegFilterSelect = {
 	.clkPort 	 = ShiftRegFClk_GPIO_Port,
 	.clkPin   	 = ShiftRegFClk_Pin,
@@ -17,7 +17,6 @@ ShiftRegister_t shiftRegFilterSelect = {
 	.enabledPort = ShiftRegFStoClk_GPIO_Port,
 	.enabledPin  = ShiftRegFStoClk_Pin
 };
-*/
 
 
 ShiftRegister_t shiftRegLedbar = {
@@ -39,22 +38,45 @@ RotaryEncoder_t rotaryEncoder = {
 	.pinButton  = RotEncoderButton_Pin
 };
 
+
 IOState_t IOState;
 
-uint8_t HandleSelectingFilter(){
+uint8_t selectedFilter;
 
-	uint8_t filter = (uint16_t)(rotaryEncoder.currentPos/4) & AMOUNT_OF_FILTERS;
-	//LoadValueIntoShiftRegister(&shiftRegFilterSelect,  1 << (7-filter));
-	return filter;
+// 0 no state transition
+// 1, SelectingValue -> Disabled
+// 2, Disabled -> SelectingFilter
+// 3, SelectingFilter -> SelectingValue
+uint8_t switchedStateFlag;
+
+void InitIO(){
+	LoadValueIntoShiftRegister(&shiftRegFilterSelect, GetEnabledFilters());
+	ResetShiftRegister(&shiftRegLedbar);
+}
+
+void HandleSelectingFilter(){
+
+	selectedFilter = (uint16_t)(rotaryEncoder.currentPos/4) % AMOUNT_OF_FILTERS;
+	LoadValueIntoShiftRegister(&shiftRegFilterSelect, 1 << selectedFilter);
 
 }
 
+void HandleSelectingValue(){
+
+	uint8_t led_bar = (rotaryEncoder.currentPos/4);
+	uint8_t ledbar_array = (1 << led_bar) - 1;
+
+	LoadValueIntoShiftRegister(&shiftRegLedbar, ledbar_array);
+
+}
 
 void ButtonInterrupt(uint32_t time){
 
 	IOState = (IOState + 1)%3;
 
 	rotaryEncoder.currentPos = 0;
+
+	switchedStateFlag = IOState + 1;
 
 
 }
@@ -63,47 +85,44 @@ void RotaryEncoderInterrupt(){
 	rot_intrupt(&rotaryEncoder);
 }
 
-void HandleSelectingValue(){
 
+void IOUpdate(){
 
-	uint8_t led_bar = (rotaryEncoder.currentPos/4)/8;
-	uint8_t ledbar_array = (1 << led_bar) - 1;
+	//Handling Transistions
+	if(switchedStateFlag > 0){
 
-	LoadValueIntoShiftRegister(&shiftRegLedbar, ledbar_array);
+		switch(switchedStateFlag){
+			case 1:
+				LoadValueIntoShiftRegister(&shiftRegFilterSelect, GetEnabledFilters());
+				ResetShiftRegister(&shiftRegLedbar);
+				break;
+			case 2:
+				// Nothing needs to be reset
+				break;
+			case 3:
+				// Nothing needs to be reset
+				rotaryEncoder.currentPos = 4; // At least one led on, at start
+				break;
+		}
 
-}
+		switchedStateFlag = 0;
 
-uint16_t main_call(){
-	uint16_t filter = 0;
-	//uint8_t ledbar_array = 0;
-	//uint8_t filter_led_array = 0;
+	}
 
-	//HAL_ADC_Start(&hadc1);
-	//HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	//raw = HAL_ADC_GetValue(&hadc1);
-	//case voor de druk knoppen
-
+	//Handling states
 	switch (IOState) {
 	    case Disabled:
 	    	break;
 	    case SelectingFilter:
+	    	HandleSelectingFilter();
 	    	break;
 	    case SelectingValue:
 	    	HandleSelectingValue();
 	    	break;
 	  }
 
-	//ResetShiftRegister(&filterSelectShiftReg);
 
-	//ResetShiftRegister(&filter_led_array);
-	//ResetShiftRegister(&ledbar_array);
 
-	//filter_led(&filter_led_array, pressed, filter);
-	//array_in_shift(Shift_Enable_GPIO_Port,Shift_input_GPIO_Port,Shift_klok_GPIO_Port, Shift_Enable_Pin,Shift_input_Pin,Shift_klok_Pin,ledbar_array);
-	//array_in_shift(Shift2_Enable_GPIO_Port,Shift2_input_GPIO_Port,Shift2_klok_GPIO_Port, Shift2_Enable_Pin,Shift2_input_Pin,Shift2_klok_Pin,filter_led_array);
-	//ResetShiftRegister(&filter_led_array);
-	//ResetShiftRegister(&ledbar_array);
-	return filter;
 }
 
 

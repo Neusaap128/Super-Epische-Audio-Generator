@@ -32,10 +32,12 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#define _USE_MATH_DEFINES
+#include <math.h>
 #include "Codec/CodecDriver.h"
 #include "DSP/DSP.h"
-//#include "IO/IO.h"
-#include "IO/ShiftRegister.h"
+#include "IO/IO.h"
+
 
 /* USER CODE END Includes */
 
@@ -76,10 +78,13 @@ void Error_Handler(void);
 #define ShiftRegLBarClk_GPIO_Port GPIOC
 #define RotEncoderInA_Pin GPIO_PIN_6
 #define RotEncoderInA_GPIO_Port GPIOC
+#define RotEncoderInA_EXTI_IRQn EXTI9_5_IRQn
 #define RotEncoderInB_Pin GPIO_PIN_7
 #define RotEncoderInB_GPIO_Port GPIOC
+#define RotEncoderInB_EXTI_IRQn EXTI9_5_IRQn
 #define RotEncoderButton_Pin GPIO_PIN_8
 #define RotEncoderButton_GPIO_Port GPIOC
+#define RotEncoderButton_EXTI_IRQn EXTI9_5_IRQn
 #define ToggleInput4_Pin GPIO_PIN_9
 #define ToggleInput4_GPIO_Port GPIOA
 #define ToggleInput3_Pin GPIO_PIN_10
