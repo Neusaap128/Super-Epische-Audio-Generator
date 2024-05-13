@@ -27,14 +27,15 @@ Core/Inc/IO/IO.o: ../Core/Inc/IO/IO.c ../Core/Inc/IO/IO.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h \
  ../Core/Inc/Codec/CodecDriver.h ../Core/Inc/DSP/DSP.h \
+ ../Core/Inc/DSP/../Common.h ../Core/Inc/DSP/../Filters/Filters.h \
+ ../Core/Inc/DSP/../Filters/../Common.h \
  ../Core/Inc/DSP/../Filters/Reverb.h \
  ../Core/Inc/DSP/../Filters/CombFeedforward.h \
  ../Core/Inc/DSP/../Filters/FilterUtility.h \
  ../Core/Inc/DSP/../Filters/AllPass.h \
- ../Core/Inc/DSP/../Filters/../DSP/DSP.h \
  ../Core/Inc/DSP/../Filters/CombFeedback.h ../Core/Inc/DSP/../main.h \
  ../Core/Inc/IO/IO.h ../Core/Inc/IO/ShiftRegister.h \
- ../Core/Inc/IO/../DSP/DSP.h ../Core/Inc/IO/RotaryEncoder.h
+ ../Core/Inc/IO/../Common.h ../Core/Inc/IO/RotaryEncoder.h
 ../Core/Inc/IO/IO.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -66,14 +67,16 @@ Core/Inc/IO/IO.o: ../Core/Inc/IO/IO.c ../Core/Inc/IO/IO.h \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h:
 ../Core/Inc/Codec/CodecDriver.h:
 ../Core/Inc/DSP/DSP.h:
+../Core/Inc/DSP/../Common.h:
+../Core/Inc/DSP/../Filters/Filters.h:
+../Core/Inc/DSP/../Filters/../Common.h:
 ../Core/Inc/DSP/../Filters/Reverb.h:
 ../Core/Inc/DSP/../Filters/CombFeedforward.h:
 ../Core/Inc/DSP/../Filters/FilterUtility.h:
 ../Core/Inc/DSP/../Filters/AllPass.h:
-../Core/Inc/DSP/../Filters/../DSP/DSP.h:
 ../Core/Inc/DSP/../Filters/CombFeedback.h:
 ../Core/Inc/DSP/../main.h:
 ../Core/Inc/IO/IO.h:
 ../Core/Inc/IO/ShiftRegister.h:
-../Core/Inc/IO/../DSP/DSP.h:
+../Core/Inc/IO/../Common.h:
 ../Core/Inc/IO/RotaryEncoder.h:

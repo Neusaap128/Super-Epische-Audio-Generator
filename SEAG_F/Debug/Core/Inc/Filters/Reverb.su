@@ -1,2 +1,2 @@
 ../Core/Inc/Filters/Reverb.c:5:9:initializeReverb	48	static
-../Core/Inc/Filters/Reverb.c:32:9:reverbAppendSample	32	static
+../Core/Inc/Filters/Reverb.c:32:12:reverbAppendSample	32	static

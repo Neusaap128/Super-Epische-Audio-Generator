@@ -15,11 +15,11 @@ AllPass* initializeAllPass(uint32_t sampleRate, float delayS){
 
 }
 
-int32_t allPassAppendSample(AllPass* filter, int32_t newSample){
+SampleType allPassAppendSample(AllPass* filter, SampleType newSample){
 
-	int32_t feedForwardOutput = combFeedforwardAppendSample(filter->combFeedforward, newSample);
+	SampleType feedForwardOutput = combFeedforwardAppendSample(filter->combFeedforward, newSample);
 
-	int32_t output = combFeedbackAppendSample(filter->combFeedback, feedForwardOutput);
+	SampleType output = combFeedbackAppendSample(filter->combFeedback, feedForwardOutput);
 
     return output;
 

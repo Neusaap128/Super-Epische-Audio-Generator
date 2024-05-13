@@ -3,9 +3,11 @@
 #include <stdint.h>
 #include <stdio.h>
 
+#include "../Common.h"
+
 #ifndef FILTER_UTLITY_H
 #define FILTER_UTILITY_H
 
-void shiftBuffer(int32_t *buffer, uint32_t bufferSize, int32_t newValue);
+void shiftBuffer(SampleType *buffer, uint32_t bufferSize, SampleType newValue);
 
 #endif //FILTER_UTILITY_H

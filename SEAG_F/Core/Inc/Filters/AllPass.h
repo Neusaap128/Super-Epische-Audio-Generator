@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
-#include "../DSP/DSP.h"
+#include "../Common.h"
 #include "CombFeedforward.h"
 #include "CombFeedback.h"
 
@@ -20,6 +20,6 @@ typedef struct{
 
 
 AllPass* initializeAllPass(uint32_t sampleRate, float delayS);
-int32_t allPassAppendSample(AllPass* filter, int32_t newSample);
+SampleType allPassAppendSample(AllPass* filter, SampleType newSample);
 
 #endif //ALL_PASS_H

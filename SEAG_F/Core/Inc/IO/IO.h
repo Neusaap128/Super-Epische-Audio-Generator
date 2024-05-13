@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include "main.h"
 #include "ShiftRegister.h"
-#include "../DSP/DSP.h"
+#include "../Common.h"
 
 
 typedef enum{

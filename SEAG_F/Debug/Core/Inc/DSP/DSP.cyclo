@@ -1,7 +1,6 @@
-../Core/Inc/DSP/DSP.c:31:6:InitDSP	1
-../Core/Inc/DSP/DSP.c:45:6:DSPUpdate	3
-../Core/Inc/DSP/DSP.c:59:12:AppendSample	1
-../Core/Inc/DSP/DSP.c:67:6:SetFilterState	2
-../Core/Inc/DSP/DSP.c:75:9:GetEnabledFilters	1
-../Core/Inc/DSP/DSP.c:81:6:HAL_I2S_RxHalfCpltCallback	1
-../Core/Inc/DSP/DSP.c:91:6:HAL_I2S_RxCpltCallback	1
+../Core/Inc/DSP/DSP.c:32:6:InitDSP	1
+../Core/Inc/DSP/DSP.c:46:6:DSPUpdate	3
+../Core/Inc/DSP/DSP.c:61:6:SetFilterState	3
+../Core/Inc/DSP/DSP.c:73:9:GetEnabledFilters	1
+../Core/Inc/DSP/DSP.c:78:6:HAL_I2S_RxHalfCpltCallback	1
+../Core/Inc/DSP/DSP.c:87:6:HAL_I2S_RxCpltCallback	1

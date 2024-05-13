@@ -5,6 +5,7 @@
 "./Core/Inc/Filters/CombFeedback.o"
 "./Core/Inc/Filters/CombFeedforward.o"
 "./Core/Inc/Filters/FilterUtility.o"
+"./Core/Inc/Filters/Filters.o"
 "./Core/Inc/Filters/Reverb.o"
 "./Core/Inc/IO/IO.o"
 "./Core/Inc/IO/RotaryEncoder.o"
