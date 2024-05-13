@@ -32,10 +32,6 @@ void InitDSP(uint32_t sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeD
 
 	//Init I²S
 
-	for(int i = 0; i < BUFFER_SIZE; i++){
-		outputData[i] = i+1;
-	}
-
 	HAL_I2S_Receive_DMA(hi2s2, (uint16_t*)&inputData[0], BUFFER_SIZE/2);
 	HAL_I2S_Transmit_DMA(hi2s1, (uint16_t*)&outputData[0], BUFFER_SIZE/2);
 
@@ -86,7 +82,6 @@ void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
 
 	inputBufPtr = &inputData[0];
 	outputBufPtr = &outputData[0];
-
 
 	dataReadyFlag = 1;
 
