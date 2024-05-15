@@ -13,17 +13,7 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
-              }
-            }
-          },
-          {
-            "id": "e9e4523235541a44",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "Datasheets/Audio Filtering/WM8960_v4.2.pdf"
               }
             }
           }
@@ -93,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "Datasheets/Audio Filtering/WM8960_v4.2.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "Datasheets/Audio Filtering/WM8960_v4.2.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "Datasheets/Audio Filtering/WM8960_v4.2.pdf"
               }
             }
           }
@@ -157,10 +147,10 @@
   },
   "active": "b034c9893e9ef015",
   "lastOpenFiles": [
+    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
     "Datasheets/Audio Filtering/WM8960_v4.2.pdf",
     "Datasheets/MCU's/stm32f722 reference manual.pdf",
     "Datasheets/MCU's/stm32f722rc.pdf",
-    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
     "Datasheets/MCU's/stm32g431rb.pdf"
   ]
 }

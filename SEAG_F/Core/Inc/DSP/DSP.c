@@ -10,7 +10,6 @@
 #include "../main.h"
 
 
-
 // --- I²S ---
 
 #define BUFFER_SIZE 128
@@ -48,7 +47,13 @@ void DSPUpdate(){
 	if(dataReadyFlag){
 
 		for(uint8_t i = 0; i < BUFFER_SIZE/2; i++){
-			*(outputBufPtr+i) = appendSample(filters, *(inputBufPtr+i) );
+			if(i % 2 == 0){
+				// Process left channel
+				*(outputBufPtr+i) = appendSample(filters, *(inputBufPtr+i) );
+			}else{
+				// Mute right channel
+				*(outputBufPtr+i) = 0;
+			}
 		}
 
 
