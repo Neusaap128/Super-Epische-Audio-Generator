@@ -36,7 +36,7 @@ void InitDSP(uint32_t sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeD
 
 	float delayCombS[4] = {0.0297, 0.0371, 0.411, 0.437};
 	float delayAllS[2] = {0.005, 0.0017};
-	echo = initializeCombFeedforward(sampleFrequency, 0.2);
+	echo = initializeCombFeedforward(sampleFrequency, 0.001);
 
 	//Init I²S
 	HAL_I2S_Receive_DMA(hi2s2, (uint16_t*)&inputData[0], BUFFER_SIZE/2);

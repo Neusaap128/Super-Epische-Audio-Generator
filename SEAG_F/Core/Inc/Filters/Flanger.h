@@ -14,10 +14,14 @@
 #define PI 3.141592654
 
 typedef struct{
+
     int i;
     int delayFerquentie; // [/]
     int amplification;   // [/]
+
     CombFeedback* combFilter;
+
+
 }Flanger;
 
 Flanger* initializeFlanger(uint32_t sampleRate, float fer, float amp);
