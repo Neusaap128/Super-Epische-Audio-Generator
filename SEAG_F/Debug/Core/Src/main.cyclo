@@ -6,5 +6,5 @@
 ../Core/Src/main.c:296:13:MX_I2S2_Init	2
 ../Core/Src/main.c:327:13:MX_DMA_Init	1
 ../Core/Src/main.c:349:13:MX_GPIO_Init	1
-../Core/Src/main.c:410:6:HAL_GPIO_EXTI_Callback	5
-../Core/Src/main.c:435:6:Error_Handler	1
+../Core/Src/main.c:414:6:HAL_GPIO_EXTI_Callback	5
+../Core/Src/main.c:439:6:Error_Handler	1

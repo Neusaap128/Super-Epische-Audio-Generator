@@ -4,7 +4,7 @@
 //Order delayS smallest to largest
 Reverb* initializeReverb(uint32_t sampleRate, uint8_t amountOfCombFilters, float *delayCombS, uint8_t amountOfAllPassFilters, float *delayAllS){
 
-	Reverb *reverb = malloc(sizeof(Reverb));
+    Reverb *reverb = malloc(sizeof(Reverb));
 
 
     //Comb
@@ -22,23 +22,23 @@ Reverb* initializeReverb(uint32_t sampleRate, uint8_t amountOfCombFilters, float
     reverb->allPassFilters = malloc(reverb->amountOfAllPassFilters*sizeof(AllPass));
 
     for(int i = 0; i < reverb->amountOfAllPassFilters; i++){
-        reverb->allPassFilters[i] = initializeAllPass(sampleRate, delayAllS[i]);
+        reverb->allPassFilters[i] = initializeAllPass(sampleRate, delayAllS[i], 1, 0.8);
     }
 
     return reverb;
 
 }
 
-SampleType reverbAppendSample(Reverb* reverb, int32_t newSample){
+SampleType reverbAppendSample(Reverb* reverb, SampleType  newSample){
 
-	SampleType combSumOutput = 0;
+	SampleType  combSumOutput = 0;
 
     for(int i = 0; i < reverb->amountOfCombFilters; i++){
         combSumOutput += combFeedforwardAppendSample(reverb->combFilters[i], newSample);
     }
 
 
-    SampleType previousAllPassOutput = combSumOutput;
+    SampleType  previousAllPassOutput = combSumOutput;
 
     for (int i = 0; i < reverb->amountOfAllPassFilters; i++){
         previousAllPassOutput = allPassAppendSample(reverb->allPassFilters[i], previousAllPassOutput);

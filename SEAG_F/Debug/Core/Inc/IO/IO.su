@@ -3,4 +3,4 @@
 ../Core/Inc/IO/IO.c:64:6:HandleSelectingValue	16	static
 ../Core/Inc/IO/IO.c:73:6:ButtonInterrupt	16	static
 ../Core/Inc/IO/IO.c:84:6:RotaryEncoderInterrupt	8	static
-../Core/Inc/IO/IO.c:89:6:IOUpdate	8	static
+../Core/Inc/IO/IO.c:89:6:IOUpdate	16	static

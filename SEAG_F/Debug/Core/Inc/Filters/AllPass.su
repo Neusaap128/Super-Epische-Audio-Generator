@@ -1,2 +1,2 @@
-../Core/Inc/Filters/AllPass.c:4:10:initializeAllPass	32	static
-../Core/Inc/Filters/AllPass.c:18:12:allPassAppendSample	24	static
+../Core/Inc/Filters/AllPass.c:4:10:initializeAllPass	40	static
+../Core/Inc/Filters/AllPass.c:18:13:allPassAppendSample	24	static

@@ -10,7 +10,7 @@ Filters* initializeFilters(uint32_t sampleRate){
 
 	Filters* filters = malloc(sizeof(Filters));
 
-    filters->enabledFilters = 0x00;
+    filters->enabledFilters = 0x01;
 
     float delayCombS[4] = {0.0297, 0.0371, 0.411, 0.437};
     float delayAllS[2] = {0.005, 0.0017};
@@ -28,9 +28,9 @@ SampleType appendSample(Filters* filters, SampleType newSample){
 
 	SampleType previousOutput = newSample;
 
-	for(int i = 0; i < AMOUNT_OF_FILTERS; i++){
+	for(uint8_t i = 0; i < AMOUNT_OF_FILTERS; i++){
 
-		uint8_t filterEnabled = filters->enabledFilters >> i;
+		uint8_t filterEnabled = (filters->enabledFilters >> i) & 1;
 		if(filterEnabled){
 			previousOutput = filters->filterMethods[i](filters->filterStructs[0], previousOutput);
 		}

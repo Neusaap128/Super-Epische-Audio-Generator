@@ -35,8 +35,8 @@ Core/Inc/IO/RotaryEncoder.o: ../Core/Inc/IO/RotaryEncoder.c \
  ../Core/Inc/DSP/../Filters/FilterUtility.h \
  ../Core/Inc/DSP/../Filters/AllPass.h \
  ../Core/Inc/DSP/../Filters/CombFeedback.h ../Core/Inc/DSP/../main.h \
- ../Core/Inc/IO/IO.h ../Core/Inc/IO/ShiftRegister.h \
- ../Core/Inc/IO/../Common.h
+ ../Core/Inc/DSP/../Filters/Flanger.h ../Core/Inc/IO/IO.h \
+ ../Core/Inc/IO/ShiftRegister.h ../Core/Inc/IO/../Common.h
 ../Core/Inc/IO/RotaryEncoder.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -77,6 +77,7 @@ Core/Inc/IO/RotaryEncoder.o: ../Core/Inc/IO/RotaryEncoder.c \
 ../Core/Inc/DSP/../Filters/AllPass.h:
 ../Core/Inc/DSP/../Filters/CombFeedback.h:
 ../Core/Inc/DSP/../main.h:
+../Core/Inc/DSP/../Filters/Flanger.h:
 ../Core/Inc/IO/IO.h:
 ../Core/Inc/IO/ShiftRegister.h:
 ../Core/Inc/IO/../Common.h:

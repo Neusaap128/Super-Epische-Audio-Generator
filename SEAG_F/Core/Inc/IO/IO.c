@@ -90,7 +90,7 @@ void IOUpdate(){
 
 
 	uint8_t buttonPressed = HAL_GPIO_ReadPin(ToggleInput1_GPIO_Port, ToggleInput1_Pin);
-	SetFilterState(0, buttonPressed);
+	//SetFilterState(0, buttonPressed);
 
 
 	//Handling Transistions

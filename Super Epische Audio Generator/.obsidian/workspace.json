@@ -147,8 +147,9 @@
   },
   "active": "b034c9893e9ef015",
   "lastOpenFiles": [
-    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
     "Datasheets/Audio Filtering/WM8960_v4.2.pdf",
+    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
     "Datasheets/MCU's/stm32f722 reference manual.pdf",
     "Datasheets/MCU's/stm32f722rc.pdf",
     "Datasheets/MCU's/stm32g431rb.pdf"

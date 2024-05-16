@@ -26,7 +26,7 @@ void CodecInit(I2C_HandleTypeDef *hi2c1){
 	WriteCodecRegister(hi2c1, 0x01, 0b100000000);
 
 	//Enable LB2LO
-	WriteCodecRegister(hi2c1, 0x2D, 0b011010000);
+	WriteCodecRegister(hi2c1, 0x2D, 0b001010000);
 
 
 	// ----- Power Management -----
@@ -74,7 +74,7 @@ void CodecInit(I2C_HandleTypeDef *hi2c1){
 	// Disabled high pass filter
 	WriteCodecRegister(hi2c1, 0x05, 0b000000001);
 
-	WriteCodecRegister(hi2c1, 0x09, 0b000000001);
+	WriteCodecRegister(hi2c1, 0x09, 0b000000000);
 
 	//Writing ADC and DAC volume
 	WriteCodecRegister(hi2c1, 0x15, 0b111000011);

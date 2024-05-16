@@ -16,6 +16,7 @@
 #include "../Common.h"
 #include "../Filters/Filters.h"
 #include "../main.h"
+#include "../Filters/Flanger.h"
 
 void InitDSP(uint32_t sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeDef *hi2s2);
 void DSPUpdate();
