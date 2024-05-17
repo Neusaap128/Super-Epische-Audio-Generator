@@ -8,7 +8,7 @@
 //#define USE_MATH_DEFINES
 #include <math.h>
 
-#include "FilterUtility.h"
+#include "FilterUtility/FilterUtility.h"
 #include "CombFeedback.h"
 
 #define PI 3.141592654

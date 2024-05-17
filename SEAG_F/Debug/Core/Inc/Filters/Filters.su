@@ -1,2 +1,2 @@
-../Core/Inc/Filters/Filters.c:9:10:initializeFilters	64	static
-../Core/Inc/Filters/Filters.c:27:12:appendSample	24	static
+../Core/Inc/Filters/Filters.c:9:10:initializeFilters	72	static
+../Core/Inc/Filters/Filters.c:40:12:appendSample	32	static

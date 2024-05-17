@@ -11,6 +11,8 @@
 #include <stdint.h>
 #include "../Common.h"
 #include "Reverb.h"
+#include "CombFeedback.h"
+#include "Flanger.h"
 
 typedef struct{
 

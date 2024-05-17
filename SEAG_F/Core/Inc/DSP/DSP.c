@@ -26,7 +26,7 @@ uint8_t dataReadyFlag;
 // --- Filters ---
 
 Filters* filters;
-CombFeedforward* echo;
+
 
 void InitDSP(uint32_t sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeDef *hi2s2){
 
@@ -34,18 +34,15 @@ void InitDSP(uint32_t sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeD
 	//Init filters
 	filters = initializeFilters(sampleFrequency);
 
-	float delayCombS[4] = {0.0297, 0.0371, 0.411, 0.437};
-	float delayAllS[2] = {0.005, 0.0017};
-	echo = initializeCombFeedforward(sampleFrequency, 0.001);
-
 	//Init I²S
-	HAL_I2S_Receive_DMA(hi2s2, (uint16_t*)&inputData[0], BUFFER_SIZE/2);
-	HAL_I2S_Transmit_DMA(hi2s1, (uint16_t*)&outputData[0], BUFFER_SIZE/2);
+	HAL_I2S_Transmit_DMA(hi2s1, (uint16_t*)&outputData[0], BUFFER_SIZE);
+	HAL_I2S_Receive_DMA(hi2s2, (uint16_t*)&inputData[0], BUFFER_SIZE);
 
 }
 
 
 void DSPUpdate(){
+
 
 	if(dataReadyFlag){
 
@@ -53,16 +50,18 @@ void DSPUpdate(){
 
 			// Process left channel
 			if(i % 2 == 0){
-				*(outputBufPtr+i) = combFeedforwardAppendSample(echo, *(inputBufPtr+i));
+				*(outputBufPtr+i) = appendSample(filters, *(inputBufPtr+i) );
 			}else{
-				*(outputBufPtr+i) = 0;
+				*(outputBufPtr+i) = (int16_t)(1);
 			}
 
 		}
 
 
 		dataReadyFlag = 0;
+
 	}
+
 
 }
 

@@ -31,9 +31,12 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
  ../Core/Inc/DSP/../Filters/../Common.h \
  ../Core/Inc/DSP/../Filters/Reverb.h \
  ../Core/Inc/DSP/../Filters/CombFeedforward.h \
- ../Core/Inc/DSP/../Filters/FilterUtility.h \
+ ../Core/Inc/DSP/../Filters/FilterUtility/FilterUtility.h \
+ ../Core/Inc/DSP/../Filters/FilterUtility/CircularBuffer.h \
+ ../Core/Inc/DSP/../Filters/FilterUtility/../../Common.h \
  ../Core/Inc/DSP/../Filters/AllPass.h \
- ../Core/Inc/DSP/../Filters/CombFeedback.h ../Core/Inc/DSP/../main.h \
+ ../Core/Inc/DSP/../Filters/CombFeedback.h \
+ ../Core/Inc/DSP/../Filters/Flanger.h ../Core/Inc/DSP/../main.h \
  ../Core/Inc/DSP/../Filters/Flanger.h ../Core/Inc/IO/IO.h \
  ../Core/Inc/IO/ShiftRegister.h ../Core/Inc/IO/../Common.h \
  ../Core/Inc/stm32f7xx_it.h
@@ -72,9 +75,12 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
 ../Core/Inc/DSP/../Filters/../Common.h:
 ../Core/Inc/DSP/../Filters/Reverb.h:
 ../Core/Inc/DSP/../Filters/CombFeedforward.h:
-../Core/Inc/DSP/../Filters/FilterUtility.h:
+../Core/Inc/DSP/../Filters/FilterUtility/FilterUtility.h:
+../Core/Inc/DSP/../Filters/FilterUtility/CircularBuffer.h:
+../Core/Inc/DSP/../Filters/FilterUtility/../../Common.h:
 ../Core/Inc/DSP/../Filters/AllPass.h:
 ../Core/Inc/DSP/../Filters/CombFeedback.h:
+../Core/Inc/DSP/../Filters/Flanger.h:
 ../Core/Inc/DSP/../main.h:
 ../Core/Inc/DSP/../Filters/Flanger.h:
 ../Core/Inc/IO/IO.h:

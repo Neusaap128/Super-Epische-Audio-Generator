@@ -1,3 +1,4 @@
+
 #include "Flanger.h"
 
 Flanger* initializeFlanger(uint32_t sampleRate, float fer, float amp){
@@ -15,10 +16,11 @@ SampleType flangerAppendSample(Flanger* flanger, SampleType newSample){
     
     int delay = (flanger->amplification/2)*(1.0-cos(2*PI*flanger->delayFerquentie*flanger->i) ) + 1;
 
-    flanger->combFilter->M = delay;
+    flanger->combFilter->offset = delay;
 
     flanger->i++;
     SampleType result = combFeedbackAppendSample(flanger->combFilter, newSample);
 
     return result;
 }
+

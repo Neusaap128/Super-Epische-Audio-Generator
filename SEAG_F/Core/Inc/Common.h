@@ -10,8 +10,8 @@
 
 #include <stdint.h>
 
-#define AMOUNT_OF_FILTERS 4
+#define AMOUNT_OF_FILTERS 3
 
-typedef int32_t SampleType;
+typedef int16_t SampleType;
 
 #endif /* INC_COMMON_H_ */

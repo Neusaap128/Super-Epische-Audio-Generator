@@ -46,7 +46,7 @@ void CodecInit(I2C_HandleTypeDef *hi2c1){
 	//-----------------------
 
 	// Disable master mode codec, I²S format
-	WriteCodecRegister(hi2c1, 0x07, 0b000001010);
+	WriteCodecRegister(hi2c1, 0x07, 0b000000010);
 
 	WriteCodecRegister(hi2c1, 0x20, 0b100001000);
 

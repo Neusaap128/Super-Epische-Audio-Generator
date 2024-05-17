@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "FilterUtility.h"
+#include "FilterUtility/FilterUtility.h"
 
 #ifndef COMB_FEED_BACK_H
 #define COMB_FEED_BACK_H
@@ -12,13 +12,12 @@ typedef struct{
 
     //y[n] = b_0x[n] - a_My[n-M]
 
-    int M;
-    int bufferSize;
-    SampleType *outputSamples; // [0] is most recent output, [n-1] is n samples ago. so index is backwards
-    float b0;
-    float am;
+    uint32_t offset;
+    CircularBuffer *outputSamples;
 
-    //no need to save input samples
+    //Filter properties
+    float K, a;
+
 
 }CombFeedback;
 

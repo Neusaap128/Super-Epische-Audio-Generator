@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "FilterUtility.h"
+#include "FilterUtility/FilterUtility.h"
 
 #ifndef COMB_FEED_FORWARD_H
 #define COMB_FEED_FORWARD_H
@@ -11,8 +11,8 @@
 typedef struct{
 
     //y[n] = b_0x[n] + b_Mx[n-M]
-    int M;
-    SampleType *inputSamples; // [0] is most recent sample, [n-1] is n samples ago. so index is backwards
+    uint32_t offset;
+    CircularBuffer *inputSamples; // [0] is most recent sample, [n-1] is n samples ago. so index is backwards
 
     // No need for saving output sample
 

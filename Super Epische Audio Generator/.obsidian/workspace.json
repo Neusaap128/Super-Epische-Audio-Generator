@@ -13,7 +13,7 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960_v4.2.pdf"
+                "file": "Datasheets/MCU's/stm32f722 reference manual.pdf"
               }
             }
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960_v4.2.pdf",
+                "file": "Datasheets/MCU's/stm32f722 reference manual.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960_v4.2.pdf",
+                "file": "Datasheets/MCU's/stm32f722 reference manual.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960_v4.2.pdf"
+                "file": "Datasheets/MCU's/stm32f722 reference manual.pdf"
               }
             }
           }
@@ -131,8 +131,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -145,12 +144,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b034c9893e9ef015",
+  "active": "80f13b2b3c7d267f",
   "lastOpenFiles": [
-    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
     "Datasheets/Audio Filtering/WM8960_v4.2.pdf",
     "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
     "Datasheets/MCU's/stm32f722 reference manual.pdf",
+    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
     "Datasheets/MCU's/stm32f722rc.pdf",
     "Datasheets/MCU's/stm32g431rb.pdf"
   ]

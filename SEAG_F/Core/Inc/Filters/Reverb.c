@@ -29,9 +29,9 @@ Reverb* initializeReverb(uint32_t sampleRate, uint8_t amountOfCombFilters, float
 
 }
 
-SampleType reverbAppendSample(Reverb* reverb, SampleType  newSample){
+SampleType reverbAppendSample(Reverb* reverb, SampleType newSample){
 
-	SampleType  combSumOutput = 0;
+	SampleType combSumOutput = 0;
 
     for(int i = 0; i < reverb->amountOfCombFilters; i++){
         combSumOutput += combFeedforwardAppendSample(reverb->combFilters[i], newSample);

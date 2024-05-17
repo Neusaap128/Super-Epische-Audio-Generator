@@ -3,9 +3,12 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
  ../Core/Inc/DSP/../Filters/../Common.h \
  ../Core/Inc/DSP/../Filters/Reverb.h \
  ../Core/Inc/DSP/../Filters/CombFeedforward.h \
- ../Core/Inc/DSP/../Filters/FilterUtility.h \
+ ../Core/Inc/DSP/../Filters/FilterUtility/FilterUtility.h \
+ ../Core/Inc/DSP/../Filters/FilterUtility/CircularBuffer.h \
+ ../Core/Inc/DSP/../Filters/FilterUtility/../../Common.h \
  ../Core/Inc/DSP/../Filters/AllPass.h \
- ../Core/Inc/DSP/../Filters/CombFeedback.h ../Core/Inc/DSP/../main.h \
+ ../Core/Inc/DSP/../Filters/CombFeedback.h \
+ ../Core/Inc/DSP/../Filters/Flanger.h ../Core/Inc/DSP/../main.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -43,9 +46,12 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
 ../Core/Inc/DSP/../Filters/../Common.h:
 ../Core/Inc/DSP/../Filters/Reverb.h:
 ../Core/Inc/DSP/../Filters/CombFeedforward.h:
-../Core/Inc/DSP/../Filters/FilterUtility.h:
+../Core/Inc/DSP/../Filters/FilterUtility/FilterUtility.h:
+../Core/Inc/DSP/../Filters/FilterUtility/CircularBuffer.h:
+../Core/Inc/DSP/../Filters/FilterUtility/../../Common.h:
 ../Core/Inc/DSP/../Filters/AllPass.h:
 ../Core/Inc/DSP/../Filters/CombFeedback.h:
+../Core/Inc/DSP/../Filters/Flanger.h:
 ../Core/Inc/DSP/../main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:
