@@ -13,6 +13,7 @@
 #include "Reverb.h"
 #include "CombFeedback.h"
 #include "Flanger.h"
+#include "distortion.h"
 
 typedef struct{
 

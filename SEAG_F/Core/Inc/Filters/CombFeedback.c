@@ -17,9 +17,6 @@ CombFeedback* initializeCombFeedback(uint32_t sampleRate, float delayS, float am
 
 SampleType combFeedbackAppendSample(CombFeedback *filter, SampleType newSample){
 
-    //static const float b0 = 0.5;
-    //static const float am = 0.8;
-
 	SampleType output = (filter->K)*(newSample - (filter->a)*getValueInCircularBuffer(filter->outputSamples, filter->offset)); // M - 1 see struct def for explanation
 
 	putValueInCircularBuffer(filter->outputSamples, output);

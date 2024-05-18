@@ -8,11 +8,11 @@
 
 #include "DSP.h"
 #include "../main.h"
-
+#include "../Filters/FilterUtility/FilterUtility.h"
 
 // --- I²S ---
 
-#define BUFFER_SIZE 128
+#define BUFFER_SIZE 64
 
 SampleType inputData[BUFFER_SIZE];
 SampleType outputData[BUFFER_SIZE];
@@ -27,12 +27,13 @@ uint8_t dataReadyFlag;
 
 Filters* filters;
 
+uint32_t sampleFrequency;
 
-void InitDSP(uint32_t sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeDef *hi2s2){
+void InitDSP(uint32_t _sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeDef *hi2s2){
 
-
+	sampleFrequency =_sampleFrequency;
 	//Init filters
-	filters = initializeFilters(sampleFrequency);
+	filters = initializeFilters(_sampleFrequency);
 
 	//Init I²S
 	HAL_I2S_Transmit_DMA(hi2s1, (uint16_t*)&outputData[0], BUFFER_SIZE);
@@ -46,13 +47,22 @@ void DSPUpdate(){
 
 	if(dataReadyFlag){
 
+		int j = 0;
+		float freq = 220;
+
 		for(uint8_t i = 0; i < BUFFER_SIZE/2; i++){
 
 			// Process left channel
 			if(i % 2 == 0){
-				*(outputBufPtr+i) = appendSample(filters, *(inputBufPtr+i) );
+
+				float sinValue = 1000*sinApprox(2*M_PI*freq/sampleFrequency*j, 3);
+
+				*(outputBufPtr+i) = sinValue; // /*appendSample(filters,*/ *(inputBufPtr+i); //);
+
+				j++;
+
 			}else{
-				*(outputBufPtr+i) = (int16_t)(1);
+				*(outputBufPtr+i) = (int16_t)(0);
 			}
 
 		}

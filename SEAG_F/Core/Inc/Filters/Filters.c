@@ -10,8 +10,9 @@ Filters* initializeFilters(uint32_t sampleRate){
 
 	Filters* filters = malloc(sizeof(Filters));
 
-    filters->enabledFilters = 0b010;
+    filters->enabledFilters = 0b000;
 
+	Distortion* dist = initializeDistortion(600);
 
     CombFeedback* echo = initializeCombFeedback(sampleRate, 0.5, 1.0, 0.5);
 
@@ -23,14 +24,19 @@ Filters* initializeFilters(uint32_t sampleRate){
 	Flanger* flanger = initializeFlanger(sampleRate, 1.5, 0.05);
 
 
-    filters->filterStructs[0] = echo;
-    filters->filterMethods[0] = combFeedbackAppendSample;
+    filters->filterStructs[0] = dist;
+    filters->filterMethods[0] = distortionAppendSample;
 
-    filters->filterStructs[1] = reverb;
-    filters->filterMethods[1] = reverbAppendSample;
+    filters->filterStructs[1] = echo;
+    filters->filterMethods[1] = combFeedbackAppendSample;
 
-    filters->filterStructs[2] = flanger;
-    filters->filterMethods[2] = flangerAppendSample;
+    filters->filterStructs[2] = reverb;
+    filters->filterMethods[2] = reverbAppendSample;
+
+    filters->filterStructs[3] = flanger;
+    filters->filterMethods[3] = flangerAppendSample;
+
+
 
     return filters;
 

@@ -1,0 +1,2 @@
+../Core/Inc/Filters/Distortion.c:3:13:initializeDistortion	24	static
+../Core/Inc/Filters/Distortion.c:9:12:distortionAppendSample	24	static

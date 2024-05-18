@@ -37,7 +37,8 @@ Core/Inc/IO/RotaryEncoder.o: ../Core/Inc/IO/RotaryEncoder.c \
  ../Core/Inc/DSP/../Filters/FilterUtility/../../Common.h \
  ../Core/Inc/DSP/../Filters/AllPass.h \
  ../Core/Inc/DSP/../Filters/CombFeedback.h \
- ../Core/Inc/DSP/../Filters/Flanger.h ../Core/Inc/DSP/../main.h \
+ ../Core/Inc/DSP/../Filters/Flanger.h \
+ ../Core/Inc/DSP/../Filters/distortion.h ../Core/Inc/DSP/../main.h \
  ../Core/Inc/DSP/../Filters/Flanger.h ../Core/Inc/IO/IO.h \
  ../Core/Inc/IO/ShiftRegister.h ../Core/Inc/IO/../Common.h
 ../Core/Inc/IO/RotaryEncoder.h:
@@ -82,6 +83,7 @@ Core/Inc/IO/RotaryEncoder.o: ../Core/Inc/IO/RotaryEncoder.c \
 ../Core/Inc/DSP/../Filters/AllPass.h:
 ../Core/Inc/DSP/../Filters/CombFeedback.h:
 ../Core/Inc/DSP/../Filters/Flanger.h:
+../Core/Inc/DSP/../Filters/distortion.h:
 ../Core/Inc/DSP/../main.h:
 ../Core/Inc/DSP/../Filters/Flanger.h:
 ../Core/Inc/IO/IO.h:

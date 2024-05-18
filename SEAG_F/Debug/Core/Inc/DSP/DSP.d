@@ -8,7 +8,8 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
  ../Core/Inc/DSP/../Filters/FilterUtility/../../Common.h \
  ../Core/Inc/DSP/../Filters/AllPass.h \
  ../Core/Inc/DSP/../Filters/CombFeedback.h \
- ../Core/Inc/DSP/../Filters/Flanger.h ../Core/Inc/DSP/../main.h \
+ ../Core/Inc/DSP/../Filters/Flanger.h \
+ ../Core/Inc/DSP/../Filters/distortion.h ../Core/Inc/DSP/../main.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -39,7 +40,8 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
  ../Core/Inc/DSP/../Codec/CodecDriver.h ../Core/Inc/DSP/../DSP/DSP.h \
  ../Core/Inc/DSP/../IO/IO.h ../Core/Inc/main.h \
  ../Core/Inc/DSP/../IO/ShiftRegister.h ../Core/Inc/DSP/../IO/../Common.h \
- ../Core/Inc/DSP/../Filters/Flanger.h
+ ../Core/Inc/DSP/../Filters/Flanger.h \
+ ../Core/Inc/DSP/../Filters/FilterUtility/FilterUtility.h
 ../Core/Inc/DSP/DSP.h:
 ../Core/Inc/DSP/../Common.h:
 ../Core/Inc/DSP/../Filters/Filters.h:
@@ -52,6 +54,7 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
 ../Core/Inc/DSP/../Filters/AllPass.h:
 ../Core/Inc/DSP/../Filters/CombFeedback.h:
 ../Core/Inc/DSP/../Filters/Flanger.h:
+../Core/Inc/DSP/../Filters/distortion.h:
 ../Core/Inc/DSP/../main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:
@@ -87,3 +90,4 @@ Core/Inc/DSP/DSP.o: ../Core/Inc/DSP/DSP.c ../Core/Inc/DSP/DSP.h \
 ../Core/Inc/DSP/../IO/ShiftRegister.h:
 ../Core/Inc/DSP/../IO/../Common.h:
 ../Core/Inc/DSP/../Filters/Flanger.h:
+../Core/Inc/DSP/../Filters/FilterUtility/FilterUtility.h:
