@@ -21,5 +21,6 @@ typedef struct{
 
 AllPass* initializeAllPass(uint32_t sampleRate, float delayS, float b0, float am);
 SampleType  allPassAppendSample(AllPass* filter, SampleType  newSample);
+void setAllPassOffset(AllPass* allPass, uint32_t offset);
 
 #endif //ALL_PASS_H

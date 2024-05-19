@@ -1,0 +1,5 @@
+../Core/Src/main.c:142:6:SystemClock_Config	88	static,ignoring_inline_asm
+../Core/Src/main.c:194:6:PeriphCommonClock_Config	136	static,ignoring_inline_asm
+../Core/Src/main.c:79:5:main	48	static,ignoring_inline_asm
+../Core/Src/main.c:416:6:HAL_GPIO_EXTI_Callback	16	static
+../Core/Src/main.c:441:6:Error_Handler	0	static,ignoring_inline_asm

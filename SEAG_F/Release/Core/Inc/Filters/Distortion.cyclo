@@ -1,0 +1,2 @@
+../Core/Inc/Filters/Distortion.c:3:13:initializeDistortion	1
+../Core/Inc/Filters/Distortion.c:9:12:distortionAppendSample	3

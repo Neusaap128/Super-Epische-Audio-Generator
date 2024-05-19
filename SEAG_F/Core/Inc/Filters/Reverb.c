@@ -13,7 +13,7 @@ Reverb* initializeReverb(uint32_t sampleRate, uint8_t amountOfCombFilters, float
     reverb->combFilters = malloc(reverb->amountOfCombFilters*sizeof(CombFeedforward));
 
     for(int i = 0; i < reverb->amountOfCombFilters; i++){
-        reverb->combFilters[i] = initializeCombFeedforward(sampleRate, delayCombS[i]);
+        reverb->combFilters[i] = initializeCombFeedback(sampleRate, delayCombS[i], 1.0f, 0.7f);
     }
     
     
@@ -22,7 +22,7 @@ Reverb* initializeReverb(uint32_t sampleRate, uint8_t amountOfCombFilters, float
     reverb->allPassFilters = malloc(reverb->amountOfAllPassFilters*sizeof(AllPass));
 
     for(int i = 0; i < reverb->amountOfAllPassFilters; i++){
-        reverb->allPassFilters[i] = initializeAllPass(sampleRate, delayAllS[i], 1, 0.8);
+        reverb->allPassFilters[i] = initializeAllPass(sampleRate, delayAllS[i], 1, 0.7f);
     }
 
     return reverb;
@@ -34,7 +34,7 @@ SampleType reverbAppendSample(Reverb* reverb, SampleType newSample){
 	SampleType combSumOutput = 0;
 
     for(int i = 0; i < reverb->amountOfCombFilters; i++){
-        combSumOutput += combFeedforwardAppendSample(reverb->combFilters[i], newSample);
+        combSumOutput += combFeedbackAppendSample(reverb->combFilters[i], newSample)/reverb->amountOfCombFilters;
     }
 
 

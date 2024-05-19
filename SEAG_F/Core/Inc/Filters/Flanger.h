@@ -1,26 +1,22 @@
-
-#ifndef INC_FLANGER_H
-#define INC_FLANGER_H
-
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
-//#define USE_MATH_DEFINES
-#include <math.h>
 
 #include "FilterUtility/FilterUtility.h"
+#include "FilterUtility/Oscillator.h"
 #include "CombFeedback.h"
+#include "AllPass.h"
 
-#define PI 3.141592654
+#ifndef FLANGER_H
+#define FLANGER_H
 
 typedef struct{
 
-    int i;
-    int delayFerquentie; // [/]
-    int amplification;   // [/]
+    uint32_t delayFerquentie; // [/]
+    uint32_t amplification;   // [/]
 
-    CombFeedback* combFilter;
-
+    AllPass* combFilter;
+    Oscillator* oscillator;
 
 }Flanger;
 
@@ -28,5 +24,4 @@ Flanger* initializeFlanger(uint32_t sampleRate, float fer, float amp);
 SampleType flangerAppendSample(Flanger* flanger, SampleType newSample);
 
 
-#endif // INC_FLANGER_H
-
+#endif //FLANGER_H

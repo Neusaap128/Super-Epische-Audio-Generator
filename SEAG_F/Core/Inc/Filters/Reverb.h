@@ -12,7 +12,7 @@ typedef struct{
 
     int amountOfCombFilters;
 
-    CombFeedforward** combFilters; //parallel comb filters
+    CombFeedback** combFilters; //parallel comb filters
 
     int amountOfAllPassFilters;
     AllPass** allPassFilters;    

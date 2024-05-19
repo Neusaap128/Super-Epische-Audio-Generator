@@ -1,0 +1,3 @@
+../Core/Inc/Codec/CodecDriver.c:102:6:WriteCodecRegister	32	static
+../Core/Inc/Codec/CodecDriver.c:98:6:ResetCodec	0	static
+../Core/Inc/Codec/CodecDriver.c:9:6:CodecInit	8	static

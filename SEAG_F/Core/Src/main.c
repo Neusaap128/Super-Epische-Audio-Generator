@@ -109,6 +109,8 @@ int main(void)
   MX_I2S2_Init();
   /* USER CODE BEGIN 2 */
 
+  initSin();
+
   InitIO();
   CodecInit(&hi2c1);
 

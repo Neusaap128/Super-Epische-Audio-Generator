@@ -1,0 +1,2 @@
+../Core/Inc/IO/ShiftRegister.c:15:6:LoadValueIntoShiftRegister	16	static
+../Core/Inc/IO/ShiftRegister.c:11:6:ResetShiftRegister	0	static

@@ -1,0 +1,2 @@
+../Core/Inc/Filters/AllPass.c:4:10:initializeAllPass	1
+../Core/Inc/Filters/AllPass.c:18:13:allPassAppendSample	1

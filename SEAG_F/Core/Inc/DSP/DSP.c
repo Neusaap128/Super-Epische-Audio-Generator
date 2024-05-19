@@ -12,7 +12,7 @@
 
 // --- I²S ---
 
-#define BUFFER_SIZE 64
+#define BUFFER_SIZE 128
 
 SampleType inputData[BUFFER_SIZE];
 SampleType outputData[BUFFER_SIZE];
@@ -46,30 +46,19 @@ void DSPUpdate(){
 
 
 	if(dataReadyFlag){
-
-		int j = 0;
-		float freq = 220;
-
+		float freq = 10;
 		for(uint8_t i = 0; i < BUFFER_SIZE/2; i++){
-
 			// Process left channel
 			if(i % 2 == 0){
 
-				float sinValue = 1000*sinApprox(2*M_PI*freq/sampleFrequency*j, 3);
-
-				*(outputBufPtr+i) = sinValue; // /*appendSample(filters,*/ *(inputBufPtr+i); //);
-
-				j++;
+				//int16_t sinValue = sinApproxLut(2*M_PI*(float)j/(BUFFER_SIZE));
+				*(outputBufPtr+i) = appendSample(filters, *(inputBufPtr+i));
 
 			}else{
 				*(outputBufPtr+i) = (int16_t)(0);
 			}
-
 		}
-
-
 		dataReadyFlag = 0;
-
 	}
 
 

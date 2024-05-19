@@ -1,12 +1,12 @@
 
 #include "AllPass.h"
 
-AllPass* initializeAllPass(uint32_t sampleRate, float delayS, float b0, float am){
+AllPass* initializeAllPass(uint32_t sampleRate, float delayS, float amplification, float attenuation){
 
     AllPass* allPass = malloc(sizeof(AllPass));
 
-    CombFeedforward *combFeedforward = initializeCombFeedforward(sampleRate, delayS);
-    CombFeedback *combFeedback = initializeCombFeedback(sampleRate, delayS, b0, am);
+    CombFeedforward *combFeedforward = initializeCombFeedforward(sampleRate, delayS, amplification, attenuation);
+    CombFeedback *combFeedback = initializeCombFeedback(sampleRate, delayS, amplification, attenuation);
 
     allPass->combFeedforward = combFeedforward;
     allPass->combFeedback = combFeedback;
@@ -22,6 +22,13 @@ SampleType  allPassAppendSample(AllPass* filter, SampleType  newSample){
 	SampleType output = combFeedbackAppendSample(filter->combFeedback, feedForwardOutput);
 
     return output;
+
+}
+
+void setAllPassOffset(AllPass* allPass, uint32_t offset){
+
+	allPass->combFeedback->offset = offset;
+	allPass->combFeedforward->offset = offset;
 
 }
 

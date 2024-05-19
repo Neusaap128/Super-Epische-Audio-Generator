@@ -1,0 +1,3 @@
+../Core/Inc/Filters/FilterUtility/CircularBuffer.c:4:17:initializeCircularBuffer	16	static
+../Core/Inc/Filters/FilterUtility/CircularBuffer.c:16:6:putValueInCircularBuffer	0	static
+../Core/Inc/Filters/FilterUtility/CircularBuffer.c:23:12:getValueInCircularBuffer	0	static

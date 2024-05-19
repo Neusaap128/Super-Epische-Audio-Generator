@@ -1,25 +1,28 @@
 
 #include "FilterUtility.h"
 
+#define SIN_LUT_SIZE 128
 
-float sinApprox(float x, uint8_t n) {
+static float sin_lut[SIN_LUT_SIZE];
 
-	float _x = x;
+void initSin(){
 
-    float result = 0;
-    float term = _x;
-    float x_squared = _x * _x;
-    uint8_t sign = 1;
-    float fact = 1;
-
-    for (uint8_t i = 1; i <= n; i++) {
-        result += sign * term / fact;
-        sign *= -1;
-        term *= x_squared;
-        fact *= (2 * i) * (2 * i + 1);
+    for(uint16_t i = 0; i < SIN_LUT_SIZE; i++){
+        sin_lut[i] = sinf(2*M_PI*(float)i/SIN_LUT_SIZE);
     }
-
-    return result;
 
 }
 
+//x should be between 0 and 2 pi
+//Output is between -32767 and 32767
+float sinApproxLut(float x){
+
+    x -= truncf(x/(2*M_PI))*2*M_PI;
+
+    float _x = x * 0.159154943092f; //[0..2*pi] to [0..1]
+    uint16_t index = (_x * SIN_LUT_SIZE);
+    //printf("x: %f, _x: %f, index: %d\n", x, _x, index);
+
+    return sin_lut[index];
+    
+}

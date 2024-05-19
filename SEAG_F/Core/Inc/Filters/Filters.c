@@ -10,18 +10,18 @@ Filters* initializeFilters(uint32_t sampleRate){
 
 	Filters* filters = malloc(sizeof(Filters));
 
-    filters->enabledFilters = 0b000;
+    filters->enabledFilters = 0b1000;
 
 	Distortion* dist = initializeDistortion(600);
 
     CombFeedback* echo = initializeCombFeedback(sampleRate, 0.5, 1.0, 0.5);
 
-    float delayCombS[4] = {0.0297, 0.0371, 0.411, 0.437};
+    float delayCombS[4] = {0.0297, 0.0371, 0.0411, 0.0437};
     float delayAllS[2] = {0.005, 0.0017};
 	Reverb* reverb = initializeReverb(sampleRate, 4, delayCombS, 2, delayAllS);
 
 
-	Flanger* flanger = initializeFlanger(sampleRate, 1.5, 0.05);
+	Flanger* flanger = initializeFlanger(sampleRate, 1.6f, 0.025f);
 
 
     filters->filterStructs[0] = dist;
@@ -35,7 +35,6 @@ Filters* initializeFilters(uint32_t sampleRate){
 
     filters->filterStructs[3] = flanger;
     filters->filterMethods[3] = flangerAppendSample;
-
 
 
     return filters;

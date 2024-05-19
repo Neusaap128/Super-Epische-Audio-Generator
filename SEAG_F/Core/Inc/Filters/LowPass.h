@@ -4,18 +4,22 @@
 
 #include "../Common.h"
 
-#ifndef LOW_PASS
-#define LOW_PASS
+#define _USE_MATH_DEFINES
+#include <math.h>
+
+#ifndef LOW_PASS_H
+#define LOW_PASS_H
 
 typedef struct {
-    float a1;  
-    float b0;  
-    float b1;  
-    float prevInput;  
-    float prevOutput;
-} LowPassFilter;
 
-LowPassFilter* InitializeLPFilter(float cutoffFreq, uint32_t samplingFreq);
-float LPFilter(LowPassFilter *filter, float input);
+    float a;
 
-#endif
+    SampleType prevOutput;
+    SampleType prevInput;
+
+} LowPass;
+
+LowPass* initializeLowPass(uint32_t samplingFreq, uint32_t freq);
+SampleType lowPassAppendSample(LowPass *filter, SampleType input);
+
+#endif //LOW_PASS_H
