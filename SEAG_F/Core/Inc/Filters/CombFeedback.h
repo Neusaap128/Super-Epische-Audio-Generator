@@ -3,6 +3,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
+#include "lowPass.h"
+
 #include "FilterUtility/FilterUtility.h"
 
 #ifndef COMB_FEED_BACK_H
@@ -15,6 +17,8 @@ typedef struct{
     uint32_t offset;
     CircularBuffer *outputSamples;
 
+    LowPass* lowPass;
+
     //Filter properties
     float K, a;
 
@@ -23,6 +27,7 @@ typedef struct{
 
 CombFeedback* initializeCombFeedback(uint32_t sampleRate, float delayS, float verzwakking, float am);
 SampleType combFeedbackAppendSample(CombFeedback *filter, SampleType newSample);
+void setCombFeedbackLevel(CombFeedback *combfeedback, float a);
 
 
 #endif //COMB_FEED_BACK_H

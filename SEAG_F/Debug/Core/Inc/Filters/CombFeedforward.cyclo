@@ -1,2 +1,3 @@
 ../Core/Inc/Filters/CombFeedforward.c:4:18:initializeCombFeedforward	1
 ../Core/Inc/Filters/CombFeedforward.c:19:9:combFeedforwardAppendSample	1
+../Core/Inc/Filters/CombFeedforward.c:29:6:setCombFeedforwardLevel	3

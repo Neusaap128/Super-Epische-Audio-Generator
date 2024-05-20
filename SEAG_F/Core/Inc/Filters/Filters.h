@@ -13,15 +13,16 @@
 #include "Reverb.h"
 #include "CombFeedback.h"
 #include "Flanger.h"
-#include "distortion.h"
+#include "Distortion.h"
+#include "Chorus.h"
+
+#include "Filter.h"
 
 typedef struct{
 
 	uint8_t enabledFilters;
 
-	void* filterStructs[AMOUNT_OF_FILTERS];
-	SampleType (*filterMethods[AMOUNT_OF_FILTERS])(void*, SampleType);
-
+	Filter* filterInstances[AMOUNT_OF_FILTERS];
 
 }Filters;
 

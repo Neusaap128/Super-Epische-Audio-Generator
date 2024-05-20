@@ -12,7 +12,7 @@
 #include "main.h"
 #include "ShiftRegister.h"
 #include "../Common.h"
-
+#include "../DSP/DSP.h"
 
 typedef enum{
 	Disabled,
@@ -28,7 +28,7 @@ void HandleSelectingFilter();
 void HandleSelectingValue();
 
 // Rotary Encoder
-void ButtonInterrupt(uint32_t time);
+void ButtonInterrupt();
 void RotaryEncoderInterrupt();
 
 void IOUpdate();

@@ -1,3 +1,4 @@
 ../Core/Inc/Filters/AllPass.c:4:10:initializeAllPass	1
 ../Core/Inc/Filters/AllPass.c:18:13:allPassAppendSample	1
 ../Core/Inc/Filters/AllPass.c:28:6:setAllPassOffset	1
+../Core/Inc/Filters/AllPass.c:35:6:setAllPassLevel	1

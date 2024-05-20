@@ -23,12 +23,10 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Core/Inc/Codec \
-Core/Inc/DFT \
 Core/Inc/DSP \
 Core/Inc/Filters \
 Core/Inc/Filters/FilterUtility \
 Core/Inc/IO \
-Core/Inc/Math \
 Core/Src \
 Core/Startup \
 Drivers/STM32F7xx_HAL_Driver/Src \

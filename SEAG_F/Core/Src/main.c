@@ -85,7 +85,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+   HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -421,7 +421,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 
   if(GPIO_Pin == RotEncoderButton_Pin && (currentMillis - previousMillis > 100)){
-	  ButtonInterrupt(currentMillis);
+	  ButtonInterrupt();
   }
 
   if(GPIO_Pin == RotEncoderInA_Pin || GPIO_Pin == RotEncoderInB_Pin){

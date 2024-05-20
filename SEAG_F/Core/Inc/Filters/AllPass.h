@@ -10,11 +10,8 @@
 
 typedef struct{
 
-
     CombFeedforward* combFeedforward;
     CombFeedback* combFeedback;
-
-    //All relevant information gets stored in the comb's
 
 }AllPass;
 
@@ -22,5 +19,7 @@ typedef struct{
 AllPass* initializeAllPass(uint32_t sampleRate, float delayS, float b0, float am);
 SampleType  allPassAppendSample(AllPass* filter, SampleType  newSample);
 void setAllPassOffset(AllPass* allPass, uint32_t offset);
+void setAllPassLevel(AllPass* allPass, float a);
+
 
 #endif //ALL_PASS_H

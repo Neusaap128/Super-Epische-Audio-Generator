@@ -6,15 +6,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Inc/Filters/FilterUtility/CircularBuffer.c \
-../Core/Inc/Filters/FilterUtility/FilterUtility.c 
+../Core/Inc/Filters/FilterUtility/FilterUtility.c \
+../Core/Inc/Filters/FilterUtility/Oscillator.c 
 
 OBJS += \
 ./Core/Inc/Filters/FilterUtility/CircularBuffer.o \
-./Core/Inc/Filters/FilterUtility/FilterUtility.o 
+./Core/Inc/Filters/FilterUtility/FilterUtility.o \
+./Core/Inc/Filters/FilterUtility/Oscillator.o 
 
 C_DEPS += \
 ./Core/Inc/Filters/FilterUtility/CircularBuffer.d \
-./Core/Inc/Filters/FilterUtility/FilterUtility.d 
+./Core/Inc/Filters/FilterUtility/FilterUtility.d \
+./Core/Inc/Filters/FilterUtility/Oscillator.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +27,7 @@ Core/Inc/Filters/FilterUtility/%.o Core/Inc/Filters/FilterUtility/%.su Core/Inc/
 clean: clean-Core-2f-Inc-2f-Filters-2f-FilterUtility
 
 clean-Core-2f-Inc-2f-Filters-2f-FilterUtility:
-	-$(RM) ./Core/Inc/Filters/FilterUtility/CircularBuffer.cyclo ./Core/Inc/Filters/FilterUtility/CircularBuffer.d ./Core/Inc/Filters/FilterUtility/CircularBuffer.o ./Core/Inc/Filters/FilterUtility/CircularBuffer.su ./Core/Inc/Filters/FilterUtility/FilterUtility.cyclo ./Core/Inc/Filters/FilterUtility/FilterUtility.d ./Core/Inc/Filters/FilterUtility/FilterUtility.o ./Core/Inc/Filters/FilterUtility/FilterUtility.su
+	-$(RM) ./Core/Inc/Filters/FilterUtility/CircularBuffer.cyclo ./Core/Inc/Filters/FilterUtility/CircularBuffer.d ./Core/Inc/Filters/FilterUtility/CircularBuffer.o ./Core/Inc/Filters/FilterUtility/CircularBuffer.su ./Core/Inc/Filters/FilterUtility/FilterUtility.cyclo ./Core/Inc/Filters/FilterUtility/FilterUtility.d ./Core/Inc/Filters/FilterUtility/FilterUtility.o ./Core/Inc/Filters/FilterUtility/FilterUtility.su ./Core/Inc/Filters/FilterUtility/Oscillator.cyclo ./Core/Inc/Filters/FilterUtility/Oscillator.d ./Core/Inc/Filters/FilterUtility/Oscillator.o ./Core/Inc/Filters/FilterUtility/Oscillator.su
 
 .PHONY: clean-Core-2f-Inc-2f-Filters-2f-FilterUtility
 

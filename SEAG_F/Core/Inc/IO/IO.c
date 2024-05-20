@@ -66,11 +66,13 @@ void HandleSelectingValue(){
 	uint8_t led_bar = (rotaryEncoder.currentPos/4);
 	uint8_t ledbar_array = (1 << led_bar) - 1;
 
+	changeFilterLevel(getFilters()->filterInstances[selectedFilter], (float)led_bar/(8-1));
+
 	LoadValueIntoShiftRegister(&shiftRegLedbar, ledbar_array);
 
 }
 
-void ButtonInterrupt(uint32_t time){
+void ButtonInterrupt(){
 
 	IOState = (IOState + 1)%3;
 

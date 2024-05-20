@@ -1,2 +1,3 @@
 ../Core/Inc/Filters/AllPass.c:4:10:initializeAllPass	32	static
 ../Core/Inc/Filters/AllPass.c:18:13:allPassAppendSample	8	static
+../Core/Inc/Filters/AllPass.c:28:6:setAllPassOffset	0	static

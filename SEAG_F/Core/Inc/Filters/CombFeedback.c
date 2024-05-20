@@ -9,7 +9,9 @@ CombFeedback* initializeCombFeedback(uint32_t sampleRate, float delayS, float am
     filter->outputSamples = initializeCircularBuffer( delayS*sampleRate);
 
     filter->K = amplification;
-    filter->a = attenuation;
+    setCombFeedbackLevel(filter, attenuation);
+
+    filter->lowPass = initializeLowPass(sampleRate, 1760);
 
     return filter;
 
@@ -17,7 +19,9 @@ CombFeedback* initializeCombFeedback(uint32_t sampleRate, float delayS, float am
 
 SampleType combFeedbackAppendSample(CombFeedback *filter, SampleType newSample){
 
-	SampleType output = (filter->K)*(newSample - (filter->a)*getValueInCircularBuffer(filter->outputSamples, filter->offset)); // M - 1 see struct def for explanation
+	SampleType lowPassedDelayedOutput = lowPassAppendSample( filter->lowPass, getValueInCircularBuffer(filter->outputSamples, filter->offset) );
+
+	SampleType output = (filter->K)*(newSample - (filter->a)*lowPassedDelayedOutput);
 
 	putValueInCircularBuffer(filter->outputSamples, output);
 
@@ -25,3 +29,13 @@ SampleType combFeedbackAppendSample(CombFeedback *filter, SampleType newSample){
 
 }
 
+void setCombFeedbackLevel(CombFeedback *combfeedback, float a){
+
+	if(a > 1.0f) a = 1.0f;
+	if(a < 0.0f) a = 0.0f;
+
+	float value = pow(a, 1.0f/5.0f); //More resolution the higher a gets
+
+    combfeedback->a = value;
+
+}

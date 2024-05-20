@@ -10,7 +10,7 @@
 
 #include <stdint.h>
 
-#define AMOUNT_OF_FILTERS 4
+#define AMOUNT_OF_FILTERS 5
 
 typedef int16_t SampleType;
 

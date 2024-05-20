@@ -36,7 +36,10 @@ Core/Src/stm32f7xx_hal_msp.o: ../Core/Src/stm32f7xx_hal_msp.c \
  ../Core/Inc/DSP/../Filters/FilterUtility/../../Common.h \
  ../Core/Inc/DSP/../Filters/AllPass.h \
  ../Core/Inc/DSP/../Filters/CombFeedback.h \
+ ../Core/Inc/DSP/../Filters/lowPass.h \
  ../Core/Inc/DSP/../Filters/Flanger.h \
+ ../Core/Inc/DSP/../Filters/FilterUtility/Oscillator.h \
+ ../Core/Inc/DSP/../Filters/FilterUtility/FilterUtility.h \
  ../Core/Inc/DSP/../Filters/distortion.h ../Core/Inc/DSP/../main.h \
  ../Core/Inc/DSP/../Filters/Flanger.h ../Core/Inc/IO/IO.h \
  ../Core/Inc/IO/ShiftRegister.h ../Core/Inc/IO/../Common.h
@@ -80,7 +83,10 @@ Core/Src/stm32f7xx_hal_msp.o: ../Core/Src/stm32f7xx_hal_msp.c \
 ../Core/Inc/DSP/../Filters/FilterUtility/../../Common.h:
 ../Core/Inc/DSP/../Filters/AllPass.h:
 ../Core/Inc/DSP/../Filters/CombFeedback.h:
+../Core/Inc/DSP/../Filters/lowPass.h:
 ../Core/Inc/DSP/../Filters/Flanger.h:
+../Core/Inc/DSP/../Filters/FilterUtility/Oscillator.h:
+../Core/Inc/DSP/../Filters/FilterUtility/FilterUtility.h:
 ../Core/Inc/DSP/../Filters/distortion.h:
 ../Core/Inc/DSP/../main.h:
 ../Core/Inc/DSP/../Filters/Flanger.h:

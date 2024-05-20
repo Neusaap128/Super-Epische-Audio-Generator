@@ -1,2 +1,3 @@
-../Core/Inc/Filters/Distortion.c:3:13:initializeDistortion	1
-../Core/Inc/Filters/Distortion.c:9:12:distortionAppendSample	3
+../Core/Inc/Filters/Distortion.c:4:13:initializeDistortion	1
+../Core/Inc/Filters/Distortion.c:10:12:distortionAppendSample	6
+../Core/Inc/Filters/Distortion.c:37:6:setDistortionLevel	3

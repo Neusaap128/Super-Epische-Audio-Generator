@@ -6,9 +6,11 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Inc/Filters/AllPass.c \
+../Core/Inc/Filters/Chorus.c \
 ../Core/Inc/Filters/CombFeedback.c \
 ../Core/Inc/Filters/CombFeedforward.c \
 ../Core/Inc/Filters/Distortion.c \
+../Core/Inc/Filters/Filter.c \
 ../Core/Inc/Filters/Filters.c \
 ../Core/Inc/Filters/Flanger.c \
 ../Core/Inc/Filters/HighPass.c \
@@ -17,9 +19,11 @@ C_SRCS += \
 
 OBJS += \
 ./Core/Inc/Filters/AllPass.o \
+./Core/Inc/Filters/Chorus.o \
 ./Core/Inc/Filters/CombFeedback.o \
 ./Core/Inc/Filters/CombFeedforward.o \
 ./Core/Inc/Filters/Distortion.o \
+./Core/Inc/Filters/Filter.o \
 ./Core/Inc/Filters/Filters.o \
 ./Core/Inc/Filters/Flanger.o \
 ./Core/Inc/Filters/HighPass.o \
@@ -28,9 +32,11 @@ OBJS += \
 
 C_DEPS += \
 ./Core/Inc/Filters/AllPass.d \
+./Core/Inc/Filters/Chorus.d \
 ./Core/Inc/Filters/CombFeedback.d \
 ./Core/Inc/Filters/CombFeedforward.d \
 ./Core/Inc/Filters/Distortion.d \
+./Core/Inc/Filters/Filter.d \
 ./Core/Inc/Filters/Filters.d \
 ./Core/Inc/Filters/Flanger.d \
 ./Core/Inc/Filters/HighPass.d \
@@ -45,7 +51,7 @@ Core/Inc/Filters/%.o Core/Inc/Filters/%.su Core/Inc/Filters/%.cyclo: ../Core/Inc
 clean: clean-Core-2f-Inc-2f-Filters
 
 clean-Core-2f-Inc-2f-Filters:
-	-$(RM) ./Core/Inc/Filters/AllPass.cyclo ./Core/Inc/Filters/AllPass.d ./Core/Inc/Filters/AllPass.o ./Core/Inc/Filters/AllPass.su ./Core/Inc/Filters/CombFeedback.cyclo ./Core/Inc/Filters/CombFeedback.d ./Core/Inc/Filters/CombFeedback.o ./Core/Inc/Filters/CombFeedback.su ./Core/Inc/Filters/CombFeedforward.cyclo ./Core/Inc/Filters/CombFeedforward.d ./Core/Inc/Filters/CombFeedforward.o ./Core/Inc/Filters/CombFeedforward.su ./Core/Inc/Filters/Distortion.cyclo ./Core/Inc/Filters/Distortion.d ./Core/Inc/Filters/Distortion.o ./Core/Inc/Filters/Distortion.su ./Core/Inc/Filters/Filters.cyclo ./Core/Inc/Filters/Filters.d ./Core/Inc/Filters/Filters.o ./Core/Inc/Filters/Filters.su ./Core/Inc/Filters/Flanger.cyclo ./Core/Inc/Filters/Flanger.d ./Core/Inc/Filters/Flanger.o ./Core/Inc/Filters/Flanger.su ./Core/Inc/Filters/HighPass.cyclo ./Core/Inc/Filters/HighPass.d ./Core/Inc/Filters/HighPass.o ./Core/Inc/Filters/HighPass.su ./Core/Inc/Filters/LowPass.cyclo ./Core/Inc/Filters/LowPass.d ./Core/Inc/Filters/LowPass.o ./Core/Inc/Filters/LowPass.su ./Core/Inc/Filters/Reverb.cyclo ./Core/Inc/Filters/Reverb.d ./Core/Inc/Filters/Reverb.o ./Core/Inc/Filters/Reverb.su
+	-$(RM) ./Core/Inc/Filters/AllPass.cyclo ./Core/Inc/Filters/AllPass.d ./Core/Inc/Filters/AllPass.o ./Core/Inc/Filters/AllPass.su ./Core/Inc/Filters/Chorus.cyclo ./Core/Inc/Filters/Chorus.d ./Core/Inc/Filters/Chorus.o ./Core/Inc/Filters/Chorus.su ./Core/Inc/Filters/CombFeedback.cyclo ./Core/Inc/Filters/CombFeedback.d ./Core/Inc/Filters/CombFeedback.o ./Core/Inc/Filters/CombFeedback.su ./Core/Inc/Filters/CombFeedforward.cyclo ./Core/Inc/Filters/CombFeedforward.d ./Core/Inc/Filters/CombFeedforward.o ./Core/Inc/Filters/CombFeedforward.su ./Core/Inc/Filters/Distortion.cyclo ./Core/Inc/Filters/Distortion.d ./Core/Inc/Filters/Distortion.o ./Core/Inc/Filters/Distortion.su ./Core/Inc/Filters/Filter.cyclo ./Core/Inc/Filters/Filter.d ./Core/Inc/Filters/Filter.o ./Core/Inc/Filters/Filter.su ./Core/Inc/Filters/Filters.cyclo ./Core/Inc/Filters/Filters.d ./Core/Inc/Filters/Filters.o ./Core/Inc/Filters/Filters.su ./Core/Inc/Filters/Flanger.cyclo ./Core/Inc/Filters/Flanger.d ./Core/Inc/Filters/Flanger.o ./Core/Inc/Filters/Flanger.su ./Core/Inc/Filters/HighPass.cyclo ./Core/Inc/Filters/HighPass.d ./Core/Inc/Filters/HighPass.o ./Core/Inc/Filters/HighPass.su ./Core/Inc/Filters/LowPass.cyclo ./Core/Inc/Filters/LowPass.d ./Core/Inc/Filters/LowPass.o ./Core/Inc/Filters/LowPass.su ./Core/Inc/Filters/Reverb.cyclo ./Core/Inc/Filters/Reverb.d ./Core/Inc/Filters/Reverb.o ./Core/Inc/Filters/Reverb.su
 
 .PHONY: clean-Core-2f-Inc-2f-Filters
 

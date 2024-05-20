@@ -15,7 +15,7 @@ Oscillator* initializeOscillator(uint32_t sampleRate, float frequency, float amp
 
 uint32_t oscillateAppendSample(Oscillator* osc){
 
-    float sinuscall = 2*M_PI*osc->i/osc->freq;
+    float sinuscall = M_TWOPI*osc->i/osc->freq;
     float output = osc->amp/2*(1.0f-(float)sinApproxLut(sinuscall)); //delen omdat het tussen de max waarden komt te zitte
     osc->i++;
     // = (osc->i+1) % osc->freq;

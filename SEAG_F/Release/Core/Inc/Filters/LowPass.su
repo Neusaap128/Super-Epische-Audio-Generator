@@ -1,2 +1,2 @@
-../Core/Inc/Filters/LowPass.c:4:16:InitializeLPFilter	16	static
-../Core/Inc/Filters/LowPass.c:22:7:LPFilter	0	static
+../Core/Inc/Filters/LowPass.c:4:10:initializeLowPass	32	static
+../Core/Inc/Filters/LowPass.c:16:12:lowPassAppendSample	0	static

@@ -1,2 +1,2 @@
-../Core/Inc/Filters/CombFeedback.c:4:15:initializeCombFeedback	24	static
-../Core/Inc/Filters/CombFeedback.c:18:12:combFeedbackAppendSample	32	static
+../Core/Inc/Filters/CombFeedback.c:4:15:initializeCombFeedback	32	static
+../Core/Inc/Filters/CombFeedback.c:20:12:combFeedbackAppendSample	24	static

@@ -1,0 +1,2 @@
+../Core/Inc/Filters/HighPass.c:4:11:initializeHighPass	1
+../Core/Inc/Filters/HighPass.c:16:12:highPassAppendSample	1

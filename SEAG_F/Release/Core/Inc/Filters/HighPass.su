@@ -1,0 +1,2 @@
+../Core/Inc/Filters/HighPass.c:4:11:initializeHighPass	24	static
+../Core/Inc/Filters/HighPass.c:16:12:highPassAppendSample	0	static

@@ -21,9 +21,9 @@
 void InitDSP(uint32_t sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeDef *hi2s2);
 void DSPUpdate();
 
-
 void SetFilterState(uint8_t filterIndex, uint8_t state);
 uint8_t GetEnabledFilters();
 
+Filters* getFilters();
 
 #endif /* INC_DSP_DSP_H_ */

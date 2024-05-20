@@ -32,4 +32,7 @@ void setAllPassOffset(AllPass* allPass, uint32_t offset){
 
 }
 
-
+void setAllPassLevel(AllPass* allPass, float a){
+	setCombFeedbackLevel(allPass->combFeedback, a);
+	setCombFeedforwardLevel(allPass->combFeedforward, a);
+}

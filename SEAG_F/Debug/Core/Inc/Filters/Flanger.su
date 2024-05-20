@@ -1,2 +1,3 @@
 ../Core/Inc/Filters/Flanger.c:4:10:initializeFlanger	32	static
 ../Core/Inc/Filters/Flanger.c:14:12:flangerAppendSample	24	static
+../Core/Inc/Filters/Flanger.c:26:6:setFlangerLevel	16	static

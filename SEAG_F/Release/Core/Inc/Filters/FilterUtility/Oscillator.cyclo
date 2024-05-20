@@ -1,0 +1,2 @@
+../Core/Inc/Filters/FilterUtility/Oscillator.c:4:13:initializeOscillator	1
+../Core/Inc/Filters/FilterUtility/Oscillator.c:16:10:oscillateAppendSample	1

@@ -1,2 +1,2 @@
 ../Core/Inc/Filters/FilterUtility/FilterUtility.c:8:6:initSin	2
-../Core/Inc/Filters/FilterUtility/FilterUtility.c:18:7:sinApproxLut	1
+../Core/Inc/Filters/FilterUtility/FilterUtility.c:17:7:sinApproxLut	1

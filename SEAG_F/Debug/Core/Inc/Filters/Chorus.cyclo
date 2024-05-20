@@ -1,0 +1,3 @@
+../Core/Inc/Filters/Chorus.c:4:9:initializeChorus	2
+../Core/Inc/Filters/Chorus.c:29:12:chorusAppendSample	2
+../Core/Inc/Filters/Chorus.c:51:6:setChorusLevel	2

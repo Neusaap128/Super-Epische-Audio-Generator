@@ -1,2 +1,2 @@
 ../Core/Inc/Filters/FilterUtility/FilterUtility.c:8:6:initSin	24	static
-../Core/Inc/Filters/FilterUtility/FilterUtility.c:18:7:sinApproxLut	32	static
+../Core/Inc/Filters/FilterUtility/FilterUtility.c:17:7:sinApproxLut	32	static
