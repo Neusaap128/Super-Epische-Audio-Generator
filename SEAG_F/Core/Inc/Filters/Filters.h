@@ -22,6 +22,8 @@ typedef struct{
 
 	uint8_t enabledFilters;
 
+	LowPass* inputLowPass, *outputLowPass;
+
 	Filter* filterInstances[AMOUNT_OF_FILTERS];
 
 }Filters;

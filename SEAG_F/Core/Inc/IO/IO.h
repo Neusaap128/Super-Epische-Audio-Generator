@@ -26,6 +26,7 @@ void InitIO();
 // Registers
 void HandleSelectingFilter();
 void HandleSelectingValue();
+void UpdateLedsActiveFilters();
 
 // Rotary Encoder
 void ButtonInterrupt();

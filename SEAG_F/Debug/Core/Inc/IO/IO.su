@@ -1,6 +1,7 @@
-../Core/Inc/IO/IO.c:52:6:InitIO	8	static
-../Core/Inc/IO/IO.c:57:6:HandleSelectingFilter	8	static
-../Core/Inc/IO/IO.c:64:6:HandleSelectingValue	16	static
-../Core/Inc/IO/IO.c:75:6:ButtonInterrupt	4	static
-../Core/Inc/IO/IO.c:86:6:RotaryEncoderInterrupt	8	static
-../Core/Inc/IO/IO.c:91:6:IOUpdate	8	static
+../Core/Inc/IO/IO.c:55:6:InitIO	8	static
+../Core/Inc/IO/IO.c:60:6:HandleSelectingFilter	8	static
+../Core/Inc/IO/IO.c:67:6:HandleSelectingValue	16	static
+../Core/Inc/IO/IO.c:78:6:ButtonInterrupt	4	static
+../Core/Inc/IO/IO.c:89:6:RotaryEncoderInterrupt	8	static
+../Core/Inc/IO/IO.c:94:6:IOUpdate	16	static
+../Core/Inc/IO/IO.c:158:6:UpdateLedsActiveFilters	8	static

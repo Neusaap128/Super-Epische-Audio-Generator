@@ -10,6 +10,9 @@ Filters* initializeFilters(uint32_t sampleRate){
 
 	Filters* filters = malloc(sizeof(Filters));
 
+	filters->outputLowPass = initializeLowPass(sampleRate, 5000);
+	filters->inputLowPass = initializeLowPass(sampleRate, 5000);
+
     filters->enabledFilters = 0b00000000;
 
 	Distortion* dist = initializeDistortion(1000);
@@ -43,7 +46,7 @@ Filters* initializeFilters(uint32_t sampleRate){
 
 SampleType appendSample(Filters* filters, SampleType newSample){
 
-	SampleType previousOutput = newSample;
+	SampleType previousOutput = lowPassAppendSample(filters->inputLowPass, newSample);
 
 	for(uint8_t i = 0; i < AMOUNT_OF_FILTERS; i++){
 
@@ -54,7 +57,7 @@ SampleType appendSample(Filters* filters, SampleType newSample){
 
 	}
 
-	return previousOutput;
+	return lowPassAppendSample(filters->outputLowPass, previousOutput);
 
 }
 

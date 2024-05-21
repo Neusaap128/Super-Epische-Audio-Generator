@@ -85,7 +85,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-   HAL_Init();
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -385,17 +385,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(RotEncoderInB_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : ToggleInput4_Pin ToggleInput2_Pin ToggleInput1_Pin ToggleInput8_Pin */
-  GPIO_InitStruct.Pin = ToggleInput4_Pin|ToggleInput2_Pin|ToggleInput1_Pin|ToggleInput8_Pin;
+  /*Configure GPIO pins : ToggleInput4_Pin ToggleInput3_Pin ToggleInput2_Pin ToggleInput1_Pin
+                           ToggleInput8_Pin */
+  GPIO_InitStruct.Pin = ToggleInput4_Pin|ToggleInput3_Pin|ToggleInput2_Pin|ToggleInput1_Pin
+                          |ToggleInput8_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : ToggleInput3_Pin */
-  GPIO_InitStruct.Pin = ToggleInput3_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(ToggleInput3_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ToggleInput7_Pin ToggleInput6_Pin ToggleInput5_Pin */
   GPIO_InitStruct.Pin = ToggleInput7_Pin|ToggleInput6_Pin|ToggleInput5_Pin;

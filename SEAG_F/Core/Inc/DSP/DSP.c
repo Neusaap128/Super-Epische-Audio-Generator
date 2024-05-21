@@ -60,16 +60,10 @@ void DSPUpdate(){
 }
 
 
-void SetFilterState(uint8_t filterIndex, uint8_t state){
+void SetFilterStates(uint8_t states){
 
-	if(filterIndex >= AMOUNT_OF_FILTERS)
-		return;
+	filters->enabledFilters = states;
 
-	if(state){
-		filters->enabledFilters |= 1 << filterIndex;
-	}else{
-		filters->enabledFilters &= 0 << filterIndex;
-	}
 }
 
 uint8_t GetEnabledFilters(){

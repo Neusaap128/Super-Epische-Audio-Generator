@@ -5,6 +5,9 @@
  *      Author: rode-
  */
 
+#define bitset(byte,nbit)   ((byte) |=  (1<<(nbit)))
+#define bitclear(byte,nbit) ((byte) &= ~(1<<(nbit)))
+
 #include "IO.h"
 #include "RotaryEncoder.h"
 
@@ -50,7 +53,7 @@ uint8_t selectedFilter;
 uint8_t switchedStateFlag;
 
 void InitIO(){
-	LoadValueIntoShiftRegister(&shiftRegFilterSelect, GetEnabledFilters());
+	LoadValueIntoShiftRegister(&shiftRegFilterSelect, 0x00);
 	ResetShiftRegister(&shiftRegLedbar);
 }
 
@@ -87,13 +90,35 @@ void RotaryEncoderInterrupt(){
 	rot_intrupt(&rotaryEncoder);
 }
 
-
+uint8_t newSelectedFilters = 0b00000000;
 void IOUpdate(){
 
 
-	//uint8_t buttonPressed = HAL_GPIO_ReadPin(ToggleInput1_GPIO_Port, ToggleInput1_Pin);
-	//SetFilterState(0, buttonPressed);
+	uint8_t buttonPressed = HAL_GPIO_ReadPin(ToggleInput1_GPIO_Port, ToggleInput1_Pin);
+	if( !buttonPressed) newSelectedFilters |= (1 << 0);  else newSelectedFilters &= ~(1 << 0); // inverted because toggle is upside down
+	buttonPressed = HAL_GPIO_ReadPin(ToggleInput2_GPIO_Port, ToggleInput2_Pin);
+	if( buttonPressed) newSelectedFilters |= (1 << 1);  else newSelectedFilters &= ~(1 << 1);
+	buttonPressed = HAL_GPIO_ReadPin(ToggleInput3_GPIO_Port, ToggleInput3_Pin);
+	if( buttonPressed) newSelectedFilters |= (1 << 2);  else newSelectedFilters &= ~(1 << 2);
+	buttonPressed = HAL_GPIO_ReadPin(ToggleInput4_GPIO_Port, ToggleInput4_Pin);
+	if(!buttonPressed) newSelectedFilters |= (1 << 3);  else newSelectedFilters &= ~(1 << 3); // inverted because toggle is upside down
+	buttonPressed = HAL_GPIO_ReadPin(ToggleInput5_GPIO_Port, ToggleInput5_Pin);
+	if( buttonPressed) newSelectedFilters |= (1 << 4);  else newSelectedFilters &= ~(1 << 4);
 
+
+
+	/*
+	uint8_t buttonPressed = HAL_GPIO_ReadPin(ToggleInput6_GPIO_Port, ToggleInput6_Pin);
+	SetFilterState(5, buttonPressed);
+	uint8_t buttonPressed = HAL_GPIO_ReadPin(ToggleInput7_GPIO_Port, ToggleInput7_Pin);
+	SetFilterState(6, buttonPressed);
+	uint8_t buttonPressed = HAL_GPIO_ReadPin(ToggleInput8_GPIO_Port, ToggleInput8_Pin);
+	SetFilterState(7, buttonPressed);
+	 */
+
+	if(newSelectedFilters != GetEnabledFilters()){
+		UpdateLedsActiveFilters();
+	}
 
 	//Handling Transistions
 	if(switchedStateFlag > 0){
@@ -128,10 +153,14 @@ void IOUpdate(){
 	    	break;
 	  }
 
-
-
 }
 
+void UpdateLedsActiveFilters(){
+
+	SetFilterStates(newSelectedFilters);
+	LoadValueIntoShiftRegister(&shiftRegFilterSelect, GetEnabledFilters());
+
+}
 
 
 

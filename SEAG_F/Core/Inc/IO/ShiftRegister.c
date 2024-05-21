@@ -14,7 +14,9 @@ void ResetShiftRegister(ShiftRegister_t *reg){
 
 void LoadValueIntoShiftRegister(ShiftRegister_t *reg, uint8_t num){
 
-	for (int8_t i = 7; i >= 0; i--) {
+
+
+	for (int8_t i = 0; i < 8; i++) {
 		GPIO_PinState bit_value = ((num >> i) & 1)  ? GPIO_PIN_SET : GPIO_PIN_RESET;
 		HAL_GPIO_WritePin(reg->dataPort, reg->dataPin, bit_value);
 		HAL_Delay(1);
