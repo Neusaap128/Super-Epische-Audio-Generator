@@ -24,8 +24,16 @@ typedef struct{
 
 
 }CombFeedback;
-
+/*
+ * zet alle waardens in de struct en sturen de struct terug naar buiten zodat die met de filter mee gegeven kan worden
+ */
 CombFeedback* initializeCombFeedback(uint32_t sampleRate, float delayS, float verzwakking, float am);
+
+/*
+ * gaat in het intestelde bit gaan uitreken wat de volgende waarde moet zijn en dit naar buiten sturen
+ * y[n] = b_0x[n] - a_My[n-M] -> de functie dat die uitrekend
+
+ */
 SampleType combFeedbackAppendSample(CombFeedback *filter, SampleType newSample);
 void setCombFeedbackLevel(CombFeedback *combfeedback, float a);
 

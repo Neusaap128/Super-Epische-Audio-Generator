@@ -8,7 +8,7 @@ static float sin_lut[SIN_LUT_SIZE];
 void initSin(){
 
     for(uint16_t i = 0; i < SIN_LUT_SIZE; i++){
-        sin_lut[i] = sinf(M_TWOPI*(float)i/SIN_LUT_SIZE);
+        sin_lut[i] = sinf(M_TWOPI*(float)i/SIN_LUT_SIZE); //berekent de sinus voor verschillende waardens en slaagt het op in array
     }
 
 }
@@ -24,7 +24,7 @@ float sinApproxLut(float x){
 
     float fract = findex - index;
 
-    return (1.0f*fract)*sin_lut[index]+fract*sin_lut[index+1];
+    return (1.0f*fract)*sin_lut[index]+fract*sin_lut[index+1];  //geeft een geinterpoleerde sinus waarde terug
     
     //return sin_lut[3];
 

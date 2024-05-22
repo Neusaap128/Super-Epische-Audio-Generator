@@ -19,7 +19,7 @@ CombFeedback* initializeCombFeedback(uint32_t sampleRate, float delayS, float am
 
 SampleType combFeedbackAppendSample(CombFeedback *filter, SampleType newSample){
 
-	SampleType lowPassedDelayedOutput = lowPassAppendSample( filter->lowPass, getValueInCircularBuffer(filter->outputSamples, filter->offset) );
+	SampleType lowPassedDelayedOutput = lowPassAppendSample( filter->lowPass, getValueInCircularBuffer(filter->outputSamples, filter->offset) ); //voor de ruis te bepreken voegen we een lowpas filter toe
 
 	SampleType output = (filter->K)*(newSample - (filter->a)*lowPassedDelayedOutput);
 

@@ -10,8 +10,8 @@
 
 #include <stdint.h>
 
-#define AMOUNT_OF_FILTERS 5
+#define AMOUNT_OF_FILTERS 5 //zegt hoeveel filters er zijn
 
-typedef int16_t SampleType;
+typedef int16_t SampleType;	//zegt hoeveel bits we sampelen
 
 #endif /* INC_COMMON_H_ */

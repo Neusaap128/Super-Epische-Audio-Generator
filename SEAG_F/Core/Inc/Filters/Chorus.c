@@ -33,14 +33,14 @@ SampleType chorusAppendSample(Chorus *filter, SampleType input){
     for(uint8_t i = 0; i < filter->amountOfFeedforwardFilters; i++){
         uint16_t rawDelay = rand() % filter->combFeedforwardFilters[i]->inputSamples->bufferSize; // max delay in sample amount
 
-        filter->previousDelays[i] = filter->a*filter->previousDelays[i] + (1.0f-filter->a)*rawDelay;
+        filter->previousDelays[i] = filter->a*filter->previousDelays[i] + (1.0f-filter->a)*rawDelay; //gaat bepalen of de sprong niet groot is zodat er geen ruis gecreered word
 
         uint16_t delay = (uint16_t)filter->previousDelays[i];
 
         filter->combFeedforwardFilters[i]->offset = delay;
 
         
-        output += combFeedforwardAppendSample(filter->combFeedforwardFilters[i], input)/filter->amountOfFeedforwardFilters;
+        output += combFeedforwardAppendSample(filter->combFeedforwardFilters[i], input)/filter->amountOfFeedforwardFilters; //gaat de meerdere comback waardens optellen voor geen clipping te krijgen delen we door het aantal filters, elke filter weegt even veel door
 
     }
 

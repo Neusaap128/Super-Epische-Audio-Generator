@@ -11,8 +11,16 @@
 #ifndef FILTER_UTLITY_H
 #define FILTER_UTILITY_H
 
-
+/*
+ * berekend een sinus bij het initaliseren zodat dit niet meer moet gebeuren als deze eenmaal nodig is
+ */
 void initSin();
+
+/*
+ * gaat de gevraagde waarde van sinus op halen deze waarde retunt die als float
+ * het gaat voor de waarde te benaderen interpoler tussen twee waardens
+ * de return waarde is tusssen 1 en -1
+ */
 float sinApproxLut(float x);
 
 

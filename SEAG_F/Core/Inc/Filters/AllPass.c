@@ -19,7 +19,7 @@ SampleType  allPassAppendSample(AllPass* filter, SampleType  newSample){
 
 	SampleType feedForwardOutput = combFeedforwardAppendSample(filter->combFeedforward, newSample);
 
-	SampleType output = combFeedbackAppendSample(filter->combFeedback, feedForwardOutput);
+	SampleType output = combFeedbackAppendSample(filter->combFeedback, feedForwardOutput); //gaat de waarde van forward gebruiken in de comback filter
 
     return output;
 

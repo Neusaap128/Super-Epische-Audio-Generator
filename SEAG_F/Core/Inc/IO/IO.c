@@ -59,15 +59,15 @@ void InitIO(){
 
 void HandleSelectingFilter(){
 
-	selectedFilter = (uint16_t)(rotaryEncoder.currentPos/4) % AMOUNT_OF_FILTERS;
+	selectedFilter = (uint16_t)(rotaryEncoder.currentPos/4) % AMOUNT_OF_FILTERS; //door dat rotery de 4 fase overloopt en 4 keer opteld of afteld moet je delen door 4, voor varable extra dat weergeeft hoeveel filters er zijn
 	LoadValueIntoShiftRegister(&shiftRegFilterSelect, 1 << selectedFilter);
 
 }
 
 void HandleSelectingValue(){
 
-	uint8_t led_bar = (rotaryEncoder.currentPos/4);
-	uint8_t ledbar_array = (1 << led_bar) - 1;
+	uint8_t led_bar = (rotaryEncoder.currentPos/4); //door dat rotery de 4 fase overloopt en 4 keer opteld of afteld moet je delen door 4
+	uint8_t ledbar_array = (1 << led_bar) - 1;		//we werken binair dus hierdoor deze shift opperatie
 
 	changeFilterLevel(getFilters()->filterInstances[selectedFilter], (float)led_bar/(8-1));
 
@@ -142,14 +142,14 @@ void IOUpdate(){
 
 	}
 
-	//Handling states, states in welke fase je zit, word bepaald door het aantal drukken op de rotetry encoderder
+	//Handling states
 	switch (IOState) {
 	    case Disabled:
 	    	break;
-	    case SelectingFilter:
+	    case SelectingFilter:			//deze fase gaat er een filter dat je wilt aanpassen geselecteerd
 	    	HandleSelectingFilter();
 	    	break;
-	    case SelectingValue:
+	    case SelectingValue:			//hier ga je van de geselecteerde filter de waarde gaan aanpassen
 	    	HandleSelectingValue();
 	    	break;
 	  }

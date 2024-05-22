@@ -11,6 +11,9 @@
 #include <stdlib.h>
 #include "main.h"
 
+/*
+ * de pinnen van een rottery
+ */
 typedef struct{
 
 	uint8_t currentPos;
@@ -23,7 +26,14 @@ typedef struct{
 
 }RotaryEncoder_t;
 
+/*
+ * deze functie gaat kijken in welke van de 4 state dat een rot kan hebben hij zit
+ * dit geeft de functie terug in een getal van 8 bits
+ */
 uint8_t rot_get_state(RotaryEncoder_t* rotEncoder);
+/*
+ * hiebij gaat het kijken welke stat het zat om te bepalen of het moet opgeteld of verminderd
+ */
 void rot_intrupt(RotaryEncoder_t* rotEncoder);
 
 
