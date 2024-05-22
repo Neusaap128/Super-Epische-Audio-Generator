@@ -11,7 +11,7 @@
 #include "IO.h"
 #include "RotaryEncoder.h"
 
-
+//het defineeren van alle pinnen van shift register filter
 ShiftRegister_t shiftRegFilterSelect = {
 	.clkPort 	 = ShiftRegFClk_GPIO_Port,
 	.clkPin   	 = ShiftRegFClk_Pin,
@@ -21,7 +21,7 @@ ShiftRegister_t shiftRegFilterSelect = {
 	.enabledPin  = ShiftRegFStoClk_Pin
 };
 
-
+//het defineren van alle pinnen voor de ledbar
 ShiftRegister_t shiftRegLedbar = {
 	.clkPort 	 = ShiftRegLBarClk_GPIO_Port,
 	.clkPin   	 = ShiftRegLBarClk_Pin,
@@ -30,7 +30,7 @@ ShiftRegister_t shiftRegLedbar = {
 	.enabledPort = ShiftRegLBarStoClk_GPIO_Port,
 	.enabledPin  = ShiftRegLBarStoClk_Pin
 };
-
+//het defineren van pinnen voor de rotaryEncoder
 RotaryEncoder_t rotaryEncoder = {
 	.currentPos	= 0,
 	.portA   	= RotEncoderInA_GPIO_Port,
@@ -75,6 +75,7 @@ void HandleSelectingValue(){
 
 }
 
+//de functie die moet opgeroepn worden als er op de knop drukt
 void ButtonInterrupt(){
 
 	IOState = (IOState + 1)%3;
@@ -85,7 +86,7 @@ void ButtonInterrupt(){
 
 
 }
-
+//op roepen als er aan de knop gedraaid word
 void RotaryEncoderInterrupt(){
 	rot_intrupt(&rotaryEncoder);
 }
@@ -141,7 +142,7 @@ void IOUpdate(){
 
 	}
 
-	//Handling states
+	//Handling states, states in welke fase je zit, word bepaald door het aantal drukken op de rotetry encoderder
 	switch (IOState) {
 	    case Disabled:
 	    	break;

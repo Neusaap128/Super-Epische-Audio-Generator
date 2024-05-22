@@ -17,6 +17,8 @@ uint8_t rot_get_state(RotaryEncoder_t* rotEncoder) {
                 	| (HAL_GPIO_ReadPin(rotEncoder->portA, rotEncoder->pinA)) );
 }
 
+//deze functie overloopt 4 fase van een rotery encoder, eerst stijgen de klokflank 1 van de 2 fase beide hoog
+//3de fase de eerste die hoog was terug laag word en 4de fase allebei laag
 void rot_intrupt(RotaryEncoder_t* rotEncoder){
 
 	  rot_new_state = rot_get_state(rotEncoder);
