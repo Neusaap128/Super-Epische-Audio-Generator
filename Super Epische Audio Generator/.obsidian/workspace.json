@@ -11,11 +11,9 @@
             "id": "b034c9893e9ef015",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
-                "mode": "source",
-                "source": false
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PCB/Footprints/Footprints.md",
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PCB/Footprints/Footprints.md"
+                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
               }
             }
           }
@@ -146,8 +144,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b034c9893e9ef015",
+  "active": "80f13b2b3c7d267f",
   "lastOpenFiles": [
+    "PCB/Footprints/Footprints.md",
     "PCB/PCB Design/PCB Design.md",
     "Datasheets/MCU's/stm32f722 reference manual.pdf",
     "Datasheets/Audio Filtering/WM8960_v4.2.pdf",

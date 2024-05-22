@@ -75,7 +75,7 @@ void HandleSelectingValue(){
 
 }
 
-//de functie die moet opgeroepn worden als er op de knop drukt
+//de functie die moet opgeroepen worden als er op de knop drukt
 void ButtonInterrupt(){
 
 	IOState = (IOState + 1)%3;

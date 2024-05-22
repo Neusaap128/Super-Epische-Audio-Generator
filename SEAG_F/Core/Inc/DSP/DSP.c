@@ -25,12 +25,13 @@ uint8_t dataReadyFlag;
 // --- filters ---
 Filters* filters;
 
+
 void InitDSP(uint32_t sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeDef *hi2s2){
 
 	//Init filters
 	filters = initializeFilters(sampleFrequency);
 
-	//Init I²S
+	//Start the I²S DMA streams
 	HAL_I2S_Transmit_DMA(hi2s1, (uint16_t*)&outputData[0], BUFFER_SIZE);
 	HAL_I2S_Receive_DMA(hi2s2, (uint16_t*)&inputData[0], BUFFER_SIZE);
 
@@ -39,7 +40,7 @@ void InitDSP(uint32_t sampleFrequency, I2S_HandleTypeDef *hi2s1, I2S_HandleTypeD
 
 void DSPUpdate(){
 
-
+	//When dataReadyFlag is set, DMA has filled up the buffer
 	if(dataReadyFlag){
 
 		for(uint8_t i = 0; i < BUFFER_SIZE/2; i++){
@@ -53,6 +54,8 @@ void DSPUpdate(){
 			}
 
 		}
+
+		//When the buffer is completely process, set dataReadyFlag low
 		dataReadyFlag = 0;
 	}
 
@@ -74,20 +77,31 @@ Filters* getFilters(){
 	return filters;
 }
 
+
+/*
+ * Callback for when the first half of the input buffer is filled
+ */
 void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
 
+	//set the pointers to start of the array
 	inputBufPtr = &inputData[0];
 	outputBufPtr = &outputData[0];
 
+	//data is ready, and will get processed in DSPUpdate
 	dataReadyFlag = 1;
 
 }
 
+/*
+ * Callback for when the second half of the input buffer is filled
+ */
 void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s){
 
+	//set the pointers to halfway the array
 	inputBufPtr = &inputData[BUFFER_SIZE/2];
 	outputBufPtr = &outputData[BUFFER_SIZE/2];
 
+	//data is ready, and will get processed in DSPUpdate
 	dataReadyFlag = 1;
 
 }

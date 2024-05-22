@@ -27,7 +27,7 @@ void InitIO();
 
 /*
  * gaat bepalen welke filter je wilt aanpassen
- * gaat de ook de waarde in het shiftregister gaan laden zodat juiste led gaat branden (ledjes boven toggels)
+ * gaat ook de waarde in het shiftregister gaan laden zodat juiste led gaat branden (ledjes boven toggels)
 */
 void HandleSelectingFilter();
 

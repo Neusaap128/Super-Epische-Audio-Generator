@@ -14,8 +14,9 @@ typedef struct{
     uint32_t bufferSize;
 
 }CircularBuffer;
+
 /*
- * gaat de struct vullen met waarders en zorgen dat het kan gebruikt worden
+ * gaat de struct vullen met waarden en zorgen dat het kan gebruikt worden
  * zet ook van het begin nullen in de buffer
  */
 CircularBuffer* initializeCircularBuffer(uint32_t bufferSize);
@@ -26,8 +27,8 @@ CircularBuffer* initializeCircularBuffer(uint32_t bufferSize);
 void putValueInCircularBuffer(CircularBuffer* buffer, int16_t value);
 
 /*
- * geeft een waarde terug afhankelijk van het aantal sampels dat je neemt
- * geeft plaats mee waar je data wilt uit halen
+ * geeft waarde terug op de plek van de schrijf index, dit is de langst geleden sample
+ * als een meer recentere waarde nodig is, kan offset gebruikt worden.
  */
 SampleType getValueInCircularBuffer(CircularBuffer* buffer, uint32_t offset);
 

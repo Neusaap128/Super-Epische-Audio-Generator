@@ -52,8 +52,6 @@ void CodecInit(I2C_HandleTypeDef *hi2c1){
 
 	WriteCodecRegister(hi2c1, 0x21, 0b000000000);
 
-	//WriteCodecRegister(hi2c1, 0x2D, 0b000000000);
-
 	WriteCodecRegister(hi2c1, 0x2E, 0b000000000);
 
 	WriteCodecRegister(hi2c1, 0x22, 0b101010000);

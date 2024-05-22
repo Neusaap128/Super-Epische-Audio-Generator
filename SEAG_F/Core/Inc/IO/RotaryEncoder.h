@@ -12,7 +12,7 @@
 #include "main.h"
 
 /*
- * de pinnen van een rottery
+ * Struct om de rotary encoder voor te stellen
  */
 typedef struct{
 
@@ -27,12 +27,13 @@ typedef struct{
 }RotaryEncoder_t;
 
 /*
- * deze functie gaat kijken in welke van de 4 state dat een rot kan hebben hij zit
+ * deze functie gaat kijken in welke van de 4 states de rotary encoder is
  * dit geeft de functie terug in een getal van 8 bits
  */
 uint8_t rot_get_state(RotaryEncoder_t* rotEncoder);
+
 /*
- * hiebij gaat het kijken welke stat het zat om te bepalen of het moet opgeteld of verminderd
+ * hiebij gaat het kijken welke state de rotary encoder zat om te bepalen of het moet opgeteld of verminderd
  */
 void rot_intrupt(RotaryEncoder_t* rotEncoder);
 

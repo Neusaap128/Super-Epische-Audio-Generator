@@ -18,7 +18,7 @@ void initSin();
 
 /*
  * gaat de gevraagde waarde van sinus op halen deze waarde retunt die als float
- * het gaat voor de waarde te benaderen interpoler tussen twee waardens
+ * het gaat voor de waarde te benaderen interpoler tussen twee opeenvolgende waarden
  * de return waarde is tusssen 1 en -1
  */
 float sinApproxLut(float x);
