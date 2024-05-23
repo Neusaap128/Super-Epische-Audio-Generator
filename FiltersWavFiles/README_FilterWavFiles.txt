@@ -1,0 +1,2 @@
+In deze map vind u de zelfde C-code als dat er aanwezig is in het STM-project, echter heeft deze de implementatie voor WavFiles.
+In de map Sound kan u de verschillende effecten horen, deze zijn allemaal op de sound piano.wav gegenereerd. 

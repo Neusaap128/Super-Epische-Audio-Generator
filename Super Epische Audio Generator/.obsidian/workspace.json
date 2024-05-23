@@ -11,9 +11,11 @@
             "id": "b034c9893e9ef015",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "PCB/On pcb.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "PCB/On pcb.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
+                "file": "PCB/On pcb.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf"
+                "file": "PCB/On pcb.md"
               }
             }
           }
@@ -144,15 +146,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "80f13b2b3c7d267f",
+  "active": "b034c9893e9ef015",
   "lastOpenFiles": [
     "PCB/Footprints/Footprints.md",
+    "Technisch correctie.md",
+    "Sampling Timer.md",
     "PCB/PCB Design/PCB Design.md",
-    "Datasheets/MCU's/stm32f722 reference manual.pdf",
-    "Datasheets/Audio Filtering/WM8960_v4.2.pdf",
-    "Datasheets/Audio Filtering/WM8960 (Codec Breakout Board).pdf",
-    "Datasheets/Audio Filtering/LM833 (Audio Opamp).pdf",
-    "Datasheets/MCU's/stm32f722rc.pdf",
-    "Datasheets/MCU's/stm32g431rb.pdf"
+    "Seminaries/SEAG.pdf",
+    "Seminaries/criteria_en_stakeholder_analyse.pdf",
+    "Seminaries/BOM.pdf",
+    "Seminaries/SEAG.md",
+    "Datasheets/IO/datablad-185795-signal-construct-zaqs-0817-led-matrix-8-voudig-geel-l-x-b-x-h-20-x-7-x-4-mm.pdf",
+    "Datasheets/IO/datablad-185795-signal-construct-zaqs-0817-led-matrix-8-voudig-geel-l-x-b-x-h-20-x-7-x-4-mm.pdf.crdownload",
+    "Datasheets/IO/A700000008941098.pdf",
+    "Datasheets/IO/A700000008941098.pdf.crdownload",
+    "Datasheets/IO/ky-040-datasheet.pdf",
+    "Datasheets/IO/ky-040-datasheet.pdf.crdownload",
+    "Datasheets/IO/74HC_HCT595_Q100-2937391.pdf"
   ]
 }
