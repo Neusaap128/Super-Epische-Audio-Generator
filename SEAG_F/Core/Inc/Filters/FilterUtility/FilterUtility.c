@@ -24,7 +24,7 @@ float sinApproxLut(float x){
 
     float fract = findex - index;
 
-    return (1.0f*fract)*sin_lut[index]+fract*sin_lut[index+1];  //geeft een geinterpoleerde sinus waarde terug
+    return (1.0f-fract)*sin_lut[index]+fract*sin_lut[index+1];  //geeft een geinterpoleerde sinus waarde terug
     
     //return sin_lut[3];
 

@@ -1,2 +1,2 @@
 ../Core/Inc/IO/RotaryEncoder.c:15:9:rot_get_state	24	static
-../Core/Inc/IO/RotaryEncoder.c:20:6:rot_intrupt	16	static
+../Core/Inc/IO/RotaryEncoder.c:22:6:rot_intrupt	16	static
